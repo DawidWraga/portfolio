@@ -2,16 +2,19 @@ import {
 	Box,
 	Button,
 	CloseButton,
+	Divider,
 	Flex,
 	FormControl,
 	FormLabel,
 	Heading,
+	HStack,
 	IconButton,
 	Input,
 	InputGroup,
 	InputLeftElement,
 	Link,
 	Stack,
+	Text,
 	Textarea,
 	Tooltip,
 	useClipboard,
@@ -54,6 +57,115 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 
 	const bgImg = useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK);
 	const bgGray = useColorModeValue('white', 'gray.700');
+	function ContactForm() {
+		return (
+			<Box
+				bg={bgGray}
+				borderRadius="lg"
+				p={8}
+				color="gray.700"
+				_dark={{ color: 'whiteAlpha.900' }}
+				shadow="base"
+				w={{ base: 'unset', sm: '400px', md: 'container.sm' }}
+			>
+				<VStack spacing={5}>
+					<FormControl isRequired>
+						<FormLabel>Name</FormLabel>
+						<InputGroup>
+							<InputLeftElement>
+								<BsPerson />
+							</InputLeftElement>
+							<Input type="text" name="name" placeholder="Your Name" />
+						</InputGroup>
+					</FormControl>
+					<FormControl isRequired>
+						<FormLabel>Email</FormLabel>
+						<InputGroup>
+							<InputLeftElement>
+								<MdOutlineEmail />
+							</InputLeftElement>
+							<Input type="email" name="email" placeholder="Your Email" />
+						</InputGroup>
+					</FormControl>
+					<FormControl isRequired>
+						<FormLabel>Message</FormLabel>
+						<Textarea
+							name="message"
+							placeholder="Your Message"
+							rows={6}
+							resize="none"
+						/>
+					</FormControl>
+					<Button
+						colorScheme="blue"
+						bg="blue.400"
+						color="white"
+						_hover={{
+							bg: 'blue.500',
+						}}
+						rounded="full"
+						w={{ base: 'full', md: 'fit-content' }}
+					>
+						Send Message
+					</Button>
+				</VStack>
+			</Box>
+		);
+	}
+
+	function ContactIcons() {
+		return (
+			<Stack align="center" justify="space-around" direction="row">
+				<Tooltip
+					label={hasCopied ? 'Email Copied!' : 'Copy Email'}
+					closeOnClick={false}
+					hasArrow
+				>
+					<IconButton
+						aria-label="email"
+						variant="ghost"
+						size="lg"
+						fontSize="3xl"
+						icon={<MdEmail />}
+						_hover={{
+							bg: 'blue.500',
+							color: bgGray,
+						}}
+						onClick={onCopy}
+						isRound
+					/>
+				</Tooltip>
+				<Link href="#">
+					<IconButton
+						aria-label="github"
+						variant="ghost"
+						size="lg"
+						fontSize="3xl"
+						icon={<BsGithub />}
+						_hover={{
+							bg: 'blue.500',
+							color: bgGray,
+						}}
+						isRound
+					/>
+				</Link>
+
+				<Link href="#">
+					<IconButton
+						aria-label="linkedin"
+						variant="ghost"
+						size="lg"
+						icon={<BsLinkedin size="28px" />}
+						_hover={{
+							bg: 'blue.500',
+							color: bgGray,
+						}}
+						isRound
+					/>
+				</Link>
+			</Stack>
+		);
+	}
 
 	return (
 		<AnimatePresence initial>
@@ -104,116 +216,13 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 										Get in Touch
 									</Heading>
 									<Stack spacing={{ base: 4 }} direction="column">
-										<Stack
-											align="center"
-											justify="space-around"
-											direction="row"
-										>
-											<Tooltip
-												label={hasCopied ? 'Email Copied!' : 'Copy Email'}
-												closeOnClick={false}
-												hasArrow
-											>
-												<IconButton
-													aria-label="email"
-													variant="ghost"
-													size="lg"
-													fontSize="3xl"
-													icon={<MdEmail />}
-													_hover={{
-														bg: 'blue.500',
-														color: bgGray,
-													}}
-													onClick={onCopy}
-													isRound
-												/>
-											</Tooltip>
-											<Link href="#">
-												<IconButton
-													aria-label="github"
-													variant="ghost"
-													size="lg"
-													fontSize="3xl"
-													icon={<BsGithub />}
-													_hover={{
-														bg: 'blue.500',
-														color: bgGray,
-													}}
-													isRound
-												/>
-											</Link>
-
-											<Link href="#">
-												<IconButton
-													aria-label="linkedin"
-													variant="ghost"
-													size="lg"
-													icon={<BsLinkedin size="28px" />}
-													_hover={{
-														bg: 'blue.500',
-														color: bgGray,
-													}}
-													isRound
-												/>
-											</Link>
-										</Stack>
-										<Box
-											bg={bgGray}
-											borderRadius="lg"
-											p={8}
-											color="gray.700"
-											_dark={{ color: 'whiteAlpha.900' }}
-											shadow="base"
-											w={{ base: 'unset', sm: '400px', md: 'container.sm' }}
-										>
-											<VStack spacing={5}>
-												<FormControl isRequired>
-													<FormLabel>Name</FormLabel>
-													<InputGroup>
-														<InputLeftElement>
-															<BsPerson />
-														</InputLeftElement>
-														<Input
-															type="text"
-															name="name"
-															placeholder="Your Name"
-														/>
-													</InputGroup>
-												</FormControl>
-												<FormControl isRequired>
-													<FormLabel>Email</FormLabel>
-													<InputGroup>
-														<InputLeftElement>
-															<MdOutlineEmail />
-														</InputLeftElement>
-														<Input
-															type="email"
-															name="email"
-															placeholder="Your Email"
-														/>
-													</InputGroup>
-												</FormControl>
-												<FormControl isRequired>
-													<FormLabel>Message</FormLabel>
-													<Textarea
-														name="message"
-														placeholder="Your Message"
-														rows={6}
-														resize="none"
-													/>
-												</FormControl>
-												<Button
-													colorScheme="blue"
-													bg="blue.400"
-													color="white"
-													_hover={{
-														bg: 'blue.500',
-													}}
-												>
-													Send Message
-												</Button>
-											</VStack>
-										</Box>
+										<ContactForm />
+										<HStack spacing={5} my="2">
+											<Divider />
+											<Text fontSize="xl">or</Text>
+											<Divider />
+										</HStack>
+										<ContactIcons />
 									</Stack>
 								</VStack>
 							</Box>
