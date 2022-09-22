@@ -37,10 +37,9 @@ const Home: NextPage = () => {
 			</Head>
 			<Layout>
 				<LandingPage />
-				<Box h="50vh"></Box>
-
-				{/* <AnimatedGrid /> */}
-				<Box h="50vh"></Box>
+				<Container maxW="container.xl" centerContent>
+					<SkillsGrid />
+				</Container>
 			</Layout>
 			<FixedComponents />
 		</div>
@@ -149,7 +148,6 @@ export function LandingPage() {
 						// align={'center'}
 						w={'100%'}
 						h={'300px'}
-						fill={'white'}
 						zIndex={5}
 					/>
 				</Flex>
