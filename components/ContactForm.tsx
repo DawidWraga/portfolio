@@ -66,7 +66,8 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 					transition={{ duration: 0.5 }}
 				>
 					<Flex
-						bg={useColorModeValue('gray.100', 'gray.900')}
+						bg={'gray.100'}
+						_dark={{ bg: 'gray.900' }}
 						align="center"
 						justify="center"
 						css={{
