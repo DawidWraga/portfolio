@@ -52,6 +52,9 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 
 	const { contactFormIsOpen, setContactFormIsOpen } = useGlobalContext();
 
+	const bgImg = useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK);
+	const bgGray = useColorModeValue('white', 'gray.700');
+
 	return (
 		<AnimatePresence initial>
 			{contactFormIsOpen && (
@@ -67,7 +70,7 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 						align="center"
 						justify="center"
 						css={{
-							backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
+							backgroundImage: bgImg,
 							backgroundAttachment: 'fixed',
 						}}
 						id="contact"
@@ -118,7 +121,7 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 													icon={<MdEmail />}
 													_hover={{
 														bg: 'blue.500',
-														color: useColorModeValue('white', 'gray.700'),
+														color: bgGray,
 													}}
 													onClick={onCopy}
 													isRound
@@ -133,7 +136,7 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 													icon={<BsGithub />}
 													_hover={{
 														bg: 'blue.500',
-														color: useColorModeValue('white', 'gray.700'),
+														color: bgGray,
 													}}
 													isRound
 												/>
@@ -147,17 +150,18 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 													icon={<BsLinkedin size="28px" />}
 													_hover={{
 														bg: 'blue.500',
-														color: useColorModeValue('white', 'gray.700'),
+														color: bgGray,
 													}}
 													isRound
 												/>
 											</Link>
 										</Stack>
 										<Box
-											bg={useColorModeValue('white', 'gray.700')}
+											bg={bgGray}
 											borderRadius="lg"
 											p={8}
-											color={useColorModeValue('gray.700', 'whiteAlpha.900')}
+											color="gray.700"
+											_dark={{ color: 'whiteAlpha.900' }}
 											shadow="base"
 											w={{ base: 'unset', sm: '400px', md: 'container.sm' }}
 										>
@@ -165,7 +169,9 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 												<FormControl isRequired>
 													<FormLabel>Name</FormLabel>
 													<InputGroup>
-														<InputLeftElement children={<BsPerson />} />
+														<InputLeftElement>
+															<BsPerson />
+														</InputLeftElement>
 														<Input
 															type="text"
 															name="name"
@@ -176,7 +182,9 @@ export const ContactForm: React.FC<IContactFormProps> = ({
 												<FormControl isRequired>
 													<FormLabel>Email</FormLabel>
 													<InputGroup>
-														<InputLeftElement children={<MdOutlineEmail />} />
+														<InputLeftElement>
+															<MdOutlineEmail />
+														</InputLeftElement>
 														<Input
 															type="email"
 															name="email"
