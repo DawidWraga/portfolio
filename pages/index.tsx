@@ -37,7 +37,6 @@ const Home: NextPage = () => {
 			</Head>
 			<Layout>
 				<LandingPage />
-				<SkillsGrid />
 				<Box h="50vh"></Box>
 
 				{/* <AnimatedGrid /> */}
