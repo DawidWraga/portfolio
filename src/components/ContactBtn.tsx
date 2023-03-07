@@ -1,28 +1,19 @@
-import { Button, useDisclosure } from '@chakra-ui/react';
-import {
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalHeader,
-	ModalFooter,
-	ModalBody,
-	ModalCloseButton,
-} from '@chakra-ui/react';
-import { useGlobalContext } from '../../src/contexts/GlobalContext';
-import { ContactForm } from './ContactForm';
+import { Button } from '@chakra-ui/react';
+import { useModals } from '@saas-ui/react';
 interface IContactBtnProps {
 	onClick?: () => void;
 	[key: string]: any;
 }
 
 const ContactBtn: React.FC<IContactBtnProps> = ({ onClick, ...props }) => {
-	// const { isOpen, onOpen, onClose } = useDisclosure();
-	const { setContactFormIsOpen } = useGlobalContext();
+	const modals = useModals();
 	return (
 		<>
 			<Button
 				onClick={() => {
-					setContactFormIsOpen(true);
+					modals.open({
+						type: 'contact',
+					});
 					if (onClick) onClick();
 				}}
 				variant={'outline'}

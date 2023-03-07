@@ -13,12 +13,16 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@saas-ui/react": "^1.9.1",
     "@svgr/webpack": "^6.3.1",
     "framer-motion": "^6.5.1",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "react-tracked": "^1.7.11",
+    "scheduler": "^0.23.0",
+    "zustand": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "18.7.18",
@@ -26,6 +30,7 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
+    "simple-zustand-devtools": "^1.1.0",
     "typescript": "4.8.3"
   }
 }

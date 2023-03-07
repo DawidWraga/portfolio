@@ -13,8 +13,8 @@ import {
 	useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { Nav } from './Header';
-import ContactBtn from './ContactBtn';
+import { Nav } from '../layouts/Header';
+import ContactBtn from '../ContactBtn';
 
 interface ISideNavProps {}
 

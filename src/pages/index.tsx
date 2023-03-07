@@ -1,32 +1,22 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-// import Image from 'next/image';
 import {
 	Container,
 	Stack,
 	Flex,
-	Box,
 	Heading,
 	Text,
 	Button,
-	Image,
 	Icon,
-	IconButton,
-	createIcon,
 	IconProps,
 	useColorModeValue,
 } from '@chakra-ui/react';
-import Layout from './Layout';
-import FixedComponents from './components/FixedComponents';
-import { AnimatedGrid } from './components/AnimatedGrid';
-import SkillsGrid from './components/SkillsGrid';
-import { motion } from 'framer-motion';
-import { FaceIcon } from '../public/images/FaceIcon';
+import SkillsGrid from '../components/work/SkillsGrid';
+import { FaceIcon } from '../../public/images/FaceIcon';
 
-const Home: NextPage = () => {
+export default function LandingPage() {
 	return (
-		// <Box bg={'gray.800'} w={'full'} h={'100vh'}>
-		<div>
+		<>
 			<Head>
 				<title>Dawid Wraga</title>
 				<meta
@@ -35,20 +25,12 @@ const Home: NextPage = () => {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Layout>
-				<LandingPage />
-				<Container maxW="container.xl" centerContent>
-					<SkillsGrid />
-				</Container>
-			</Layout>
-			<FixedComponents />
-		</div>
+			<Main />
+		</>
 	);
-};
+}
 
-export default Home;
-
-export function LandingPage() {
+export function Main() {
 	return (
 		<Container maxW={'container.xl'}>
 			<Stack
@@ -138,7 +120,7 @@ export function LandingPage() {
 						h={'150%'}
 						position={'absolute'}
 						top={'-20%'}
-						left={0}
+						left={-150}
 						zIndex={0}
 						color={useColorModeValue('blue.100', 'blue.400')}
 					/>

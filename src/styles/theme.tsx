@@ -1,11 +1,11 @@
-// 1. Import the extendTheme function
 import {
 	extendTheme,
 	StyleFunctionProps,
 	type ThemeConfig,
 } from '@chakra-ui/react';
 
-// 2. Extend the theme to include custom colors, fonts, etc
+import { theme as baseTheme } from '@saas-ui/react';
+
 const colors = {
 	brand: {
 		900: '#1a365d',
@@ -25,13 +25,10 @@ const components = {
 			ghost: (props: StyleFunctionProps) => ({
 				_hover: {
 					bg: 'red.500',
-					
 				},
 			}),
 		},
 	},
 };
 
-const theme = extendTheme({ colors, config, components });
-
-export default theme;
+export const theme = extendTheme({ colors, config, components });

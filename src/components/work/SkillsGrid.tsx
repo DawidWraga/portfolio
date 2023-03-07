@@ -1,6 +1,6 @@
 import { Box, Circle, Flex, Grid, Heading, Text } from '@chakra-ui/react';
 import { motion, useAnimation } from 'framer-motion';
-import { AnimatedGrid } from './AnimatedGrid';
+import { AnimatedGrid } from '../AnimatedGrid';
 import { technologies } from './SkillsData';
 
 interface ISkillsGridProps {}

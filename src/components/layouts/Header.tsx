@@ -6,10 +6,10 @@ import {
 	Text,
 	useColorModeValue,
 } from '@chakra-ui/react';
-import ColorModeToggle from './ColorModeToggle';
+import ColorModeToggle from 'components/ColorModeToggle';
 import Link from 'next/link';
-import SideNav from './SideNav';
-import ContactBtn from './ContactBtn';
+import SideNav from 'components/layouts/SideNav';
+import ContactBtn from 'components/ContactBtn';
 import { motion } from 'framer-motion';
 
 interface IHeaderProps {}

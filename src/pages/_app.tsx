@@ -1,17 +1,22 @@
-// pages/_app.js
-import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
-import { GlobalContextProvider } from '../src/contexts/GlobalContext';
-import theme from '../src/styles/theme';
+import NextLink from 'next/link';
+import { SaasProvider, LinkProps, ModalsProvider } from '@saas-ui/react';
+import { theme } from 'styles/theme';
 import { AppProps } from 'next/app';
+import { modals } from 'components/modals';
+import { MainLayout } from 'components/layouts/MainLayout';
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<GlobalContextProvider>
-			<ChakraProvider theme={theme}>
-				<Component {...pageProps} />
-			</ChakraProvider>
-		</GlobalContextProvider>
+		<SaasProvider theme={theme} linkComponent={Link}>
+			<ModalsProvider modals={modals}>
+				<MainLayout>
+					<Component {...pageProps} />
+				</MainLayout>
+			</ModalsProvider>
+		</SaasProvider>
 	);
 }
 
-export default MyApp;
+const Link: React.FC<any> = (props) => {
+	return <NextLink {...props} legacyBehavior />;
+};
