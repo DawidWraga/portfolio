@@ -8,7 +8,7 @@ import {
 	ModalBody,
 	ModalCloseButton,
 } from '@chakra-ui/react';
-import { useGlobalContext } from '../contexts/GlobalContext';
+import { useGlobalContext } from '../../src/contexts/GlobalContext';
 import { ContactForm } from './ContactForm';
 interface IContactBtnProps {
 	onClick?: () => void;

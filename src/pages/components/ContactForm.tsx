@@ -25,7 +25,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
 import { MdEmail, MdOutlineEmail } from 'react-icons/md';
-import { useGlobalContext } from '../contexts/GlobalContext';
+import { useGlobalContext } from '../../src/contexts/GlobalContext';
 
 const confetti = {
 	light: {

@@ -17,9 +17,9 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react';
 import Layout from './Layout';
-import FixedComponents from '../components/FixedComponents';
-import { AnimatedGrid } from '../components/AnimatedGrid';
-import SkillsGrid from '../components/SkillsGrid';
+import FixedComponents from './components/FixedComponents';
+import { AnimatedGrid } from './components/AnimatedGrid';
+import SkillsGrid from './components/SkillsGrid';
 import { motion } from 'framer-motion';
 import { FaceIcon } from '../public/images/FaceIcon';
 
