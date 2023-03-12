@@ -49,6 +49,8 @@ export const Nav: React.FC<INavProps> = ({ children }) => {
 	const pages = [
 		{ label: 'about', route: '/about' },
 		{ label: 'work', route: '/work' },
+		{ label: 'work2', route: '/work2' },
+		{ label: 'work3', route: '/work3' },
 		{ label: 'blog', route: '/blog' },
 	];
 

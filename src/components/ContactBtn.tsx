@@ -1,5 +1,6 @@
-import { Button } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import { useModals } from '@saas-ui/react';
+import { motion } from 'framer-motion';
 interface IContactBtnProps {
 	onClick?: () => void;
 	[key: string]: any;
@@ -13,6 +14,7 @@ const ContactBtn: React.FC<IContactBtnProps> = ({ onClick, ...props }) => {
 				onClick={() => {
 					modals.open({
 						type: 'contact',
+						
 					});
 					if (onClick) onClick();
 				}}
@@ -23,8 +25,12 @@ const ContactBtn: React.FC<IContactBtnProps> = ({ onClick, ...props }) => {
 				color="blue.400"
 				borderColor="blue.400"
 				{...props}
+				// as={motion.button}
+				// layoutId="CONTACT-BTN"
 			>
-				contact
+				<Box as={motion.span} layoutId="CONTACT-BTN">
+					contact
+				</Box>
 			</Button>
 		</>
 	);

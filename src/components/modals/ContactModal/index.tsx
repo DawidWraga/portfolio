@@ -18,6 +18,7 @@ import {
 } from 'components/modals/ContactModal/confetti';
 import { ContactForm } from 'components/modals/ContactModal/ContactForm';
 import { BaseModal, BaseModalProps } from 'components/modals/BaseModal';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface IContactFormProps extends BaseModalProps {}
 
@@ -28,6 +29,7 @@ export function ContactModal(props: IContactFormProps) {
 		<BaseModal
 			size="full"
 			isCentered
+			isResponsive={false}
 			scrollBehavior="inside"
 			modalContentProps={{
 				motionProps: {
@@ -39,21 +41,24 @@ export function ContactModal(props: IContactFormProps) {
 			}}
 			{...rest}
 		>
-			<ContactModalContent />
+			<ContactModalContent isOpen={rest.isOpen} />
 		</BaseModal>
 	);
 }
 
-export function ContactModalContent() {
+export function ContactModalContent(props: { isOpen: boolean }) {
+	const { isOpen } = props;
 	const bgImg = useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK);
 
 	return (
 		<ModalBody
 			bg={'gray.100'}
 			_dark={{ bg: 'gray.900' }}
-			as={Flex}
-			align="center"
-			justify="center"
+			// align="center"
+			// justify="center"
+			justifyContent="center"
+			alignItems="center"
+			display="flex"
 			css={{
 				backgroundImage: bgImg,
 				backgroundAttachment: 'fixed',
@@ -69,14 +74,19 @@ export function ContactModalContent() {
 			>
 				<Box>
 					<VStack spacing={{ base: 4 }}>
-						<Heading
+						{/* <Heading
 							fontSize={{
 								base: '4xl',
 								md: '5xl',
 							}}
 						>
 							Get in Touch
-						</Heading>
+						</Heading> */}
+						{isOpen && (
+							<Heading as={motion.span} layoutId="CONTACT-BTN">
+								contact
+							</Heading>
+						)}
 						<Stack spacing={{ base: 4 }} direction="column">
 							<ContactForm />
 							<HStack spacing={5} my="2">

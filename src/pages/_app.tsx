@@ -4,6 +4,7 @@ import { theme } from 'styles/theme';
 import { AppProps } from 'next/app';
 import { modals } from 'components/modals';
 import { MainLayout } from 'components/layouts/MainLayout';
+import 'styles/global.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (

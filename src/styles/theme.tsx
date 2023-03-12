@@ -31,4 +31,8 @@ const components = {
 	},
 };
 
-export const theme = extendTheme({ colors, config, components });
+export const theme = extendTheme(
+	{ colors, config, components }
+
+	// baseTheme
+);

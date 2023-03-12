@@ -12,6 +12,14 @@ import {
 	ModalContentProps,
 	ModalFooterProps,
 } from '@chakra-ui/react';
+import { motion, MotionContext, MotionProps } from 'framer-motion';
+import { breakpoints } from 'utils/breakpoints';
+
+import { Box } from '@chakra-ui/react';
+import {
+	DraggableIndicator,
+	getResponsiveModalContentProps,
+} from 'components/modals/draggable';
 
 export interface BaseModalProps extends ChakraModalProps {
 	/**
@@ -36,6 +44,8 @@ export interface BaseModalProps extends ChakraModalProps {
 	modalHeaderProps?: ModalContentProps;
 
 	modalFooterProps?: ModalFooterProps;
+
+	isResponsive?: boolean;
 }
 
 export const BaseModal: React.FC<BaseModalProps> = (props) => {
@@ -50,20 +60,36 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
 		modalContentProps,
 		modalHeaderProps,
 		modalFooterProps,
+		isResponsive = true,
 		...rest
 	} = props;
 	return (
 		<ChakraModal isOpen={isOpen} onClose={onClose} {...rest}>
 			{!hideOverlay && <ModalOverlay />}
-			<ModalContent {...modalContentProps}>
+			<ModalContent
+				// draggable={true}
+				{...(isResponsive && getResponsiveModalContentProps(onClose))}
+				{...modalContentProps}
+			>
+				{isResponsive && <DraggableIndicator />}
+
+				{!hideCloseButton && (
+					<ModalCloseButton
+						{...(isResponsive && { display: { base: 'none', md: 'unset' } })}
+					/>
+				)}
 				{title && <ModalHeader {...modalHeaderProps}>{title}</ModalHeader>}
-				{!hideCloseButton && <ModalCloseButton />}
 				{children}
 				{footer && <ModalFooter {...modalFooterProps}>{footer}</ModalFooter>}
 			</ModalContent>
 		</ChakraModal>
 	);
 };
+// <MotionContext.Provider value={{}}>
+
+{
+	/* </MotionContext.Provider> */
+}
 
 export const Modal: React.FC<BaseModalProps> = (props) => {
 	const { children, ...rest } = props;
