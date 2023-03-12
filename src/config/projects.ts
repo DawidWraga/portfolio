@@ -8,6 +8,7 @@ export type Project = {
 	Icon: any;
 	id: string;
 	carouselSlides?: CarouselSlide[];
+	wideCard?: boolean;
 };
 
 export const projects: Project[] = [
@@ -18,6 +19,7 @@ export const projects: Project[] = [
 			'A task management and documentation portal for a software development company.',
 		Icon: MakeItAllLogo,
 		image: 'images/makeItAll/demo-1-kanban.jpeg',
+		wideCard: true,
 		carouselSlides: [
 			{
 				img: '/images/makeItAll/demo-1-kanban.jpeg',
@@ -39,12 +41,14 @@ export const projects: Project[] = [
 			},
 		],
 	},
+	{ id: '2', name: 'title2', description: 'subtitle', Icon: '', image: '' },
+	{ id: '3', name: 'title4', description: 'subtitle', Icon: '', image: '' },
 	{
-		id: '2',
+		id: '4',
 		name: 'HR & Invoice management portal (Axalt ltd)',
 		description: 'subtitle',
 		Icon: '',
 		image: '',
+		wideCard: true,
 	},
-	{ id: '3', name: 'title3', description: 'subtitle', Icon: '', image: '' },
 ];

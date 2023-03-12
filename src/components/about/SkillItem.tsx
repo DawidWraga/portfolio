@@ -1,18 +1,5 @@
-import {
-	Box,
-	Circle,
-	Divider,
-	Flex,
-	Grid,
-	GridItem,
-	Heading,
-	IconButton,
-	Text,
-} from '@chakra-ui/react';
-import { motion, useAnimation } from 'framer-motion';
-import { technologies } from 'config/SkillsData';
-import { Card, CardHeader, CardTitle, CardBody } from '@saas-ui/react';
-import { AnimatedLetters } from 'components/AnimatedText';
+import { Circle, IconButton, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 interface IProps {
 	Icon: React.FC;

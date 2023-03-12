@@ -4,6 +4,9 @@ import { Hero } from 'components/hero';
 import { ProjectsList } from 'components/work/ProjectsList';
 import { About } from 'components/about';
 import { Box } from '@chakra-ui/react';
+import { BlogSection } from 'components/blog/BlogSection';
+import { Footer } from 'components/layouts/Footer';
+import { Contact } from 'components/Contact';
 
 export default function LandingPage() {
 	return (
@@ -19,7 +22,9 @@ export default function LandingPage() {
 			<Hero />
 			<ProjectsList />
 			<About />
-			<Box h="800px"></Box>
+			<BlogSection />
+			<Contact />
+			<Footer />
 		</>
 	);
 }

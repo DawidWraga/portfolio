@@ -54,38 +54,62 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 
 	return (
 		<Card>
-			<CardHeader pb={0}>
-				<Flex justify="space-between" w="100%">
-					<CardTitle>
-						<AnimatedLetters mb={0} fontSize="1.4rem" fontWeight={600}>
-							Technical skills
-						</AnimatedLetters>
-					</CardTitle>
-					<Flex gap={2} {...containerProps} flex={1}>
-						{coreTechnologies.map((tech) => {
-							return (
-								<Box key={tech.link} {...childProps} w="100px">
-									<SkillItem {...tech} />
-								</Box>
-							);
-						})}
-					</Flex>
-					<Button
-						colorScheme={'red'}
-						rightIcon={
-							<Icon
-								as={BiChevronDown}
-								transform="auto"
-								rotate={isOpen ? '0' : '-180'}
-								transition="all 300ms ease-in-out"
-								fontSize="1.2rem"
-							/>
-						}
-						onClick={onToggle}
+			<CardHeader pb={0} position="relative" minH={'100px'}>
+				<CardTitle
+					position="absolute"
+					left={isOpen ? '50%' : 4}
+					transform="auto"
+					translateX={isOpen ? '-50%' : 0}
+					top={4}
+					transition="all 350ms ease-in-out"
+				>
+					<AnimatedLetters
+						mb={0}
+						fontSize={isOpen ? '1.8rem' : '1.4rem'}
+						transition="font-size 300ms ease-in-out"
+						fontWeight={600}
 					>
-						VIEW ALL
-					</Button>
+						Technical skills
+					</AnimatedLetters>
+				</CardTitle>
+				<Flex
+					gap={2}
+					{...containerProps}
+					flex={1}
+					position="absolute"
+					left={'50%'}
+					top={'50%'}
+					transform="auto"
+					translateX="-50%"
+					translateY="-25%"
+				>
+					{coreTechnologies.map((tech) => {
+						return (
+							<Box key={tech.link} {...childProps} w="100px">
+								<SkillItem {...tech} />
+							</Box>
+						);
+					})}
 				</Flex>
+				<Button
+					colorScheme={'red'}
+					position="absolute"
+					right={4}
+					top={4}
+					rightIcon={
+						<Icon
+							as={BiChevronDown}
+							transform="auto"
+							rotate={isOpen ? '0' : '-180'}
+							transition="all 300ms ease-in-out"
+							fontSize="1.2rem"
+						/>
+					}
+					onClick={onToggle}
+					textTransform="uppercase"
+				>
+					view {isOpen ? 'less' : 'more'}
+				</Button>
 			</CardHeader>
 			<CardBody>
 				<AnimatePresence>

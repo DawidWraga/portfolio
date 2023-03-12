@@ -1,5 +1,6 @@
 import {
 	Box,
+	GridItem,
 	Icon as ChakraIcon,
 	LinkBox,
 	LinkOverlay,
@@ -26,14 +27,23 @@ interface IProps {
 
 export function ProjectCard(props: IProps) {
 	const { project, setSelectedId } = props;
-	const { name, description, image, Icon, id } = project;
+	const { name, description, image, Icon, id, wideCard } = project;
 
 	const layoutIds = getLayoutIds(id);
 
 	return (
-		<Box as={motion.div} layoutId={layoutIds.container}>
+		<GridItem
+			as={motion.div}
+			layoutId={layoutIds.container}
+			colSpan={{ base: 1, lg: wideCard ? 2 : 1 }}
+			_hover={{
+				cursor: 'pointer',
+				boxShadow: '0 10px 15px #2a69ac',
+			}}
+			transition="box-shadow 300ms ease-in-out"
+		>
 			<Card
-				as={LinkBox}
+				// as={LinkBox}
 				width="100%"
 				isHoverable
 				// variant="outline"
@@ -54,15 +64,15 @@ export function ProjectCard(props: IProps) {
 							/>
 						</Box>
 					)}
-					<LinkOverlay href="#">
-						<CardTitle
-							fontSize="1.5rem"
-							as={motion.div}
-							layoutId={layoutIds.title}
-						>
-							{name}
-						</CardTitle>
-					</LinkOverlay>
+					{/* <LinkOverlay href="#"> */}
+					<CardTitle
+						fontSize="1.5rem"
+						as={motion.div}
+						layoutId={layoutIds.title}
+					>
+						{name}
+					</CardTitle>
+					{/* </LinkOverlay> */}
 				</CardHeader>
 				<CardMedia
 					height="400px"
@@ -75,7 +85,7 @@ export function ProjectCard(props: IProps) {
 						{description}
 					</Text>
 				</CardBody>
-				<CardFooter>
+				{/* <CardFooter>
 					<Button
 						rightIcon={
 							<ChakraIcon
@@ -91,8 +101,8 @@ export function ProjectCard(props: IProps) {
 					>
 						Learn more
 					</Button>
-				</CardFooter>
+				</CardFooter> */}
 			</Card>
-		</Box>
+		</GridItem>
 	);
 }

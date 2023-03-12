@@ -5,7 +5,7 @@ import { ProjectCard } from 'components/projectCard';
 import { Image } from 'components/Image';
 import { projects } from 'config/projects';
 import { ProjectDetailsCard } from 'components/ProjectDetailsCard';
-import Section from 'components/layouts/Section';
+import { Section } from 'components/layouts/Section';
 
 interface IProps {}
 
@@ -19,12 +19,14 @@ export function ProjectsList(props: IProps) {
 	const selected = projects.find((project) => project.id === selectedId);
 
 	return (
-		<Section title="projects">
+		<Section
+			title="projects"
+			wrapperProps={{ bgColor: 'shade.200', _dark: { bgColor: 'shade.400' } }}
+		>
 			<SimpleGrid
-				columns={{ base: 1, lg: 2 }}
+				columns={{ base: 1, lg: 3 }}
 				gap="2"
 				justifyContent={'center'}
-				// templateRows="60% 40%"
 			>
 				{projects.map((project) => (
 					<ProjectCard
@@ -40,12 +42,6 @@ export function ProjectsList(props: IProps) {
 					<ProjectDetailsCard project={selected!} onClose={onClose} />
 				)}
 			</AnimatePresence>
-			{/* <Box
-			as={motion.div}
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		/> */}
 
 			<Box
 				bgColor={'blackAlpha.500'}

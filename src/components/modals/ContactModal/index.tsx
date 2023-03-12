@@ -74,17 +74,9 @@ export function ContactModalContent(props: { isOpen: boolean }) {
 			>
 				<Box>
 					<VStack spacing={{ base: 4 }}>
-						{/* <Heading
-							fontSize={{
-								base: '4xl',
-								md: '5xl',
-							}}
-						>
-							Get in Touch
-						</Heading> */}
 						{isOpen && (
 							<Heading as={motion.span} layoutId="CONTACT-BTN">
-								contact
+								Lets collaborate!
 							</Heading>
 						)}
 						<Stack spacing={{ base: 4 }} direction="column">

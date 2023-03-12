@@ -3,6 +3,9 @@ import {
 	Box,
 	Flex,
 	HStack,
+	Icon,
+	IconButton,
+	IconButtonProps,
 	ImageProps,
 	Stack,
 	StyleProps,
@@ -14,6 +17,7 @@ import { getLayoutIds } from 'pages/work';
 import { CardMedia } from '@saas-ui/react';
 import { Image } from 'components/Image';
 import { ControllerBanner } from 'components/ControllerBanner';
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
 export type CarouselSlide = {
 	img: string;
@@ -67,12 +71,19 @@ export function Carousel(props: IProps) {
 							currentSlide={currentSlide}
 						/>
 					</Flex>
-					<Text {...arrowStyles} left="0" onClick={prevSlide}>
-						&#10094;
-					</Text>
-					<Text {...arrowStyles} right="0" onClick={nextSlide}>
-						&#10095;
-					</Text>
+					<IconButton
+						icon={<BiLeftArrowAlt fontSize="50px" />}
+						{...arrowStyles}
+						left="0"
+						onClick={prevSlide}
+						aria-label="previous slide"
+					/>
+					<IconButton
+						icon={<BiRightArrowAlt fontSize="50px" />}
+						right="0"
+						onClick={nextSlide}
+						{...arrowStyles}
+					/>
 				</Flex>
 			</Flex>
 			<HStack
@@ -239,7 +250,7 @@ function PreviewSlides({
 	);
 }
 
-const arrowStyles: TextProps = {
+const arrowStyles: IconButtonProps = {
 	cursor: 'pointer',
 	pos: 'absolute',
 	top: '50%',
@@ -255,13 +266,15 @@ const arrowStyles: TextProps = {
 	w: 'clamp(20px, 5vw, 50px)',
 	h: 'clamp(20px, 5vw, 50px)',
 	textAlign: 'center',
-
+	mx: 2,
+	colorScheme: 'blackAlpha',
 	userSelect: 'none',
-	_hover: {
-		// opacity: 0.5,
-		// bg: 'black',
-		bgColor: 'blackAlpha.500',
-	},
+	// _hover: {
+	// 	// opacity: 0.5,
+	// 	// bg: 'black',
+	// 	bgColor: 'blackAlpha.500',
+	// },
+	'aria-label': 'change slide',
 } as const;
 
 const defaultSlides = [

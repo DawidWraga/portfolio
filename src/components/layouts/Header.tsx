@@ -13,6 +13,7 @@ import ContactBtn from 'components/ContactBtn';
 import { motion } from 'framer-motion';
 import { pages } from 'config/pages';
 import { LinkButton } from 'components/LinkButton';
+import { useScrollDirection } from 'hooks/useScrollDirection';
 
 interface IHeaderProps {}
 
@@ -87,12 +88,23 @@ export const Nav: React.FC<INavProps> = ({ children }) => {
 };
 
 const Header: React.FC<IHeaderProps> = ({}) => {
+	const scrollDirection = useScrollDirection();
+
 	return (
 		<Flex
-			bg={useColorModeValue('rgba(113, 128, 150, .8)', 'rgba(23, 25, 35, .8)')}
+			// bg={useColorModeValue('rgba(113, 128, 150, .8)', 'rgba(23, 25, 35, .8)')}
+			bgColor="rgba(13, 15, 25, .85)"
+			_dark={{
+				bgColor: 'rgba(23, 25, 35, .8)',
+			}}
 			justify="center"
 			align="center"
-			backdropBlur={'15px'}
+			backdropBlur={'xl'}
+			position="fixed"
+			top={scrollDirection === 'down' ? '-100px' : '0'}
+			w="100vw"
+			zIndex="banner"
+			transition="top 200ms ease-in-out"
 		>
 			<Flex as="nav" py="2" px={'4'} w="container.xl" align={'center'}>
 				<Link href="/">
@@ -103,6 +115,7 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 						_hover={{
 							cursor: 'pointer',
 						}}
+						color="whiteAlpha.900"
 					>
 						Dawid.
 					</Text>
@@ -115,7 +128,6 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 
 				{/* </Flex> */}
 			</Flex>
-
 		</Flex>
 	);
 };

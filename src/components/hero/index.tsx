@@ -14,7 +14,7 @@ import { FaceIcon } from '../../../public/images/FaceIcon';
 
 export function Hero() {
 	return (
-		<Container maxW={'container.xl'}>
+		<Container maxW={'container.xl'} minH="650px">
 			<Stack
 				align={'center'}
 				spacing={{ base: 8, md: 10 }}
@@ -57,7 +57,10 @@ export function Hero() {
 					</AnimatedLetters>
 					<AnimatedLetters
 						lineHeight={1.1}
-						color={'gray.200'}
+						color={'gray.600'}
+						_dark={{
+							color: 'gray.200',
+						}}
 						fontSize={'2xl'}
 						letterVariants="increased"
 						textVariants="staggered"
@@ -71,17 +74,25 @@ export function Hero() {
 						direction={{ base: 'column', sm: 'row' }}
 					>
 						<Button
+							as={'a'}
 							rounded={'full'}
 							size={'lg'}
 							fontWeight={'600'}
 							px={6}
 							colorScheme={'red'}
 							bg={'red.400'}
-							_active={{ transform: 'scale(1.00)' }}
+							href={'#projects'}
 						>
-							View Work
+							View Projects
 						</Button>
-						<Button rounded={'full'} size={'lg'} fontWeight={'400'} px={6}>
+						<Button
+							as="a"
+							rounded={'full'}
+							size={'lg'}
+							fontWeight={'400'}
+							px={6}
+							href="#about"
+						>
 							About me
 						</Button>
 					</Stack>

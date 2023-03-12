@@ -1,31 +1,58 @@
-import { Box, Container, Flex, Heading } from '@chakra-ui/react';
+import {
+	Box,
+	BoxProps,
+	Container,
+	ContainerProps,
+	Flex,
+	Heading,
+	useColorMode,
+} from '@chakra-ui/react';
 import { Divider } from '@saas-ui/react';
 import { motion } from 'framer-motion';
 
-interface IProps {
+interface IProps extends ContainerProps {
 	children: React.ReactNode;
-	title: string;
+	title?: string;
+	id?: string;
+	wrapperProps?: BoxProps;
 }
 
-export default function Section(props: IProps) {
-	const { children, title } = props;
+export function Section(props: IProps) {
+	const { children, title, id, wrapperProps, ...rest } = props;
 
 	return (
-		<Container maxW="container.xl">
-			<Flex alignItems="center" gap={3} mt={5} mb={8}>
-				<Box h="0.48rem" w="5rem" bg="red.400" />
-				<Heading
-					textTransform={'uppercase'}
-					size="md"
-					color="whiteAlpha.900"
-					fontWeight={300}
-				>
-					{title}
-				</Heading>
-				{/* <Divider /> */}
-				{/* <Box as={motion.span} h=".2rem" w="100%" bgColor="whiteAlpha.400" /> */}
-			</Flex>
-			{children}
-		</Container>
+		<Box as="section" w="100%" {...wrapperProps} minH="600px">
+			<Container
+				maxW="container.xl"
+				my={10}
+				overflow="hidden"
+				id={id ?? `${title?.toLowerCase().replace(' ', '-')}`}
+				{...rest}
+			>
+				{title && (
+					<Flex
+						alignItems="center"
+						gap={3}
+						mt={5}
+						mb={8}
+						justifyContent="flex-start"
+					>
+						<Box h="0.48rem" w="5rem" bg="red.400" />
+						<Heading
+							textTransform={'uppercase'}
+							size="md"
+							color={'blackAlpha.900'}
+							_dark={{
+								color: 'whiteAlpha.900',
+							}}
+							fontWeight={300}
+						>
+							{title}
+						</Heading>
+					</Flex>
+				)}
+				{children}
+			</Container>
+		</Box>
 	);
 }

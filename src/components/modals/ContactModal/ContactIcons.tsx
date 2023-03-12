@@ -23,7 +23,7 @@ export function ContactIcons() {
 					variant="ghost"
 					size="lg"
 					fontSize="3xl"
-					icon={<MdEmail />}
+					icon={<MdEmail color="white" />}
 					_hover={{
 						bg: 'blue.500',
 						// color: bgGray,
@@ -38,7 +38,7 @@ export function ContactIcons() {
 					variant="ghost"
 					size="lg"
 					fontSize="3xl"
-					icon={<BsGithub />}
+					icon={<BsGithub color="white" />}
 					_hover={{
 						bg: 'blue.500',
 						// color: bgGray,
@@ -52,7 +52,7 @@ export function ContactIcons() {
 					aria-label="linkedin"
 					variant="ghost"
 					size="lg"
-					icon={<BsLinkedin size="28px" />}
+					icon={<BsLinkedin size="28px" color="white" />}
 					_hover={{
 						bg: 'blue.500',
 						// color: bgGray,

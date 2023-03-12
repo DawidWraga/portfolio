@@ -1,0 +1,149 @@
+import {
+	Divider,
+	Heading,
+	HStack,
+	Stack,
+	Text,
+	VStack,
+} from '@chakra-ui/react';
+import { Section } from 'components/layouts/Section';
+import { ContactForm } from 'components/modals/ContactModal/ContactForm';
+import { ContactIcons } from 'components/modals/ContactModal/ContactIcons';
+import { motion } from 'framer-motion';
+
+export function Contact() {
+	return (
+		<Section
+			wrapperProps={{
+				bg: 'shade.500',
+			}}
+			maxW="container.xl"
+			centerContent
+		>
+			<VStack
+				spacing={{ base: 4 }}
+				bgColor="gray.800"
+				py={4}
+				px={7}
+				rounded="lg"
+			>
+				<Heading as={motion.span} layoutId="CONTACT-BTN" color="white">
+					Lets collaborate!
+				</Heading>
+
+				<Stack spacing={{ base: 4 }} direction="column">
+					<ContactForm />
+					<HStack spacing={5} my="2" color="gray.">
+						<Divider />
+						<Text fontSize="xl">or</Text>
+						<Divider />
+					</HStack>
+					<ContactIcons />
+				</Stack>
+			</VStack>
+
+			{/* <Flex>
+				<Box
+					bg="#02054B"
+					color="white"
+					borderRadius="lg"
+					m={{ sm: 4, md: 16, lg: 10 }}
+					p={{ sm: 5, md: 5, lg: 16 }}
+				>
+					<Box p={4}>
+						<Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
+							<WrapItem>
+								<Box>
+									<Heading>Contact</Heading>
+									<Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
+										I'd love to hear from you!
+									</Text>
+									<ContactIcons />
+									<HStack
+										mt={{ lg: 10, md: 10 }}
+										spacing={5}
+										px={5}
+										alignItems="flex-start"
+									>
+										<IconButton
+											aria-label="facebook"
+											variant="ghost"
+											size="lg"
+											isRound={true}
+											_hover={{ bg: '#0D74FF' }}
+											icon={<MdFacebook size="28px" />}
+										/>
+										<IconButton
+											aria-label="github"
+											variant="ghost"
+											size="lg"
+											isRound={true}
+											_hover={{ bg: '#0D74FF' }}
+											icon={<BsGithub size="28px" />}
+										/>
+										<IconButton
+											aria-label="discord"
+											variant="ghost"
+											size="lg"
+											isRound={true}
+											_hover={{ bg: '#0D74FF' }}
+											icon={<BsDiscord size="28px" />}
+										/>
+									</HStack>
+								</Box>
+							</WrapItem>
+							<WrapItem>
+								<Box bg="white" borderRadius="lg">
+									<Box m={8} color="#0B0E3F">
+										<VStack spacing={5}>
+											<FormControl id="name">
+												<FormLabel>Your Name</FormLabel>
+												<InputGroup borderColor="#E0E1E7">
+													<InputLeftElement
+														pointerEvents="none"
+														children={<BsPerson color="gray.800" />}
+													/>
+													<Input type="text" size="md" />
+												</InputGroup>
+											</FormControl>
+											<FormControl id="name">
+												<FormLabel>Mail</FormLabel>
+												<InputGroup borderColor="#E0E1E7">
+													<InputLeftElement
+														pointerEvents="none"
+														children={<MdOutlineEmail color="gray.800" />}
+													/>
+													<Input type="text" size="md" />
+												</InputGroup>
+											</FormControl>
+											<FormControl id="name">
+												<FormLabel>Message</FormLabel>
+												<Textarea
+													borderColor="gray.300"
+													_hover={{
+														borderRadius: 'gray.300',
+													}}
+													placeholder="message"
+												/>
+											</FormControl>
+											<FormControl id="name" float="right">
+												<Button
+													variant="solid"
+													bg="#0D74FF"
+													color="white"
+													_hover={{}}
+												>
+													Send Message
+												</Button>
+											</FormControl>
+										</VStack>
+									</Box>
+								</Box>
+							</WrapItem>
+						</Wrap>
+					</Box>
+				</Box>
+			</Flex> */}
+		</Section>
+	);
+}

@@ -14,15 +14,14 @@ import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 
 export function ContactForm() {
-	const bgGray = useColorModeValue('white', 'gray.700');
-
 	return (
 		<Box
-			bg={bgGray}
+			bg={'gray.700'}
 			borderRadius="lg"
 			p={8}
-			color="gray.700"
-			_dark={{ color: 'whiteAlpha.900' }}
+			color="whiteAlpha.900"
+			// color="gray.700"
+			// _dark={{ color: 'whiteAlpha.900' }}
 			shadow="base"
 			w={{ base: 'unset', sm: '400px', md: 'container.sm' }}
 		>

@@ -17,9 +17,9 @@ export default function ColorModeToggle(props: ButtonProps) {
 		<Flex
 			justifyContent="center"
 			alignItems="center"
-			// position="fixed"
-			// bottom="5"
-			// left="5"
+			position="fixed"
+			bottom="5"
+			left="5"
 			zIndex={'overlay'}
 		>
 			<IconButton
