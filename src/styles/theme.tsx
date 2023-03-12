@@ -32,7 +32,19 @@ const components = {
 };
 
 export const theme = extendTheme(
-	{ colors, config, components }
+	{
+		colors,
+		config,
+		components,
+		styles: {
+			// needed for app shell to work
+			global: {
+				'html, body': {
+					height: '100%',
+				},
+			},
+		},
+	}
 
 	// baseTheme
 );

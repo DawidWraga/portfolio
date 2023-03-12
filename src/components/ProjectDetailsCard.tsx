@@ -24,7 +24,6 @@ import { Carousel } from 'components/Carousel';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
-import { FiArrowRight } from 'react-icons/Fi';
 
 interface IProps {
 	onClose: () => void;

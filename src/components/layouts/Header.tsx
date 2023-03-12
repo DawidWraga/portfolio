@@ -11,6 +11,8 @@ import Link from 'next/link';
 import SideNav from 'components/layouts/SideNav';
 import ContactBtn from 'components/ContactBtn';
 import { motion } from 'framer-motion';
+import { pages } from 'config/pages';
+import { LinkButton } from 'components/LinkButton';
 
 interface IHeaderProps {}
 
@@ -34,59 +36,52 @@ interface INavProps {
 
 const variants = {
 	container: {
-		initial: { opacity: 0 },
-		animate: {
+		hidden: { opacity: 0 },
+		visible: {
 			opacity: 1,
-			transition: { staggerChildren: 0.2 },
+			transition: { staggerChildren: 0.1, delayChildren: 1 },
 		},
 	},
 	children: {
-		initial: { opacity: 0, width: '20' },
-		animate: { opacity: 1, width: '100' },
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				duration: 1,
+				ease: 'easeInOut',
+			},
+		},
 	},
 };
 export const Nav: React.FC<INavProps> = ({ children }) => {
-	const pages = [
-		{ label: 'about', route: '/about' },
-		{ label: 'work', route: '/work' },
-		{ label: 'work2', route: '/work2' },
-		{ label: 'work3', route: '/work3' },
-		{ label: 'blog', route: '/blog' },
-	];
-
 	return (
 		<Flex
 			as={motion.ul}
-			gap="4"
+			gap="5"
 			direction={{ base: 'column', md: 'row' }}
 			variants={variants.container}
-			initial={'initial'}
-			animate="animate"
+			initial={'hidden'}
+			animate="visible"
+			alignItems={'center'}
+			justifyContent="center"
 		>
 			{/* <motion.ul> */}
 			{pages.map((page) => (
 				<Box
+					key={page.route}
 					as={motion.li}
 					variants={variants.children}
-					key={page.route}
 					w="full"
 					listStyleType={'none'}
+					initial="hidden"
+					animate="visible"
 				>
-					<NavItem {...page}></NavItem>
+					<LinkButton linkProps={{ href: page.route || '/' }}>
+						{page.label}
+					</LinkButton>
 				</Box>
 			))}
-			<Box
-				as={motion.li}
-				variants={variants.children}
-				style={{
-					listStyle: 'None',
-					width: '100',
-				}}
-				// _first={{ width: '100' }}
-			>
-				{children}
-			</Box>
-			{/* </motion.ul> */}
+			<ColorModeToggle />
 		</Flex>
 	);
 };
@@ -107,7 +102,6 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 						transition="transform 200ms"
 						_hover={{
 							cursor: 'pointer',
-							transform: 'scale(1.05)',
 						}}
 					>
 						Dawid.
@@ -115,26 +109,13 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 				</Link>
 				<Spacer />
 				<Box display={{ base: 'none', md: 'inline-block' }}>
-					<Nav>
-						<ContactBtn />
-					</Nav>
+					<Nav />
 				</Box>
-				<ColorModeToggle />
 				<SideNav />
 
 				{/* </Flex> */}
 			</Flex>
-			{/* <Container maxW="6xl" centerContent>
-				<Flex w="full" h="14" alignItems={'center'} justify={'space-between'}>
-					<Text>Logo</Text>
-					<Flex justify={'space-between'} alignItems="center" minW="300px">
-						<Text>work</Text>
-						<Text>blog </Text>
-						<Text>contact</Text>
-						<ColorModeToggle />
-					</Flex>
-				</Flex>
-			</Container> */}
+
 		</Flex>
 	);
 };

@@ -1,26 +1,23 @@
 import {
-	Avatar,
+	Box,
+	Icon as ChakraIcon,
 	LinkBox,
 	LinkOverlay,
 	Text,
-	Icon as ChakraIcon,
-	Box,
 } from '@chakra-ui/react';
 import {
+	Button,
 	Card,
-	CardContainer,
-	CardHeader,
-	CardTitle,
-	CardMedia,
 	CardBody,
 	CardFooter,
-	Button,
-	useModals,
+	CardHeader,
+	CardMedia,
+	CardTitle,
 } from '@saas-ui/react';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
-import { FiArrowRight } from 'react-icons/Fi';
+import { FiArrowRight } from 'react-icons/fi';
 
 interface IProps {
 	project: Project;

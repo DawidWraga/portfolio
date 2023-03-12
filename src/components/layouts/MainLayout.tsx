@@ -1,3 +1,4 @@
+import { AppShell } from '@saas-ui/react';
 import Header from './Header';
 
 interface ILayoutProps {
@@ -5,10 +6,5 @@ interface ILayoutProps {
 }
 
 export const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
-	return (
-		<div>
-			<Header />
-			{children}
-		</div>
-	);
+	return <AppShell navbar={<Header />}>{children}</AppShell>;
 };

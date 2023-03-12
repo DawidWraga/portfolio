@@ -1,82 +1,137 @@
-import { Box, Circle, Flex, Grid, Heading, Text } from '@chakra-ui/react';
-import { motion, useAnimation } from 'framer-motion';
-import { AnimatedGrid } from '../AnimatedGrid';
-import { technologies } from './SkillsData';
+import {
+	Box,
+	Circle,
+	Divider,
+	Flex,
+	Grid,
+	GridItem,
+	Heading,
+	Icon,
+	IconButton,
+	Text,
+	useDisclosure,
+} from '@chakra-ui/react';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import { coreTechnologies, technologies } from 'config/SkillsData';
+import { Card, CardHeader, CardTitle, CardBody, Button } from '@saas-ui/react';
+import { AnimatedLetters } from 'components/AnimatedText';
+import { SkillItem } from 'components/about/SkillItem';
+import { flatten } from 'utils/flatten';
+import { BiChevronDown } from 'react-icons/bi';
+import flattenDeep from 'lodash.flattendeep';
 
 interface ISkillsGridProps {}
 
-const SkillsGrid: React.FC<ISkillsGridProps> = () => {
-	const variants = {
-		container: {
-			initial: { opacity: 0 },
-			animate: {
-				opacity: 1,
-				transition: { staggerChildren: 0.1 },
-			},
+const variants = {
+	container: {
+		initial: { opacity: 0 },
+		animate: {
+			opacity: 1,
+			transition: { staggerChildren: 0.1 },
 		},
-		children: {
-			initial: { opacity: 0, scale: 0.5 },
-			animate: { opacity: 1, scale: 1 },
-		},
-	};
-
-	const controls = useAnimation();
-	return (
-		<Box px="20">
-			<Heading size="lg">Tools and technologies</Heading>
-			{Object.entries(technologies).map(([type, arr]) => {
-				return (
-					<Box my="10" key={type} maxW={{ base: '300px', md: '500px' }}>
-						<Heading size="md" mb="4">
-							{type}
-						</Heading>
-						<motion.ul
-							style={{
-								display: 'flex',
-								flexDirection: 'row',
-								flexWrap: 'wrap',
-								gap: '18px',
-							}}
-							variants={variants.container}
-							initial="initial"
-							animate={controls}
-							onViewportEnter={() => controls.start('animate')}
-							onViewportLeave={() => controls.start('initial')}
-							// onClick={() => controls.start('initial')}
-						>
-							{arr.map(({ name, link, icon }) => {
-								const Icon = icon.bind(null, { style: { fontSize: '3rem' } });
-								return (
-									<motion.li
-										variants={variants.children}
-										key={link}
-										style={{
-											listStyle: 'None',
-										}}
-									>
-										<Flex
-											as="a"
-											// href={link}
-											direction="column"
-											align="center"
-											justify="center"
-											transition="200ms"
-											_hover={{ cursor: 'pointer', transform: 'scale(1.08)' }}
-										>
-											<Circle>
-												<Icon w="50px" h="50px" />
-											</Circle>
-											<Text>{name}</Text>
-										</Flex>
-									</motion.li>
-								);
-							})}
-						</motion.ul>
-					</Box>
-				);
-			})}
-		</Box>
-	);
+	},
+	children: {
+		initial: { opacity: 0, scale: 0.5 },
+		animate: { opacity: 1, scale: 1 },
+	},
 };
 
-export default SkillsGrid;
+const containerProps = {
+	initial: 'initial',
+	whileInView: 'animate',
+	as: motion.ul,
+	variants: variants.container,
+};
+
+const childProps = {
+	variants: variants.children,
+	as: motion.li,
+	listStyleType: 'none',
+};
+
+export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
+	const { isOpen, onToggle } = useDisclosure();
+
+	return (
+		<Card>
+			<CardHeader pb={0}>
+				<Flex justify="space-between" w="100%">
+					<CardTitle>
+						<AnimatedLetters mb={0} fontSize="1.4rem" fontWeight={600}>
+							Technical skills
+						</AnimatedLetters>
+					</CardTitle>
+					<Flex gap={2} {...containerProps} flex={1}>
+						{coreTechnologies.map((tech) => {
+							return (
+								<Box key={tech.link} {...childProps} w="100px">
+									<SkillItem {...tech} />
+								</Box>
+							);
+						})}
+					</Flex>
+					<Button
+						colorScheme={'red'}
+						rightIcon={
+							<Icon
+								as={BiChevronDown}
+								transform="auto"
+								rotate={isOpen ? '0' : '-180'}
+								transition="all 300ms ease-in-out"
+								fontSize="1.2rem"
+							/>
+						}
+						onClick={onToggle}
+					>
+						VIEW ALL
+					</Button>
+				</Flex>
+			</CardHeader>
+			<CardBody>
+				<AnimatePresence>
+					{isOpen && (
+						<Box
+							as={motion.div}
+							initial={{ height: 0 }}
+							animate={{ height: 'auto' }}
+							exit={{ height: 0 }}
+							overflow="hidden"
+						>
+							{Object.entries(technologies).map(([category, skills]) => {
+								return (
+									<Box my="2" key={category}>
+										<Flex alignItems="center" w="100%" gap={2} my={2}>
+											<Heading
+												size="sm"
+												textTransform={'capitalize'}
+												whiteSpace="nowrap"
+											>
+												{category}
+											</Heading>
+											<Divider />
+										</Flex>
+										<Grid
+											templateColumns={'repeat(auto-fit, 100px)'}
+											justifyContent={'center'}
+											mb={5}
+											gap={2}
+											{...containerProps}
+										>
+											{skills.map((skill) => {
+												return (
+													<GridItem key={skill.link} {...childProps}>
+														<SkillItem {...skill} />
+													</GridItem>
+												);
+											})}
+										</Grid>
+									</Box>
+								);
+							})}
+						</Box>
+					)}
+				</AnimatePresence>
+			</CardBody>
+		</Card>
+	);
+};
