@@ -20,7 +20,8 @@ import {
 	Button,
 	useModals,
 } from '@saas-ui/react';
-import { Carousel } from 'components/Carousel';
+import { Carousel } from 'components/carousel';
+import { Carousel as CarouselOld } from 'components/CarouselOld';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
@@ -93,14 +94,19 @@ export function ProjectDetailsCard(props: IProps) {
 					as={motion.div}
 					layoutId={layoutIds.img}
 				/> */}
-			<Carousel
+			{/* <CarouselOld
 				expandedSlideImageProps={{
 					bgSize: 'cover',
 					as: motion.div,
 				}}
 				slides={project?.carouselSlides || []}
-			/>
-			<CardBody minH="200px">
+			/> */}
+			<Carousel.Wrapper slides={project.carouselSlides || []}>
+				<Carousel.Slides />
+				<Carousel.PreviewSlides />
+				<Carousel.ChangeSlideArrows />
+			</Carousel.Wrapper>
+			{/* <CardBody minH="200px">
 				<Text fontSize="md" color="muted">
 					{description}
 				</Text>
@@ -110,7 +116,7 @@ export function ProjectDetailsCard(props: IProps) {
 				<Text fontSize="md" color="muted">
 					{description}
 				</Text>
-			</CardBody>
+			</CardBody> */}
 			<CardFooter>
 				<Button>View Demo</Button>
 				<Button>View Code</Button>

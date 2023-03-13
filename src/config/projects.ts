@@ -1,4 +1,4 @@
-import { CarouselSlide } from 'components/Carousel';
+import { CarouselSlide } from 'components/CarouselOld';
 import { MakeItAllLogo } from 'components/MakeItAllLogo';
 
 export type Project = {
