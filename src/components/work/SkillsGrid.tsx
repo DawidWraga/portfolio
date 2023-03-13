@@ -16,7 +16,6 @@ import { coreTechnologies, technologies } from 'config/SkillsData';
 import { Card, CardHeader, CardTitle, CardBody, Button } from '@saas-ui/react';
 import { AnimatedLetters } from 'components/AnimatedText';
 import { SkillItem } from 'components/about/SkillItem';
-import { flatten } from 'utils/flatten';
 import { BiChevronDown } from 'react-icons/bi';
 import flattenDeep from 'lodash.flattendeep';
 
