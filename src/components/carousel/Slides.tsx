@@ -26,7 +26,7 @@ export function Slides(props: IProps) {
 	return (
 		<Flex w="100%" pos="relative" overflow="hidden">
 			<Flex
-				h="clamp(400px, 50vh, 1500px)"
+				h="clamp(400px, 60vh, 1500px)"
 				w="100%"
 				// pos="relative"
 				{...carouselStyle}
@@ -70,7 +70,7 @@ export function Slides(props: IProps) {
 								description={slide.description}
 							/>
 						</Stack> */}
-								<Stack
+								{/* <Stack
 									pos="absolute"
 									// textAlign="center"
 									w="full"
@@ -109,7 +109,7 @@ export function Slides(props: IProps) {
 									>
 										{slide.description}
 									</Text>
-								</Stack>
+								</Stack> */}
 							</Box>
 						);
 					})}

@@ -1,27 +1,19 @@
 import {
-	Avatar,
-	LinkBox,
+	Box,
+	CloseButton,
+	Icon as ChakraIcon,
 	LinkOverlay,
 	Text,
-	Icon as ChakraIcon,
-	Box,
-	ModalOverlay,
-	CloseButton,
-	IconButton,
 } from '@chakra-ui/react';
 import {
+	Button,
 	Card,
-	CardContainer,
-	CardHeader,
-	CardTitle,
-	CardMedia,
 	CardBody,
 	CardFooter,
-	Button,
-	useModals,
+	CardHeader,
+	CardTitle,
 } from '@saas-ui/react';
 import { Carousel } from 'components/carousel';
-import { Carousel as CarouselOld } from 'components/CarouselOld';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
@@ -55,6 +47,7 @@ export function ProjectDetailsCard(props: IProps) {
 			// colorScheme="teal"
 			variant="filled"
 			colorScheme="messenger"
+			boxShadow="0 7px 12px #2a69ac"
 		>
 			<CardHeader
 				px="auto"
@@ -88,39 +81,19 @@ export function ProjectDetailsCard(props: IProps) {
 					</CardTitle>
 				</LinkOverlay>
 			</CardHeader>
-			{/* <CardMedia
-					height="400px"
-					bgImg={image}
-					as={motion.div}
-					layoutId={layoutIds.img}
-				/> */}
-			{/* <CarouselOld
-				expandedSlideImageProps={{
-					bgSize: 'cover',
-					as: motion.div,
-				}}
-				slides={project?.carouselSlides || []}
-			/> */}
+
 			<Carousel.Wrapper slides={project.carouselSlides || []}>
 				<Carousel.Slides />
-				<Carousel.PreviewSlides />
+				<CardBody bgColor={'whiteAlpha.200'}>
+					<Carousel.SlideDescription />
+				</CardBody>
+				<Carousel.PreviewSlides bgColor="blackAlpha.200" />
 				<Carousel.ChangeSlideArrows />
 			</Carousel.Wrapper>
-			{/* <CardBody minH="200px">
-				<Text fontSize="md" color="muted">
-					{description}
-				</Text>
-				<Text fontSize="md" color="muted">
-					{description}
-				</Text>
-				<Text fontSize="md" color="muted">
-					{description}
-				</Text>
-			</CardBody> */}
-			<CardFooter>
+			{/* <CardFooter>
 				<Button>View Demo</Button>
 				<Button>View Code</Button>
-			</CardFooter>
+			</CardFooter> */}
 		</Card>
 	);
 }

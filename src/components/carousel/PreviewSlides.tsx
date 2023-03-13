@@ -1,13 +1,13 @@
-import { Box, HStack } from '@chakra-ui/react';
+import { Box, BoxProps, HStack } from '@chakra-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { Image } from 'components/Image';
 
-interface IProps {
+interface IProps extends BoxProps {
 	imageProps?: any;
 }
 
 export function PreviewSlides(props: IProps) {
-	const { imageProps } = props;
+	const { imageProps, ...rest } = props;
 
 	const { currentSlide, slides, setSlide } = useCarouselContext();
 
@@ -21,6 +21,7 @@ export function PreviewSlides(props: IProps) {
 			// bottom="8px"
 			minH="80px"
 			// h="60px"
+			{...rest}
 		>
 			{slides.map((slide, sid) => {
 				const isActive = currentSlide === sid;
