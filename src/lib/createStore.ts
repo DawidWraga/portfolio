@@ -14,14 +14,14 @@ import { createTrackedSelector } from 'react-tracked';
  * 
  * @example
  * ```
- * interface IUserStore {
- *    username: string;
- *    setUsername: (username: string) => void;
- *  }
- * const useUserStore = createStore<IUserStore>('User', (set) => ({
- *    username: '',
- *    setUsername: (username: string) => set({ username }),
- *  }));
+  interface IUserStore {
+     username: string;
+     setUsername: (username: string) => void;
+   }
+  const useUserStore = createStore<IUserStore>('User', (set) => ({
+     username: '',
+     setUsername: (username: string) => set({ username }),
+   }));
  * ```
  * 
  *  @remarks

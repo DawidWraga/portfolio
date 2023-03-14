@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { Divider } from '@saas-ui/react';
 import { motion } from 'framer-motion';
+import { useActiveSectionStore } from 'stores/useActiveSectionStore';
 
 interface IProps extends ContainerProps {
 	children: React.ReactNode;
@@ -20,13 +21,28 @@ interface IProps extends ContainerProps {
 export function Section(props: IProps) {
 	const { children, title, id, wrapperProps, ...rest } = props;
 
+	const { addActiveSection, removeActiveSection } = useActiveSectionStore();
+
+	const sectionId = id ?? title?.toLowerCase().replace(' ', '-') ?? '';
+
 	return (
-		<Box as="section" w="100%" {...wrapperProps} minH="600px">
+		<Box
+			as={motion.section}
+			w="100%"
+			{...wrapperProps}
+			minH="600px"
+			onViewportEnter={() => {
+				addActiveSection(sectionId);
+			}}
+			onViewportLeave={() => {
+				removeActiveSection(sectionId);
+			}}
+		>
 			<Container
 				maxW="container.xl"
 				my={10}
 				overflow="hidden"
-				id={id ?? `${title?.toLowerCase().replace(' ', '-')}`}
+				id={sectionId}
 				{...rest}
 			>
 				{title && (

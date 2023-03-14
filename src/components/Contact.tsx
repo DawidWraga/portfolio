@@ -18,6 +18,7 @@ export function Contact() {
 				bg: 'shade.500',
 			}}
 			maxW="container.xl"
+			id="contact"
 			centerContent
 		>
 			<VStack

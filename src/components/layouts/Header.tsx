@@ -1,35 +1,12 @@
-import {
-	Box,
-	Button,
-	Flex,
-	Spacer,
-	Text,
-	useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Spacer, Text } from '@chakra-ui/react';
 import ColorModeToggle from 'components/ColorModeToggle';
-import Link from 'next/link';
 import SideNav from 'components/layouts/SideNav';
-import ContactBtn from 'components/ContactBtn';
-import { motion } from 'framer-motion';
+import { NavLinkButton } from 'components/NavLinkButton';
 import { pages } from 'config/pages';
-import { LinkButton } from 'components/LinkButton';
-import { useScrollDirection } from 'hooks/useScrollDirection';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface IHeaderProps {}
-
-interface INavItemProps {
-	label: string;
-	route: string;
-}
-export const NavItem: React.FC<INavItemProps> = ({ label, route }) => {
-	return (
-		<Link href={route || '/'}>
-			<Button variant="ghost" rounded={'full'} w="full">
-				{label}
-			</Button>
-		</Link>
-	);
-};
 
 interface INavProps {
 	children?: React.ReactNode;
@@ -77,9 +54,9 @@ export const Nav: React.FC<INavProps> = ({ children }) => {
 					initial="hidden"
 					animate="visible"
 				>
-					<LinkButton linkProps={{ href: page.route || '/' }}>
+					<NavLinkButton linkProps={{ href: page.route || '/' }}>
 						{page.label}
-					</LinkButton>
+					</NavLinkButton>
 				</Box>
 			))}
 			<ColorModeToggle />
@@ -88,7 +65,7 @@ export const Nav: React.FC<INavProps> = ({ children }) => {
 };
 
 const Header: React.FC<IHeaderProps> = ({}) => {
-	const scrollDirection = useScrollDirection();
+	// const scrollDirection = useScrollDirection();
 
 	return (
 		<Flex
@@ -99,9 +76,10 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 			}}
 			justify="center"
 			align="center"
-			backdropBlur={'xl'}
+			backdropFilter="blur(5px)"
 			position="fixed"
-			top={scrollDirection === 'down' ? '-100px' : '0'}
+			top={0}
+			// top={scrollDirection === 'down' ? '-100px' : '0'}
 			w="100vw"
 			zIndex="banner"
 			transition="top 200ms ease-in-out"
