@@ -10,6 +10,7 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react';
 import { AnimatedLetters, AnimatedText } from 'components/AnimatedText';
+import { motion } from 'framer-motion';
 import { FaceIcon } from '../../../public/images/FaceIcon';
 
 export function Hero() {
@@ -24,6 +25,16 @@ export function Hero() {
 			>
 				<Stack flex={1} spacing={{ base: 10, md: 10 }}>
 					<Text
+						as={motion.h2}
+						initial={{
+							opacity: 0,
+							top: 50,
+						}}
+						animate={{
+							opacity: 1,
+							top: 0,
+							transition: { delay: 0.2, duration: 0.5, ease: 'circOut' },
+						}}
 						lineHeight={1.1}
 						fontWeight={600}
 						fontSize={{ base: '4xl', sm: '5xl', lg: '6xl' }}
@@ -72,9 +83,23 @@ export function Hero() {
 					<Stack
 						spacing={{ base: 4, sm: 6 }}
 						direction={{ base: 'column', sm: 'row' }}
+						as={motion.div}
 					>
 						<Button
-							as={'a'}
+							initial={{
+								opacity: 0,
+								top: 50,
+							}}
+							animate={{
+								opacity: 1,
+								top: 0,
+								transition: {
+									duration: 0.3,
+									ease: 'circOut',
+									delay: 2,
+								},
+							}}
+							as={motion.a}
 							rounded={'full'}
 							size={'lg'}
 							fontWeight={'600'}
@@ -86,7 +111,20 @@ export function Hero() {
 							View Projects
 						</Button>
 						<Button
-							as="a"
+							initial={{
+								opacity: 0,
+								top: 50,
+							}}
+							animate={{
+								opacity: 1,
+								top: 0,
+								transition: {
+									duration: 0.3,
+									ease: 'circOut',
+									delay: 2.3,
+								},
+							}}
+							as={motion.a}
 							rounded={'full'}
 							size={'lg'}
 							fontWeight={'400'}

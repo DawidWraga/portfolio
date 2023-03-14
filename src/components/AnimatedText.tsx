@@ -24,6 +24,8 @@ export const AnimatedText = ({
 					<Box
 						as={motion.span}
 						variants={getTextVariant(variants)}
+						initial="hidden"
+						animate="visible"
 						display="inline-block"
 					>
 						{word}
