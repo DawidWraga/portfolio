@@ -113,7 +113,7 @@ export function Slides(props: IProps) {
 							</Box>
 						);
 					})}
-					{/* <ChangeSlideArrows /> */}
+					<ChangeSlideArrows />
 				</>
 			</Flex>
 		</Flex>

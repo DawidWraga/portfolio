@@ -99,7 +99,7 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 						<Icon
 							as={BiChevronDown}
 							transform="auto"
-							rotate={isOpen ? '0' : '-180'}
+							rotate={isOpen ? '-180' : '0'}
 							transition="all 300ms ease-in-out"
 							fontSize="1.2rem"
 						/>

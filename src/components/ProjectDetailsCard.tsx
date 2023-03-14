@@ -1,22 +1,19 @@
 import {
 	Box,
-	CloseButton,
-	Icon as ChakraIcon,
-	LinkOverlay,
-	Text,
+	CloseButton, Flex,
+	Icon as ChakraIcon
 } from '@chakra-ui/react';
 import {
-	Button,
 	Card,
-	CardBody,
-	CardFooter,
-	CardHeader,
-	CardTitle,
+	CardBody, CardHeader, CardTitle
 } from '@saas-ui/react';
 import { Carousel } from 'components/carousel';
+import { LinkButton } from 'components/LinkButton';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
+import { BsDisplay } from 'react-icons/bs';
+import { SiGithub } from 'react-icons/si';
 
 interface IProps {
 	onClose: () => void;
@@ -25,7 +22,7 @@ interface IProps {
 
 export function ProjectDetailsCard(props: IProps) {
 	const { project, onClose } = props;
-	const { name, description, image, Icon, id } = project;
+	const { name, description, image, Icon, id, demoUrl, githubUrl } = project;
 
 	const layoutIds = getLayoutIds(id);
 
@@ -50,12 +47,19 @@ export function ProjectDetailsCard(props: IProps) {
 			boxShadow="0 7px 12px #2a69ac"
 		>
 			<CardHeader
-				px="auto"
-				gap="2"
-				display="flex"
-				justifyContent={'center'}
-				position="relative"
+				// px="auto"
 				_hover={{ cursor: 'unset' }}
+				position="relative"
+				// display="flex"
+				// justifyContent={'space-between'}
+				// w="100% !important"
+				// sx={{
+				// 	'& > div': {
+				// 		w: 'calc(100% - 15px)',
+				// 		display: 'flex',
+				// 		justifyContent: 'space-between',
+				// 	},
+				// }}
 			>
 				<CloseButton
 					zIndex={99999}
@@ -65,12 +69,13 @@ export function ProjectDetailsCard(props: IProps) {
 					onClick={onClose}
 				/>
 
-				{Icon && (
-					<Box as={motion.div} layoutId={layoutIds.logo}>
-						<ChakraIcon as={Icon} me="2" boxSize="8" />
-					</Box>
-				)}
-				<LinkOverlay href="#">
+				<Flex gap="2" alignItems="center" w="100%">
+					{Icon && (
+						<Box as={motion.div} layoutId={layoutIds.logo}>
+							<ChakraIcon as={Icon} me="2" boxSize="8" />
+						</Box>
+					)}
+					{/* <LinkOverlay href="#"> */}
 					<CardTitle
 						fontSize="1.5rem"
 						as={motion.div}
@@ -79,7 +84,34 @@ export function ProjectDetailsCard(props: IProps) {
 					>
 						{name}
 					</CardTitle>
-				</LinkOverlay>
+					{/* <Divider /> */}
+					<LinkButton
+						href={githubUrl ?? ''}
+						aria-label="view github"
+						leftIcon={<SiGithub />}
+						ml={'auto'}
+						target="_blank"
+					>
+						View code
+					</LinkButton>
+					<LinkButton
+						href={demoUrl ?? ''}
+						aria-label="view github"
+						leftIcon={<BsDisplay />}
+						ml={2}
+						mr={6}
+						target="_blank"
+					>
+						View live
+					</LinkButton>
+				</Flex>
+
+				{/* <Box>
+					<CardHeaderAction pos="relative" ml="auto">
+					</CardHeaderAction>
+				</Box> */}
+
+				{/* </LinkOverlay> */}
 			</CardHeader>
 
 			<Carousel.Wrapper slides={project.carouselSlides || []}>
@@ -88,7 +120,6 @@ export function ProjectDetailsCard(props: IProps) {
 					<Carousel.SlideDescription />
 				</CardBody>
 				<Carousel.PreviewSlides bgColor="blackAlpha.200" />
-				<Carousel.ChangeSlideArrows />
 			</Carousel.Wrapper>
 			{/* <CardFooter>
 				<Button>View Demo</Button>
