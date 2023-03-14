@@ -59,7 +59,6 @@ export const Nav: React.FC<INavProps> = ({ children }) => {
 					</NavLinkButton>
 				</Box>
 			))}
-			<ColorModeToggle />
 		</Flex>
 	);
 };

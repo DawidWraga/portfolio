@@ -1,4 +1,5 @@
 import { AppShell } from '@saas-ui/react';
+import ColorModeToggle from 'components/ColorModeToggle';
 import Header from './Header';
 
 interface ILayoutProps {
@@ -6,5 +7,12 @@ interface ILayoutProps {
 }
 
 export const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
-	return <AppShell navbar={<Header />}>{children}</AppShell>;
+	return (
+		<AppShell navbar={<Header />}>
+			<>
+				{children}
+				<ColorModeToggle />
+			</>
+		</AppShell>
+	);
 };

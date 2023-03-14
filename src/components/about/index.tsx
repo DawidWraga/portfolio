@@ -12,7 +12,14 @@ export function About(props: IProps) {
 
 	return (
 		<Section title="about">
-			<Grid gridTemplateColumns={'60% 40%'} gap={4} rowGap={8}>
+			<Grid
+				gridTemplateColumns={{ base: '100%', lg: '60% 40%' }}
+				gridTemplateRows="repeat(3, auto)"
+				// gridTemplateRows={{ base: 'auto auto', lg: 'auto' }}
+				// gridAutoFlow="row"
+				gap={4}
+				rowGap={8}
+			>
 				<GridItem>
 					<Card>
 						<CardHeader pb={0}>
@@ -46,10 +53,14 @@ export function About(props: IProps) {
 					</Card>
 				</GridItem>
 				<GridItem
-
-				// display="flex" justifyContent="center" alignItems="center"
+					order={{ base: -1, lg: 0 }}
+					// display="flex" justifyContent="center" alignItems="center"
 				>
-					<Box h="100%">
+					<Box
+						// h="100%"
+						h="350px"
+						w="100%"
+					>
 						<Box position="relative" h="100%" maxW="380px" mx="auto">
 							<Image
 								src="/images/face-photo.png"
@@ -63,7 +74,7 @@ export function About(props: IProps) {
 						</Box>
 					</Box>
 				</GridItem>
-				<GridItem colSpan={2} mb="10">
+				<GridItem colSpan={{ base: 1, lg: 2 }} mb="10">
 					<SkillsGrid />
 				</GridItem>
 			</Grid>

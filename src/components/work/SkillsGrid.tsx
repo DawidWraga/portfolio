@@ -53,12 +53,16 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 
 	return (
 		<Card>
-			<CardHeader pb={0} position="relative" minH={'100px'}>
+			<CardHeader
+				pb={0}
+				position="relative"
+				minH={{ base: isOpen ? '100px' : '160px', lg: '100px' }}
+			>
 				<CardTitle
 					position="absolute"
-					left={isOpen ? '50%' : 4}
+					left={isOpen ? { base: 4, lg: '50%' } : 4}
 					transform="auto"
-					translateX={isOpen ? '-50%' : 0}
+					translateX={isOpen ? { base: 0, lg: '-50%' } : 0}
 					top={4}
 					transition="all 350ms ease-in-out"
 				>
@@ -77,10 +81,17 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 					flex={1}
 					position="absolute"
 					left={'50%'}
-					top={'50%'}
+					top={{ base: 'calc(50% + 1rem)', lg: '50%' }}
 					transform="auto"
 					translateX="-50%"
 					translateY="-25%"
+					w="90%"
+					justifyContent={'center'}
+					overflow={
+						isOpen
+							? { base: 'hidden', lg: 'unset' }
+							: { base: 'auto', lg: 'unset' }
+					}
 				>
 					{coreTechnologies.map((tech) => {
 						return (
@@ -95,6 +106,12 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 					position="absolute"
 					right={4}
 					top={4}
+					sx={{
+						'& .chakra-button__icon': {
+							ml: { base: 0, lg: '8px' },
+						},
+					}}
+					rounded={{ base: 'full', lg: 'md' }}
 					rightIcon={
 						<Icon
 							as={BiChevronDown}
@@ -102,12 +119,17 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 							rotate={isOpen ? '-180' : '0'}
 							transition="all 300ms ease-in-out"
 							fontSize="1.2rem"
+
+							// display="flex"
+							// alignItems="center"
 						/>
 					}
 					onClick={onToggle}
 					textTransform="uppercase"
 				>
-					view {isOpen ? 'less' : 'more'}
+					<Box as="span" display={{ base: 'none', lg: 'inline-block' }}>
+						view {isOpen ? 'less' : 'more'}
+					</Box>
 				</Button>
 			</CardHeader>
 			<CardBody>

@@ -22,7 +22,7 @@ export function Hero() {
 				direction={{ base: 'column', md: 'row' }}
 				px={2}
 			>
-				<Stack flex={1} spacing={{ base: 5, md: 10 }}>
+				<Stack flex={1} spacing={{ base: 10, md: 10 }}>
 					<Text
 						lineHeight={1.1}
 						fontWeight={600}
@@ -105,11 +105,11 @@ export function Hero() {
 					w={'full'}
 				>
 					<Blob
-						w={'150%'}
-						h={'150%'}
+						w={{ base: '110%', xs: '110%', md: '153%' }}
+						h={{ base: '125%', md: '150%' }}
 						position={'absolute'}
-						top={'-20%'}
-						left={-150}
+						top={{ base: '-5%', sm: '-10%', md: '-15%', lg: '-20%' }}
+						// left={{ sm: -150 }}
 						zIndex={0}
 						color={useColorModeValue('blue.100', 'blue.400')}
 					/>
@@ -118,7 +118,7 @@ export function Hero() {
 						// fit={'cover'}
 						// align={'center'}
 						w={'100%'}
-						h={'300px'}
+						h={{ base: '250px', md: '270px', lg: '300px' }}
 						zIndex={5}
 					/>
 				</Flex>

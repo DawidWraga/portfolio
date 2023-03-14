@@ -20,10 +20,9 @@ export default function LandingPage() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Hero />
-			{/* <video src={require('../../public/images/makeItAll/demo-1-kanban.mp4')} /> */}
 			<ProjectsList />
 			<About />
-			<BlogSection />
+			{/* <BlogSection /> */}
 			<Contact />
 			<Footer />
 		</>

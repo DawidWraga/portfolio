@@ -18,8 +18,8 @@ export default function ColorModeToggle(props: ButtonProps) {
 			justifyContent="center"
 			alignItems="center"
 			position="fixed"
-			bottom="5"
-			left="5"
+			bottom={5}
+			left={5}
 			zIndex={'overlay'}
 		>
 			<IconButton
