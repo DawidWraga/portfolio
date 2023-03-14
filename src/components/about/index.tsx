@@ -11,14 +11,18 @@ export function About(props: IProps) {
 	const {} = props;
 
 	return (
-		<Section title="about">
+		<Section
+			title="about"
+			wrapperProps={{ minH: '800px' }}
+			sx={{ '& .section-title-wrapper': { mb: 12 } }}
+		>
 			<Grid
 				gridTemplateColumns={{ base: '100%', lg: '60% 40%' }}
 				gridTemplateRows="repeat(3, auto)"
 				// gridTemplateRows={{ base: 'auto auto', lg: 'auto' }}
 				// gridAutoFlow="row"
-				gap={4}
-				rowGap={8}
+				gap={6}
+				rowGap={12}
 			>
 				<GridItem>
 					<Card>

@@ -14,12 +14,15 @@ import { motion } from 'framer-motion';
 export function Contact() {
 	return (
 		<Section
-			wrapperProps={{
-				bg: 'shade.500',
-			}}
 			maxW="container.xl"
 			id="contact"
 			centerContent
+			wrapperProps={{
+				minH: '920px',
+				display: 'flex',
+				alignItems: 'center',
+				bg: 'shade.500',
+			}}
 		>
 			<VStack
 				spacing={{ base: 4 }}

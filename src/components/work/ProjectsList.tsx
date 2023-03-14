@@ -24,6 +24,8 @@ export function ProjectsList(props: IProps) {
 			wrapperProps={{ bgColor: 'shade.200', _dark: { bgColor: 'shade.400' } }}
 		>
 			<SimpleGrid
+				mt={10}
+				mb={10}
 				columns={{ base: 1, lg: 3 }}
 				gap="2"
 				justifyContent={'center'}
@@ -43,6 +45,7 @@ export function ProjectsList(props: IProps) {
 				)}
 			</AnimatePresence>
 
+			{/* overlay */}
 			<Box
 				bgColor={'blackAlpha.500'}
 				w="100vw"
