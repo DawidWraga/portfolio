@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.10",
-    "@chakra-ui/react": "^2.3.4",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@chakra-ui/icons": "^2.0.18",
+    "@chakra-ui/react": "^2.5.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@popmotion/popcorn": "^0.4.4",
     "@saas-ui/react": "^1.9.1",
-    "@svgr/webpack": "^6.3.1",
+    "@svgr/webpack": "^6.5.1",
     "@vercel/analytics": "^0.1.11",
     "framer-motion": "^6.5.1",
     "lodash.debounce": "^4.0.8",
@@ -26,7 +26,7 @@
     "react-icons": "^4.8.0",
     "react-tracked": "^1.7.11",
     "scheduler": "^0.23.0",
-    "zustand": "^4.3.6"
+    "zustand": "^4.3.7"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.7",
