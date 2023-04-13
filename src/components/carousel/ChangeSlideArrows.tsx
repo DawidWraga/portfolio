@@ -1,6 +1,6 @@
-import { IconButton, IconButtonProps } from '@chakra-ui/react';
+import { IconButton } from '@chakra-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
-import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
 interface IProps {}
 
@@ -25,7 +25,7 @@ export function ChangeSlideArrow(props: IChangeSlideArrowProps) {
 	return (
 		<IconButton
 			icon={direction === 'prev' ? <BiLeftArrowAlt /> : <BiRightArrowAlt />}
-			right="0"
+			// right="0"
 			{...(direction === 'prev' ? { left: '0' } : { right: '0' })}
 			onClick={direction === 'prev' ? toPrevSlide : toNextSlide}
 			aria-label={`go to ${direction === 'prev' ? 'previous' : 'next'} slide`}
@@ -36,9 +36,11 @@ export function ChangeSlideArrow(props: IChangeSlideArrowProps) {
 
 const arrowStyles = {
 	cursor: 'pointer',
-	pos: 'absolute',
-	top: '50%',
+	pos: 'fixed',
+	top: '50vh',
+	// transform: 'translateY(-50%)',
 	mt: '-22px',
+	// bg: 'red',
 	p: '16px',
 	color: 'white',
 	fontWeight: 'bold',
@@ -49,7 +51,8 @@ const arrowStyles = {
 	w: 'clamp(20px, 5vw, 50px)',
 	h: 'clamp(20px, 5vw, 50px)',
 	textAlign: 'center',
-	mx: 2,
+	zIndex: 1,
+	// mx: 2,
 	colorScheme: 'blackAlpha',
 	userSelect: 'none',
 } as const;

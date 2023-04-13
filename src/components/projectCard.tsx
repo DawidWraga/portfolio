@@ -1,25 +1,16 @@
 import {
 	Box,
-	GridItem,
 	Icon as ChakraIcon,
-	LinkBox,
-	LinkOverlay,
+	Flex,
+	GridItem,
+	Heading,
 	Text,
 } from '@chakra-ui/react';
-import {
-	Button,
-	Card,
-	CardBody,
-	CardFooter,
-	CardHeader,
-	CardMedia,
-	CardTitle,
-} from '@saas-ui/react';
+import { Card, CardBody, CardHeader, CardTitle } from '@saas-ui/react';
+import { Image } from 'components/common/Image';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
-import { FiArrowRight } from 'react-icons/fi';
-
 interface IProps {
 	project: Project;
 	setSelectedId: React.Dispatch<React.SetStateAction<string | null>>;
@@ -36,73 +27,40 @@ export function ProjectCard(props: IProps) {
 			as={motion.div}
 			layoutId={layoutIds.container}
 			colSpan={{ base: 1, lg: wideCard ? 2 : 1 }}
+			bgColor="shade.600"
+			rounded="lg"
 			_hover={{
 				cursor: 'pointer',
 				boxShadow: '0 10px 15px #2a69ac',
 			}}
 			transition="box-shadow 300ms ease-in-out"
+			display="flex"
+			flexDir="column"
+			onClick={() => {
+				setSelectedId(id);
+			}}
 		>
-			<Card
-				// as={LinkBox}
-				width="100%"
-				isHoverable
-				// variant="outline"
-				onClick={() => {
-					setSelectedId(id);
+			<Flex p={4} align="center">
+				{Icon && (
+					<Box as={motion.div} layoutId={layoutIds.logo} mr={2}>
+						<Icon />
+					</Box>
+				)}
+				<Heading fontSize="1.5rem" as={motion.div} layoutId={layoutIds.title}>
+					{name}
+				</Heading>
+			</Flex>
+			<Image
+				src={image}
+				width={1000}
+				height={550}
+				as={motion.div}
+				layoutId={layoutIds.img}
+				imgStyles={{
+					w: 'auto',
+					h: '100%',
 				}}
-				colorScheme="messenger"
-				alignItems="center"
-			>
-				<CardHeader px="auto" gap="2">
-					{Icon && (
-						<Box as={motion.div} layoutId={layoutIds.logo}>
-							<ChakraIcon
-								as={Icon}
-								// fontSize="1.6rem"
-								me="2"
-								boxSize="8"
-							/>
-						</Box>
-					)}
-					{/* <LinkOverlay href="#"> */}
-					<CardTitle
-						fontSize="1.5rem"
-						as={motion.div}
-						layoutId={layoutIds.title}
-					>
-						{name}
-					</CardTitle>
-					{/* </LinkOverlay> */}
-				</CardHeader>
-				<CardMedia
-					height="400px"
-					bgImg={image}
-					as={motion.div}
-					layoutId={layoutIds.img}
-				/>
-				<CardBody>
-					<Text fontSize="md" color="muted">
-						{description}
-					</Text>
-				</CardBody>
-				{/* <CardFooter>
-					<Button
-						rightIcon={
-							<ChakraIcon
-								as={FiArrowRight}
-								transform="translateX(-5px)"
-								transitionProperty="common"
-								transitionDuration="normal"
-								sx={{ '.saas-card:hover &': { transform: 'translateX(0)' } }}
-							/>
-						}
-						variant="link"
-						sx={{ '.saas-card:hover &': { color: 'teal.400' } }}
-					>
-						Learn more
-					</Button>
-				</CardFooter> */}
-			</Card>
+			/>
 		</GridItem>
 	);
 }

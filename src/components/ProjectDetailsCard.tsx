@@ -21,7 +21,6 @@ export function ProjectDetailsCard(props: IProps) {
 
 	return (
 		<Box
-			// w={{ base: 'calc(100% - 4px)', md: '75%', lg: '50%' }}
 			mx={2}
 			minW={['100vw', '90vw', '80vw', '70vw']}
 			w="clamp(300px, calc(100vw - 16px), 1500px)"
@@ -38,36 +37,14 @@ export function ProjectDetailsCard(props: IProps) {
 			<Card
 				as={motion.div}
 				layoutId={layoutIds.container}
-				// onClick={onClose}
 				mx="auto"
-				// left="50%"
-				// transform="translateX(-50%)"
-				// h="50vh"
-				// w="calc( 75% - 16px)"
-				// left={'25vw'}
-				// variant="outline"
-				// colorScheme="teal"
 				w="100%"
 				h="100%"
 				variant="filled"
 				colorScheme="messenger"
 				boxShadow="0 7px 12px #2a69ac"
 			>
-				<CardHeader
-					// px="auto"
-					_hover={{ cursor: 'unset' }}
-					position="relative"
-					// display="flex"
-					// justifyContent={'space-between'}
-					// w="100% !important"
-					// sx={{
-					// 	'& > div': {
-					// 		w: 'calc(100% - 15px)',
-					// 		display: 'flex',
-					// 		justifyContent: 'space-between',
-					// 	},
-					// }}
-				>
+				<CardHeader _hover={{ cursor: 'unset' }} position="relative">
 					<CloseButton
 						zIndex={99999}
 						position="absolute"
@@ -129,10 +106,6 @@ export function ProjectDetailsCard(props: IProps) {
 					</CardBody>
 					<Carousel.PreviewSlides bgColor="blackAlpha.200" />
 				</Carousel.Wrapper>
-				{/* <CardFooter>
-					<Button>View Demo</Button>
-					<Button>View Code</Button>
-				</CardFooter> */}
 			</Card>
 		</Box>
 	);

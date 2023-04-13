@@ -1,6 +1,6 @@
 import { Box, BoxProps, HStack } from '@chakra-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
-import { Image } from 'components/Image';
+import { Image } from 'components/common/Image';
 
 interface IProps extends BoxProps {
 	imageProps?: any;
@@ -47,8 +47,16 @@ export function PreviewSlides(props: IProps) {
 							alt="carousel image"
 							// boxSize="full"
 							// backgroundSize="cover"
-							{...imageProps}
 							layout="fill"
+							wrapperStyles={{
+								w: '100%',
+								h: '100%',
+							}}
+							imgStyles={{
+								w: '100%',
+								h: 'auto',
+							}}
+							{...imageProps}
 						/>
 					</Box>
 				);

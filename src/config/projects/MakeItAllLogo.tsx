@@ -3,6 +3,9 @@ import { createIcon } from '@chakra-ui/icons';
 export const MakeItAllLogo = createIcon({
 	displayName: 'logoIcon',
 	viewBox: '0 0 421 473',
+	defaultProps: {
+		boxSize: '1.8rem',
+	},
 	path: [
 		<path
 			d="M202.967 466.348L13.967 354.348V111.848L208.967 8.3483L238.467 28.3483L409.967 120.348C409.967 120.348 416.844 360.071 398.463 354.554C399.774 359.863 202.967 466.348 202.967 466.348Z"

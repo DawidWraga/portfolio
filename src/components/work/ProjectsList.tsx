@@ -1,11 +1,10 @@
-import { Box, Container, SimpleGrid } from '@chakra-ui/react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { ProjectCard } from 'components/projectCard';
-import { Image } from 'components/Image';
-import { projects } from 'config/projects';
+import { Box, SimpleGrid } from '@chakra-ui/react';
 import { ProjectDetailsCard } from 'components/ProjectDetailsCard';
 import { Section } from 'components/layouts/Section';
+import { ProjectCard } from 'components/projectCard';
+import { projects } from 'config/projects';
+import { AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 interface IProps {}
 

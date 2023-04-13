@@ -1,7 +1,7 @@
-import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Grid, GridItem, Text } from '@chakra-ui/react';
 import { Card, CardBody, CardHeader, CardTitle } from '@saas-ui/react';
 import { AnimatedLetters } from 'components/AnimatedText';
-import { Image } from 'components/Image';
+import { Image } from 'components/common/Image';
 import { Section } from 'components/layouts/Section';
 import { SkillsGrid } from 'components/work/SkillsGrid';
 
@@ -21,10 +21,12 @@ export function About(props: IProps) {
 				gridTemplateRows="repeat(3, auto)"
 				// gridTemplateRows={{ base: 'auto auto', lg: 'auto' }}
 				// gridAutoFlow="row"
+				alignItems={'stretch'}
+				justifyContent={'stretch'}
 				gap={6}
 				rowGap={12}
 			>
-				<GridItem>
+				<GridItem display="flex" justifyContent="center" alignItems="center">
 					<Card>
 						<CardHeader pb={0}>
 							<CardTitle>
@@ -58,25 +60,31 @@ export function About(props: IProps) {
 				</GridItem>
 				<GridItem
 					order={{ base: -1, lg: 0 }}
-					// display="flex" justifyContent="center" alignItems="center"
+					display="flex"
+					justifyContent="center"
+					alignItems="center"
 				>
-					<Box
-						// h="100%"
-						h="350px"
-						w="100%"
-					>
-						<Box position="relative" h="100%" maxW="380px" mx="auto">
-							<Image
-								src="/images/face-photo.png"
-								layout="fill"
-								alt="Dawid"
-								objectFit={'contain'}
-								display="block"
-								h="100%"
-								w="auto"
-							></Image>
-						</Box>
-					</Box>
+					<Image
+						src="/images/face-photo.png"
+						width={400}
+						height={400}
+						alt="Dawid"
+						objectFit={'contain'}
+						wrapperStyles={{
+							pos: 'relative',
+							h: '100%',
+							mx: 'auto',
+							// maxW: '380px',
+							// maxH: '350px',
+							// w: '100%',
+						}}
+						imgStyles={
+							{
+								// h: '100%',
+								// w: '100%',
+							}
+						}
+					/>
 				</GridItem>
 				<GridItem colSpan={{ base: 1, lg: 2 }} mb="10">
 					<SkillsGrid />

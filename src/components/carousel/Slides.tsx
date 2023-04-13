@@ -1,7 +1,8 @@
-import { Box, Flex, ImageProps, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Stack, Text } from '@chakra-ui/react';
 import { CardMedia } from '@saas-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { ChangeSlideArrows } from 'components/carousel/ChangeSlideArrows';
+import { Image, ImageProps } from 'components/common/Image';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
 import { useMemo } from 'react';
@@ -26,7 +27,7 @@ export function Slides(props: IProps) {
 	return (
 		<Flex w="100%" pos="relative" overflow="hidden">
 			<Flex
-				h="clamp(400px, 60vh, 1500px)"
+				minH="clamp(400px, 60vh, 1500px)"
 				w="100%"
 				// pos="relative"
 				{...carouselStyle}
@@ -43,17 +44,44 @@ export function Slides(props: IProps) {
 						const isActive = currentSlide === sid;
 
 						return (
-							<Box key={'slide-' + sid} boxSize="full" shadow="md" flex="none">
-								<CardMedia
-									bgImage={slide.img}
-									alt="carousel image"
-									boxSize="full"
-									backgroundSize="cover"
-									as={motion.div}
-									{...conditionalProps}
-									{...imageProps}
-								/>
-								{/* <Stack
+							// <Box key={'slide-' + sid} boxSize="full" shadow="md" flex="none">
+							<Image
+								key={'slide-' + sid}
+								src={slide.img}
+								alt="carousel image"
+								boxSize="full"
+								backgroundSize="cover"
+								width={1000}
+								height={800}
+								layout="fill"
+								as={motion.div}
+								{...conditionalProps}
+								{...imageProps}
+								wrapperStyles={{
+									boxSize: 'full',
+									flex: 'none',
+									display: 'flex',
+									alignItems: 'stretch',
+									justifyContent: 'stretch',
+									w: '100%',
+								}}
+								imgStyles={{
+									w: '100%',
+									h: 'auto',
+									// objectFit: 'cover',
+								}}
+							/>
+						);
+					})}
+					{/* <ChangeSlideArrows /> */}
+				</>
+			</Flex>
+		</Flex>
+	);
+}
+
+{
+	/* <Stack
 							pos="absolute"
 							// textAlign="center"
 							w="full"
@@ -69,8 +97,10 @@ export function Slides(props: IProps) {
 								label={slide.label}
 								description={slide.description}
 							/>
-						</Stack> */}
-								{/* <Stack
+						</Stack> */
+}
+{
+	/* <Stack
 									pos="absolute"
 									// textAlign="center"
 									w="full"
@@ -109,13 +139,6 @@ export function Slides(props: IProps) {
 									>
 										{slide.description}
 									</Text>
-								</Stack> */}
-							</Box>
-						);
-					})}
-					<ChangeSlideArrows />
-				</>
-			</Flex>
-		</Flex>
-	);
+								</Stack> */
 }
+// </Box>

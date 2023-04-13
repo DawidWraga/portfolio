@@ -4,6 +4,7 @@ import {
 	CarouselProvider,
 	CarouselSlide,
 } from 'components/carousel/CarouselContext';
+import { ChangeSlideArrows } from 'components/carousel/ChangeSlideArrows';
 
 interface IProps {
 	children: React.ReactNode;
@@ -37,6 +38,7 @@ export function CarouselWrapper(props: IProps) {
 				slides,
 			}}
 		>
+			<ChangeSlideArrows />
 			<Flex pos="relative" flexDir="column">
 				<Flex
 					w="100%"

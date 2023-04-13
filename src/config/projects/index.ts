@@ -1,5 +1,7 @@
 import { CarouselSlide } from 'components/carousel/CarouselContext';
-import { MakeItAllLogo } from 'components/MakeItAllLogo';
+import { MakeItAllLogo } from './MakeItAllLogo';
+import { GumboLogo } from './gumbo-logo-icon';
+import { AxaltLogo } from 'config/projects/axalt-logo';
 
 export type Project = {
 	name: string;
@@ -20,7 +22,7 @@ export const projects: Project[] = [
 		description:
 			'A task management and documentation portal for a software development company.',
 		Icon: MakeItAllLogo,
-		image: 'images/makeItAll/demo-1-kanban.jpeg',
+		image: '/images/makeItAll/demo-1-kanban.jpeg',
 		wideCard: true,
 		githubUrl: 'https://github.com/DawidWraga/team-project',
 		demoUrl: 'https://makeitall.vercel.app/',
@@ -51,12 +53,26 @@ export const projects: Project[] = [
 			},
 		],
 	},
-	{ id: '2', name: 'title2', description: 'subtitle', Icon: '', image: '' },
+	{
+		id: '2',
+		name: 'Ai powered sustainable recipe search engine',
+		description: '',
+		Icon: GumboLogo,
+		image: '/projects/gumbo/search/desktop.png',
+		carouselSlides: [
+			{
+				label: 'Search engine',
+				img: '/projects/gumbo/search/desktop.png',
+				description:
+					'Intuitive search engine with advanced filtering options, powered by AI to find the best recipes for you.',
+			},
+		],
+	},
 	{
 		id: '3',
-		name: 'Company website',
-		description: 'subtitle',
-		Icon: '',
+		name: 'Landing page',
+		description: 'Company website & job application portal',
+		Icon: AxaltLogo,
 		image: '',
 		carouselSlides: [
 			{
@@ -96,9 +112,10 @@ export const projects: Project[] = [
 	},
 	{
 		id: '4',
-		name: 'HR & Invoice management portal (Axalt ltd)',
-		description: 'subtitle',
-		Icon: '',
+		name: 'Human Resource management portal',
+		description:
+			'Employee portal for timesheet, payslip and invoice automation',
+		Icon: AxaltLogo,
 		image: '',
 		wideCard: true,
 	},
