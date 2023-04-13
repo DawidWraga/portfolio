@@ -13,7 +13,7 @@ interface IProps {
 export function CarouselWrapper(props: IProps) {
 	const { children, slides = defaultSlides } = props;
 
-	const [currentSlide, setCurrentSlide] = useState(0);
+	const [currentSlide, setCurrentSlide] = useState<number>(0);
 
 	const slideCount = slides.length;
 
