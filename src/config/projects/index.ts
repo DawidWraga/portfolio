@@ -97,6 +97,7 @@ export const projects: Project[] = [
 			'A sustainability focused search-engine, leveraging AI to provide users with the best recipes using ingredients they already have at home. ',
 		Icon: GumboLogo,
 		image: '/projects/gumbo/search/desktop.png',
+		demoUrl: 'https://gumbo.co.uk/',
 		carouselSlides: [
 			{
 				label: 'Search engine',

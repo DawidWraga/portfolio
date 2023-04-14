@@ -38,9 +38,11 @@ export function PageWrapper(props: PageWrapperProps) {
 					as="header"
 					align="center"
 					justify="space-between"
+					flexWrap="wrap"
+					pt={1}
 					{...headerContainerProps}
 				>
-					<Flex align="center" gap={2}>
+					<Flex align="center" gap={2} flex={1}>
 						{hasBackButton && <BackButton />}
 						<Text
 							as="h2"
@@ -48,6 +50,7 @@ export function PageWrapper(props: PageWrapperProps) {
 							fontWeight={600}
 							color="text.primary"
 							textTransform="capitalize"
+							isTruncated
 						>
 							{title}
 						</Text>

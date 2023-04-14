@@ -55,7 +55,7 @@ export function ProjectDetailsCard(props: IProps) {
 				demoUrl={demoUrl}
 			/>
 			<Carousel.Wrapper slides={project.carouselSlides || []}>
-				<Carousel.Slides imgLayoutId={layoutIds.img} />
+				<Carousel.Slides />
 				<Box
 					as={motion.div}
 					variants={{

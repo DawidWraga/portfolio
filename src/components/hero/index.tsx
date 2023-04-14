@@ -12,6 +12,7 @@ import {
 import { AnimatedLetters, AnimatedText } from 'components/AnimatedText';
 import { motion } from 'framer-motion';
 import { FaceIcon } from '../../../public/images/FaceIcon';
+import { Image } from 'components/common/Image';
 
 export function Hero() {
 	return (
@@ -20,7 +21,7 @@ export function Hero() {
 				align={'center'}
 				spacing={{ base: 8, md: 10 }}
 				py={{ base: 20, md: 28 }}
-				direction={{ base: 'column', md: 'row' }}
+				direction={{ base: 'column-reverse', md: 'row' }}
 				px={2}
 			>
 				<Stack flex={1} spacing={{ base: 10, md: 10 }}>
@@ -77,8 +78,8 @@ export function Hero() {
 						textVariants="staggered"
 						fontWeight={300}
 					>
-						Passionate about creating exceptional user experiences, specializing
-						in web technologies
+						Entrepreneurial engineer on a mission to uplift humanity through
+						technology.
 					</AnimatedLetters>
 					<Stack
 						spacing={{ base: 4, sm: 6 }}
@@ -135,7 +136,34 @@ export function Hero() {
 						</Button>
 					</Stack>
 				</Stack>
-				<Flex
+				<Image
+					as={motion.div}
+					initial={{
+						opacity: 0,
+					}}
+					animate={{
+						opacity: 1,
+						transition: {
+							delay: 2.6,
+							duration: 1,
+						},
+					}}
+					priority
+					loading="eager"
+					src="/images/face-photo.png"
+					width={400}
+					height={400}
+					alt="Dawid"
+					objectFit={'contain'}
+					wrapperStyles={{
+						pos: 'relative',
+						h: '100%',
+						mx: 'auto',
+						display: 'flex',
+						// flex: 1,
+					}}
+				/>
+				{/* <Flex
 					flex={1}
 					justify={'center'}
 					align={'center'}
@@ -159,7 +187,7 @@ export function Hero() {
 						h={{ base: '250px', md: '270px', lg: '300px' }}
 						zIndex={5}
 					/>
-				</Flex>
+				</Flex> */}
 			</Stack>
 		</Container>
 	);

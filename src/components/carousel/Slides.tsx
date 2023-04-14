@@ -30,7 +30,14 @@ export function Slides(props: IProps) {
 				<>
 					{slides.map((slide, sid) => {
 						return (
-							<Box boxSize="full" shadow="md" flex="none" w="100%" h="auto">
+							<Box
+								key={`slide-img-${sid}`}
+								boxSize="full"
+								shadow="md"
+								flex="none"
+								w="100%"
+								h="auto"
+							>
 								<Image
 									key={'slide-' + sid}
 									layout="fill"

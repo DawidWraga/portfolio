@@ -21,9 +21,9 @@ export default function LandingPage() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Hero />
+			<About />
 			<ProjectCardList />
 			{/* <ProjectsList /> */}
-			<About />
 			{/* <BlogSection /> */}
 			<Contact />
 			<Footer />
