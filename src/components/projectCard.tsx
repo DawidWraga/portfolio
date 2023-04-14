@@ -56,6 +56,7 @@ export function ProjectCard(props: IProps) {
 				height={550}
 				as={motion.div}
 				layoutId={layoutIds.img}
+
 				imgStyles={{
 					w: 'auto',
 					h: '100%',

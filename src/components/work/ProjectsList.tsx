@@ -38,15 +38,20 @@ export function ProjectsList(props: IProps) {
 				))}
 			</SimpleGrid>
 
-			<AnimatePresence>
-				{selectedId && (
-					<ProjectDetailsCard project={selected!} onClose={onClose} />
-				)}
-			</AnimatePresence>
+
+
+
+
+
+			{/* <AnimatePresence> */}
+			{selectedId && (
+				<ProjectDetailsCard project={selected!} onClose={onClose} />
+			)}
+			{/* </AnimatePresence> */}
 
 			{/* overlay */}
 			<Box
-				bgColor={'blackAlpha.500'}
+				bgColor={'rgba(23, 25, 35, .8)'}
 				w="100vw"
 				h="100vh"
 				position={'fixed'}
@@ -55,9 +60,11 @@ export function ProjectsList(props: IProps) {
 				zIndex={9999}
 				onClick={onClose}
 				_hover={{ cursor: 'pointer' }}
-				opacity={selectedId ? 0.8 : 0}
+				opacity={selectedId ? 0.9 : 0}
 				pointerEvents={selectedId ? 'unset' : 'none'}
 				transition={'opacity 0.3s ease-in-out'}
+				backdropFilter="blur(24px)"
+				// backdropBlur={'2rem'}
 			/>
 		</Section>
 	);

@@ -2,6 +2,7 @@ import { Box, Flex, Stack, Text } from '@chakra-ui/react';
 import { CardMedia } from '@saas-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { ChangeSlideArrows } from 'components/carousel/ChangeSlideArrows';
+import { SlideDescription } from 'components/carousel/SlideDescription';
 import { Image, ImageProps } from 'components/common/Image';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
@@ -9,42 +10,53 @@ import { useMemo } from 'react';
 
 interface IProps {
 	imageProps?: ImageProps;
+	imgLayoutId?: string;
 }
 
 export function Slides(props: IProps) {
-	const { imageProps } = props;
+	const { imageProps, imgLayoutId } = props;
 
 	const { slides, currentSlide } = useCarouselContext();
 
-	const carouselStyle = useMemo(
-		() => ({
+	const carouselStyle = useMemo(() => {
+		return {
 			transition: 'all .5s',
 			ml: `-${currentSlide * 100}%`,
-		}),
-		[currentSlide]
-	);
+		};
+	}, [currentSlide]);
 
 	return (
-		<Flex w="100%" pos="relative" overflow="hidden">
+		<Flex
+			w="100vw"
+			h="100vh"
+			display="flex"
+			pointerEvents={'none'}
+			align="center"
+			justify="center"
+			pos="fixed"
+			top={0}
+			left={0}
+		>
 			<Flex
-				minH="clamp(400px, 60vh, 1500px)"
+				// w="70vw"
 				w="100%"
-				// pos="relative"
+				mx="auto"
+				// overflow={'hidden'}
 				{...carouselStyle}
 			>
-				<>
+				<Flex grow={1} pos="relative">
 					{slides.map((slide, sid) => {
 						let conditionalProps = {};
 						const isFirst = sid === 0;
 						if (isFirst) {
-							const layoutIds = getLayoutIds(sid.toString());
-							conditionalProps = { as: motion.div, layoutId: layoutIds.img };
+							conditionalProps = {
+								as: motion.div,
+								layoutId: imgLayoutId,
+								// layout: 'position',
+							};
 						}
-
 						const isActive = currentSlide === sid;
-
 						return (
-							// <Box key={'slide-' + sid} boxSize="full" shadow="md" flex="none">
 							<Image
 								key={'slide-' + sid}
 								src={slide.img}
@@ -54,27 +66,39 @@ export function Slides(props: IProps) {
 								width={1000}
 								height={800}
 								layout="fill"
-								as={motion.div}
 								{...conditionalProps}
 								{...imageProps}
 								wrapperStyles={{
-									boxSize: 'full',
-									flex: 'none',
-									display: 'flex',
-									alignItems: 'stretch',
-									justifyContent: 'stretch',
+									// boxSize: 'full',
+									flexShrink: 0,
+									flexGrow: 1,
+									// display: 'flex',
+									// alignItems: 'stretch',
+									// justifyContent: 'stretch',
 									w: '100%',
+									minH: '600px',
 								}}
 								imgStyles={{
 									w: '100%',
-									h: 'auto',
-									// objectFit: 'cover',
+									h: '100%',
+									minH: '500px',
 								}}
 							/>
 						);
 					})}
-					{/* <ChangeSlideArrows /> */}
-				</>
+					<SlideDescription
+						pos="absolute"
+						bottom={'100%'}
+						left={'50%'}
+						transform={'translateX(-50%)'}
+						mx="auto"
+						sx={{
+							'& *': {
+								textAlign: 'center',
+							},
+						}}
+					/>
+				</Flex>
 			</Flex>
 		</Flex>
 	);

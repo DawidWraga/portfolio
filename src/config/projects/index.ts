@@ -28,13 +28,13 @@ export const projects: Project[] = [
 		demoUrl: 'https://makeitall.vercel.app/',
 		carouselSlides: [
 			{
-				img: '/images/makeItAll/demo-1-kanban.gif',
+				img: '/images/makeItAll/demo-1-kanban.jpeg',
 				label: 'Kanban board',
 				description:
 					'Create tasks, assign users, drag and drop to move a task between custom statuses and more.',
 			},
 			{
-				img: '/images/makeItAll/demo-2-dashboards.gif',
+				img: '/images/makeItAll/demo-2-dashboards.jpeg',
 				label: 'Dashboards',
 				description:
 					'Employee dashboards vizualising productivity statistics from tasks completed throughout prevous months.',

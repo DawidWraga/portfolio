@@ -6,6 +6,7 @@ export interface ImageProps
 		Omit<BoxProps, keyof NextImageProps | 'sx'> {
 	imgStyles?: BoxProps['sx'];
 	wrapperStyles?: BoxProps['sx'];
+	otherWrapperProps?: any;
 }
 
 export const Image: ChakraComponent<'img', ImageProps> = (
@@ -23,6 +24,7 @@ export const Image: ChakraComponent<'img', ImageProps> = (
 		layout,
 		imgStyles,
 		wrapperStyles,
+		otherWrapperProps,
 		...wrapperProps
 	} = props;
 
