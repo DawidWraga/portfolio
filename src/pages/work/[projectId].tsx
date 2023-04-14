@@ -1,4 +1,6 @@
+import { CarouselComplete } from 'components/carousel/carousel-complete';
 import { PageWrapper } from 'components/common/page-wrapper';
+import { AccordianDetails } from 'components/projects/accordian-details';
 import { projects } from 'config/projects';
 import { useRouter } from 'next/router';
 
@@ -13,7 +15,8 @@ export default function projectPage(props: IProps) {
 	return (
 		<>
 			<PageWrapper title={p?.name} hasBackButton>
-				test
+				<CarouselComplete slides={p?.carouselSlides} />
+				<AccordianDetails projectDetails={p?.details} />
 			</PageWrapper>
 		</>
 	);

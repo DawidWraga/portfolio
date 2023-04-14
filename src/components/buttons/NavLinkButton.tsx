@@ -18,8 +18,10 @@ export const NavLinkButton = ({
 }: NavLinkButtonProps) => {
 	const { activeSections } = useActiveSectionStore();
 
-	const sectionIdentifier = linkProps?.href?.replace('#', '') ?? '';
+	const sectionIdentifier =
+		linkProps?.href?.replace('#', '').replace('/', '') ?? '';
 	const isActive = activeSections.includes(sectionIdentifier);
+
 	return (
 		<Link
 			{...(isActive && { className: 'active-nav-link' })}

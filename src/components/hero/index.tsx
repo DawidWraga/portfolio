@@ -106,7 +106,7 @@ export function Hero() {
 							px={6}
 							colorScheme={'red'}
 							bg={'red.400'}
-							href={'#projects'}
+							href={'/#work'}
 						>
 							View Projects
 						</Button>

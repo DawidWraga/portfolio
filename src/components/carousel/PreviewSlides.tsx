@@ -16,7 +16,7 @@ export function PreviewSlides(props: IProps) {
 			pt={1}
 			mx="auto"
 			justify="center"
-			w="100%"
+			// w="100%"
 			// pos="absolute"
 			// bottom="8px"
 			minH="80px"

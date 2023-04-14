@@ -14,7 +14,26 @@ export type Project = {
 	demoUrl?: string;
 	carouselSlides?: (CarouselSlide & { alt?: any })[];
 	wideCard?: boolean;
+	details?: ProjectDetails;
 };
+
+export type ProjectDetails = {
+	overview?: string;
+	why?: string;
+	role?: string;
+	techStack?: string[];
+	features?: string[];
+	challenges?: string[];
+};
+
+export const projectDetailsOrdered = [
+	'overview',
+	'why',
+	'role',
+	'techStack',
+	'features',
+	'challenges',
+] as const;
 
 export const projects: Project[] = [
 	{
@@ -54,6 +73,21 @@ export const projects: Project[] = [
 					'Secure login using cookies / JWT based authorization, registration forms, input validation, and more',
 			},
 		],
+		details: {
+			why: 'To provide an efficient way for teams to manage tasks and documents internally.',
+			features: [
+				'The platform offers several features, including Kanban boards for organizing tasks and projects. Users can create tasks, assign users, and drag and drop tasks between custom statuses.',
+				'The platform also includes employee dashboards that visualize productivity statistics from completed tasks over the previous months.',
+				'The editor is intuitive and user-friendly, making it easy to create and format documents without the need for advanced technical skills.',
+				'The platform features secure user authentication using cookies / JWT-based authorization.',
+				'The platform also features registration forms and input validation to prevent unauthorized access.',
+			],
+			challenges: [
+				'Implementing secure user authentication',
+				'Building a rich text editor',
+				'Client and server routing and performance optimization',
+			],
+		},
 	},
 	{
 		id: '2',

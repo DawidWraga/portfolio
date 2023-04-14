@@ -11,7 +11,7 @@ export const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
 		<AppShell navbar={<Header />}>
 			<>
 				{children}
-				<ColorModeToggle />
+				{/* <ColorModeToggle /> */}
 			</>
 		</AppShell>
 	);

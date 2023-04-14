@@ -20,7 +20,8 @@ export const EmptyState = (props: EmptyStateProps) => {
 			description="Please check the URL and try again."
 			spacing={0}
 			sx={{
-				mt: 5,
+				mt: '200px',
+				h: '100%',
 				'& .saas-empty-state__body': {
 					display: 'flex',
 					flexDirection: 'column',

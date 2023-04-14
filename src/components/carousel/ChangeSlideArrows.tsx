@@ -36,8 +36,8 @@ export function ChangeSlideArrow(props: IChangeSlideArrowProps) {
 
 const arrowStyles = {
 	cursor: 'pointer',
-	pos: 'fixed',
-	top: '50vh',
+	pos: 'absolute',
+	top: '50%',
 	// transform: 'translateY(-50%)',
 	mt: '-22px',
 	// bg: 'red',
@@ -52,7 +52,7 @@ const arrowStyles = {
 	h: 'clamp(20px, 5vw, 50px)',
 	textAlign: 'center',
 	zIndex: 1,
-	// mx: 2,
+	mx: 2,
 	colorScheme: 'blackAlpha',
 	userSelect: 'none',
 } as const;

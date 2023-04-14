@@ -38,19 +38,6 @@ export function CarouselWrapper(props: IProps) {
 				slides,
 			}}
 		>
-			<ChangeSlideArrows />
-			<Flex pos="relative" flexDir="column">
-				<Flex
-					w="100%"
-					bg="#edf3f8"
-					_dark={{ bg: '#3e3e3e' }}
-					// p={10}
-					alignItems="center"
-					justifyContent="center"
-					h="100%"
-				></Flex>
-			</Flex>
-
 			{children}
 		</CarouselProvider>
 	);

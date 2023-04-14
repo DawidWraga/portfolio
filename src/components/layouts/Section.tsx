@@ -31,7 +31,7 @@ export function Section(props: IProps) {
 		<Box
 			as={motion.section}
 			w="100%"
-			minH="700px"
+			minH="750px"
 			onViewportEnter={() => {
 				addActiveSection(sectionId);
 			}}

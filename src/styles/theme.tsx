@@ -37,19 +37,23 @@ const colors = {
 
 const config: ThemeConfig = {
 	initialColorMode: 'dark',
-	useSystemColorMode: true,
+	useSystemColorMode: false,
 };
 
 const components = {
-	// Button: {
-	// 	variants: {
-	// 		ghost: (props: StyleFunctionProps) => ({
-	// 			_hover: {
-	// 				bg: 'red.500',
-	// 			},
-	// 		}),
-	// 	},
-	// },
+	Button: {
+		baseStyles: {
+			rounded: 'full',
+			textTransform: 'capitalize',
+		},
+		// variants: {
+		// 	ghost: (props: StyleFunctionProps) => ({
+		// 		_hover: {
+		// 			bg: 'red.500',
+		// 		},
+		// 	}),
+		// },
+	},
 };
 
 export const theme = extendTheme(
@@ -62,6 +66,9 @@ export const theme = extendTheme(
 			global: {
 				'html, body': {
 					height: '100%',
+				},
+				'ul, ol': {
+					listStyle: 'none',
 				},
 			},
 		},

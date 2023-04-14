@@ -2,8 +2,11 @@ import { Flex, Grid, GridItem, SimpleGrid } from '@chakra-ui/react';
 import { Section } from 'components/layouts/Section';
 import { ProjectCard } from 'components/projects/project-card';
 import { projects } from 'config/projects';
+import { getStaggerProps } from 'motion/get-stagger-props';
 
 export interface ProjectCardListProps {}
+
+const staggeredProps = getStaggerProps();
 
 export function ProjectCardList(props: ProjectCardListProps) {
 	const {} = props;
@@ -23,10 +26,11 @@ export function ProjectCardList(props: ProjectCardListProps) {
 					h="100%"
 					gap={5}
 					my={12}
+					{...staggeredProps.container}
 				>
 					{projects.map((p) => (
-						<GridItem>
-							<ProjectCard key={'project-card-' + p.id} project={p} />
+						<GridItem key={'project-card-' + p.id} {...staggeredProps.children}>
+							<ProjectCard project={p} />
 						</GridItem>
 					))}
 				</SimpleGrid>

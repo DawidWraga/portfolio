@@ -4,6 +4,7 @@ interface IActiveSectionStore {
 	activeSections: string[];
 	addActiveSection: (section: string) => void;
 	removeActiveSection: (section: string) => void;
+	setActiveSections: (sections: string[]) => void;
 }
 export const useActiveSectionStore = createStore<IActiveSectionStore>(
 	'User',
@@ -15,6 +16,7 @@ export const useActiveSectionStore = createStore<IActiveSectionStore>(
 			set((state) => ({
 				activeSections: state.activeSections.filter((s) => s !== section),
 			})),
-		// setActiveSection: (section: string) => set({ activeSection: section }),
+		setActiveSections: (sections: string[] = []) =>
+			set({ activeSections: sections }),
 	})
 );

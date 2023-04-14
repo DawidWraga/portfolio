@@ -26,42 +26,44 @@ export function PageWrapper(props: PageWrapperProps) {
 
 	return (
 		<ErrorBoundary errorComponent={errorComponent}>
-			<Box
-				mt={'50px'}
-				h="80px"
-				p={2}
-				mx={2}
-				// borderBottom="1px solid"
-				// borderBottomColor="gray.300"
-				display="flex"
-				alignItems="center"
-				justifyContent="space-between"
-				as="header"
-				{...headerContainerProps}
-			>
-				<Flex align="center" gap={2}>
-					{hasBackButton && <BackButton />}
-					<Text
-						as="h2"
-						fontSize="xl"
-						fontWeight={600}
-						color="text.primary"
-						textTransform="capitalize"
-					>
-						{title}
-					</Text>
-				</Flex>
-				{toolbar && <Flex>{toolbar}</Flex>}
-			</Box>
 			<Flex
-				direction="column"
-				p={3}
-				grow={1}
-				overflowY="auto"
-				mx={2}
-				sx={{ '& > *:first-of-type': { h: '100%' } }}
+				flexDir="column"
+				p={2}
+				mx={'auto'}
+				mt={'50px'}
+				w="100%"
+				maxW="container.xl"
 			>
-				{children}
+				<Flex
+					as="header"
+					align="center"
+					justify="space-between"
+					{...headerContainerProps}
+				>
+					<Flex align="center" gap={2}>
+						{hasBackButton && <BackButton />}
+						<Text
+							as="h2"
+							fontSize="xl"
+							fontWeight={600}
+							color="text.primary"
+							textTransform="capitalize"
+						>
+							{title}
+						</Text>
+					</Flex>
+					{toolbar && <Flex>{toolbar}</Flex>}
+				</Flex>
+				<Flex
+					flexDir="column"
+					p={3}
+					grow={1}
+					overflowY="auto"
+					mx={2}
+					sx={{ '& > *:first-of-type': { h: '100%' } }}
+				>
+					{children}
+				</Flex>
 			</Flex>
 		</ErrorBoundary>
 	);
