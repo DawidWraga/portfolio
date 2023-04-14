@@ -41,15 +41,15 @@ const config: ThemeConfig = {
 };
 
 const components = {
-	Button: {
-		variants: {
-			ghost: (props: StyleFunctionProps) => ({
-				_hover: {
-					bg: 'red.500',
-				},
-			}),
-		},
-	},
+	// Button: {
+	// 	variants: {
+	// 		ghost: (props: StyleFunctionProps) => ({
+	// 			_hover: {
+	// 				bg: 'red.500',
+	// 			},
+	// 		}),
+	// 	},
+	// },
 };
 
 export const theme = extendTheme(

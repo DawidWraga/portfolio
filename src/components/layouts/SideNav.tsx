@@ -1,55 +1,61 @@
-import { useRef } from 'react';
 import {
-	Box,
-	Button,
 	Drawer,
 	DrawerBody,
 	DrawerCloseButton,
 	DrawerContent,
-	DrawerFooter,
-	DrawerHeader,
 	DrawerOverlay,
-	IconButton,
-	useDisclosure,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { useRef } from 'react';
+import { useLayoutStore } from 'stores/use-layout-store';
 import { Nav } from '../layouts/Header';
-import ContactBtn from '../ContactBtn';
 
 interface ISideNavProps {}
 
 const SideNav: React.FC<ISideNavProps> = ({}) => {
-	const { isOpen, onOpen, onClose } = useDisclosure();
+	// const { isOpen, onOpen, onClose } = useDisclosure();
+
+	const { toggleSidebar, sidebarIsOpen, closeSidebar } = useLayoutStore();
 	const btnRef = useRef(null);
 
 	return (
-		<Box display={{ base: 'inline-block', md: 'none' }}>
-			<IconButton
-				size={'md'}
-				icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-				aria-label={'Open Menu'}
-				display={{ md: 'none' }}
-				onClick={isOpen ? onClose : onOpen}
-			/>
+		<>
 			<Drawer
-				isOpen={isOpen}
+				isOpen={sidebarIsOpen}
 				placement="right"
-				onClose={onClose}
+				onClose={closeSidebar}
 				finalFocusRef={btnRef}
+				size={'full'}
 			>
 				<DrawerOverlay />
-				<DrawerContent>
-					<DrawerCloseButton />
-					<DrawerHeader>Menu</DrawerHeader>
-					<DrawerBody>
-						<Nav>
-							<ContactBtn onClick={onClose} />
-						</Nav>
+				<DrawerContent
+					sx={{
+						top: '160px',
+						pos: 'relative',
+						h: 'calc(100vh - 50px)',
+						mt: 'auto',
+						bgColor: 'rgba(45 55 72 / 0.93)',
+						backdropFilter: 'blur(10px)',
+					}}
+				>
+					{/* <DrawerCloseButton /> */}
+					{/* <DrawerHeader>Menu</DrawerHeader> */}
+					<DrawerBody
+						display="flex"
+						w="100%"
+						h="100%"
+						pos="relative"
+						bottom="30px"
+						sx={{
+							'& a': {
+								fontSize: '5xl',
+							},
+						}}
+					>
+						<Nav onClose={closeSidebar} />
 					</DrawerBody>
-					d
 				</DrawerContent>
 			</Drawer>
-		</Box>
+		</>
 	);
 };
 

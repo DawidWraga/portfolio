@@ -7,6 +7,7 @@ import { Box } from '@chakra-ui/react';
 import { BlogSection } from 'components/blog/BlogSection';
 import { Footer } from 'components/layouts/Footer';
 import { Contact } from 'components/Contact';
+import { ProjectCardList } from 'components/projects/project-card-list';
 
 export default function LandingPage() {
 	return (
@@ -20,7 +21,8 @@ export default function LandingPage() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Hero />
-			<ProjectsList />
+			<ProjectCardList />
+			{/* <ProjectsList /> */}
 			<About />
 			{/* <BlogSection /> */}
 			<Contact />

@@ -5,6 +5,7 @@ import { AxaltLogo } from 'config/projects/axalt-logo';
 
 export type Project = {
 	name: string;
+	role?: string;
 	description: string;
 	image: string;
 	Icon: any;
@@ -19,8 +20,9 @@ export const projects: Project[] = [
 	{
 		id: '1',
 		name: 'Task & Document management portal',
+		role: 'Lead Full-stack Engineer at Make It All',
 		description:
-			'A task management and documentation portal for a software development company.',
+			'An intranet portal for managing tasks and documents, featuring Kanban boards, rich text editor, user authentication and more.',
 		Icon: MakeItAllLogo,
 		image: '/images/makeItAll/demo-1-kanban.jpeg',
 		wideCard: true,
@@ -55,8 +57,10 @@ export const projects: Project[] = [
 	},
 	{
 		id: '2',
-		name: 'Ai powered sustainable recipe search engine',
-		description: '',
+		name: 'Recipe search engine',
+		role: 'Lead Front-end Engineer at Gumbo',
+		description:
+			'A sustainability focused search-engine, leveraging AI to provide users with the best recipes using ingredients they already have at home. ',
 		Icon: GumboLogo,
 		image: '/projects/gumbo/search/desktop.png',
 		carouselSlides: [
@@ -70,8 +74,10 @@ export const projects: Project[] = [
 	},
 	{
 		id: '3',
-		name: 'Landing page',
-		description: 'Company website & job application portal',
+		name: 'Company Landing page',
+		role: 'Junior Full-stack Web Developer at Axalt',
+		description:
+			'A landing page for a software development consultancy, featuring job applications, contact forms and authentication into the intranet portal.',
 		Icon: AxaltLogo,
 		image: '',
 		carouselSlides: [
@@ -113,8 +119,9 @@ export const projects: Project[] = [
 	{
 		id: '4',
 		name: 'Human Resource management portal',
+		role: 'Junior Full-stack Web Developer at Axalt',
 		description:
-			'Employee portal for timesheet, payslip and invoice automation',
+			'Secure and scalable enterprise software for automating employee timesheets, payslips and invoices.',
 		Icon: AxaltLogo,
 		image: '',
 		wideCard: true,

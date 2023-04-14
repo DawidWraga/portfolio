@@ -51,12 +51,12 @@ export function ProjectCard(props: IProps) {
 				</Heading>
 			</Flex>
 			<Image
+				alt=""
 				src={image}
 				width={1000}
 				height={550}
 				as={motion.div}
 				layoutId={layoutIds.img}
-
 				imgStyles={{
 					w: 'auto',
 					h: '100%',

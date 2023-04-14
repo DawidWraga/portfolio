@@ -6,8 +6,11 @@ import { modals } from 'components/modals';
 import { MainLayout } from 'components/layouts/MainLayout';
 import 'styles/global.css';
 import { Analytics } from '@vercel/analytics/react';
+import { ToastContainer } from 'components/common/toast-container';
+import { useCloseSidebarOnRouteChange } from 'hooks/use-close-sidebar-on-route-change';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+	useCloseSidebarOnRouteChange();
 	return (
 		<>
 			<SaasProvider theme={theme} linkComponent={Link}>
@@ -17,6 +20,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					</MainLayout>
 				</ModalsProvider>
 			</SaasProvider>
+			<ToastContainer />
 			<Analytics />
 		</>
 	);

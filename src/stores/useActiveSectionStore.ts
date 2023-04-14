@@ -1,4 +1,4 @@
-import { createStore } from 'lib/createStore';
+import { createStore } from 'utils/create-store';
 
 interface IActiveSectionStore {
 	activeSections: string[];

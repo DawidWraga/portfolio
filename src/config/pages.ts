@@ -1,5 +1,5 @@
 export const pages = [
-	{ label: 'projects', route: '#projects' },
+	{ label: 'work', route: '#work' },
 	{ label: 'about', route: '#about' },
 	// { label: 'blog', route: '#blog' },
 	{ label: 'contact', route: '#contact' },

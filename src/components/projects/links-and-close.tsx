@@ -1,5 +1,5 @@
 import { CloseButton, Flex } from '@chakra-ui/react';
-import { LinkButton } from 'components/LinkButton';
+import { LinkButton } from 'components/buttons/link-button';
 import { BsDisplay } from 'react-icons/bs';
 import { SiGithub } from 'react-icons/si';
 

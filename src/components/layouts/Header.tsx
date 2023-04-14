@@ -1,15 +1,17 @@
-import { Box, Button, Flex, Spacer, Text } from '@chakra-ui/react';
-import ColorModeToggle from 'components/ColorModeToggle';
+import { Box, Button, Flex, Show, Spacer, Text } from '@chakra-ui/react';
+import ColorModeToggle from 'components/buttons/ColorModeToggle';
 import SideNav from 'components/layouts/SideNav';
-import { NavLinkButton } from 'components/NavLinkButton';
+import { NavLinkButton } from 'components/buttons/NavLinkButton';
 import { pages } from 'config/pages';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { BurgerMenu } from 'components/layouts/burger-menu';
 
 interface IHeaderProps {}
 
 interface INavProps {
 	children?: React.ReactNode;
+	onClose?: () => void;
 }
 
 const variants = {
@@ -17,25 +19,25 @@ const variants = {
 		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
-			transition: { staggerChildren: 0.1, delayChildren: 1 },
+			transition: { staggerChildren: 0.25, delayChildren: 0 },
 		},
 	},
 	children: {
 		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
-			transition: {
-				duration: 1,
-				ease: 'easeInOut',
-			},
+			// transition: {
+			// 	duration: 1,
+			// 	ease: 'easeInOut',
+			// },
 		},
 	},
 };
-export const Nav: React.FC<INavProps> = ({ children }) => {
+export const Nav: React.FC<INavProps> = ({ children, onClose }) => {
 	return (
 		<Flex
 			as={motion.ul}
-			gap="5"
+			gap={{ base: 10, md: 5 }}
 			direction={{ base: 'column', md: 'row' }}
 			variants={variants.container}
 			initial={'hidden'}
@@ -51,8 +53,15 @@ export const Nav: React.FC<INavProps> = ({ children }) => {
 					variants={variants.children}
 					w="full"
 					listStyleType={'none'}
-					initial="hidden"
-					animate="visible"
+					sx={{
+						'& *': {
+							fontSize: { base: '4xl', md: 'lg' },
+						},
+					}}
+					onClick={onClose}
+					// fontSize={{ base: '2xl', md: 'lg' }}
+					// initial="hidden"
+					// animate="visible"
 				>
 					<NavLinkButton linkProps={{ href: page.route || '/' }}>
 						{page.label}
@@ -80,7 +89,7 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 			top={0}
 			// top={scrollDirection === 'down' ? '-100px' : '0'}
 			w="100vw"
-			zIndex="banner"
+			zIndex="99999"
 			transition="top 200ms ease-in-out"
 		>
 			<Flex as="nav" py="2" px={'4'} w="container.xl" align={'center'}>
@@ -98,12 +107,14 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 					</Text>
 				</Link>
 				<Spacer />
-				<Box display={{ base: 'none', md: 'inline-block' }}>
+				<Show above="md">
 					<Nav />
-				</Box>
-				<SideNav />
+				</Show>
+				<Show below="md">
+					<BurgerMenu />
 
-				{/* </Flex> */}
+					<SideNav />
+				</Show>
 			</Flex>
 		</Flex>
 	);

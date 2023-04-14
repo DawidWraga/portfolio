@@ -1,8 +1,4 @@
-import {
-	Icon,
-	IconProps,
-	LinkProps
-} from '@chakra-ui/react';
+import { Icon, IconProps, LinkProps } from '@chakra-ui/react';
 import { Link, PropsOf } from '@saas-ui/react';
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { useActiveSectionStore } from 'stores/useActiveSectionStore';

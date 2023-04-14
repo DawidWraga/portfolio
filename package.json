@@ -1,42 +1,44 @@
 {
-  "name": "portfolio-1",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@chakra-ui/icons": "^2.0.18",
-    "@chakra-ui/react": "^2.5.5",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@popmotion/popcorn": "^0.4.4",
-    "@saas-ui/react": "^1.9.1",
-    "@svgr/webpack": "^6.5.1",
-    "@vercel/analytics": "^0.1.11",
-    "framer-motion": "^6.5.1",
-    "lodash.debounce": "^4.0.8",
-    "lodash.flattendeep": "^4.4.0",
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.8.0",
-    "react-tracked": "^1.7.11",
-    "scheduler": "^0.23.0",
-    "zustand": "^4.3.7"
-  },
-  "devDependencies": {
-    "@types/lodash.debounce": "^4.0.7",
-    "@types/lodash.flattendeep": "^4.4.7",
-    "@types/node": "18.7.18",
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.6",
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1",
-    "simple-zustand-devtools": "^1.1.0",
-    "typescript": "4.8.3"
-  }
+	"name": "portfolio-1",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@chakra-ui/icons": "^2.0.18",
+		"@chakra-ui/next-js": "^2.1.2",
+		"@chakra-ui/react": "^2.5.5",
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@popmotion/popcorn": "^0.4.4",
+		"@saas-ui/react": "^1.9.1",
+		"@svgr/webpack": "^6.5.1",
+		"@vercel/analytics": "^0.1.11",
+		"framer-motion": "^6.5.1",
+		"lodash.debounce": "^4.0.8",
+		"lodash.flattendeep": "^4.4.0",
+		"next": "^13.3.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.8.0",
+		"react-toastify": "^9.1.2",
+		"react-tracked": "^1.7.11",
+		"scheduler": "^0.23.0",
+		"zustand": "^4.3.7"
+	},
+	"devDependencies": {
+		"@types/lodash.debounce": "^4.0.7",
+		"@types/lodash.flattendeep": "^4.4.7",
+		"@types/node": "18.7.18",
+		"@types/react": "18.0.20",
+		"@types/react-dom": "18.0.6",
+		"eslint": "8.23.1",
+		"eslint-config-next": "12.3.1",
+		"simple-zustand-devtools": "^1.1.0",
+		"typescript": "4.8.3"
+	}
 }

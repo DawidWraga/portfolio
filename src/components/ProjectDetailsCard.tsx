@@ -1,6 +1,6 @@
 import { Box, Icon as ChakraIcon, Flex, Heading } from '@chakra-ui/react';
 import { Carousel } from 'components/carousel';
-import { LinksAndClose } from 'components/project/links-and-close';
+import { LinksAndClose } from 'components/projects/links-and-close';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
 import { getLayoutIds } from 'pages/work';
