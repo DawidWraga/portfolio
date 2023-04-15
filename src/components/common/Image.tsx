@@ -1,5 +1,6 @@
 import { Box, BoxProps, ChakraComponent } from '@chakra-ui/react';
 import NextImage, { type ImageProps as NextImageProps } from 'next/image';
+import React from 'react';
 
 export interface ImageProps
 	extends NextImageProps,
@@ -42,6 +43,10 @@ export const Image: ChakraComponent<'img', ImageProps> = (
 
 	return (
 		<>
+			{/* @ts.ignore */}
+			{/* 
+			
+			//@ts-ignore*/}
 			<Box
 				className=".img-wrapper"
 				sx={{
