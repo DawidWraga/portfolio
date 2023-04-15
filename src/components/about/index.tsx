@@ -32,7 +32,7 @@ export function About(props: IProps) {
 					<WhoAmI />
 				</GridItem>
 				<GridItem
-					order={{ base: -1, lg: 0 }}
+					// order={{ base: 1, lg: 0 }}
 					display="flex"
 					justifyContent="center"
 					alignItems="center"

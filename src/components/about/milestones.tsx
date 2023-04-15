@@ -48,6 +48,7 @@ const Milestones = () => {
 							key={index}
 							skipTrail={index === milestones.length - 1}
 							icon={milestone.icon}
+							mb={2}
 						>
 							{milestone.text}
 						</MilestoneItem>

@@ -16,12 +16,12 @@ import { Image } from 'components/common/Image';
 
 export function Hero() {
 	return (
-		<Container maxW={'container.xl'} minH="650px">
+		<Container maxW={'container.xl'} minH="clamp(400px, 80vh, 1200px)">
 			<Stack
 				align={'center'}
 				spacing={{ base: 8, md: 10 }}
 				py={{ base: 20, md: 28 }}
-				direction={{ base: 'column-reverse', md: 'row' }}
+				direction={{ base: 'column', md: 'row' }}
 				px={2}
 			>
 				<Stack flex={1} spacing={{ base: 10, md: 10 }}>
@@ -160,6 +160,7 @@ export function Hero() {
 						h: '100%',
 						mx: 'auto',
 						display: 'flex',
+						maxW: '400px',
 						// flex: 1,
 					}}
 				/>
