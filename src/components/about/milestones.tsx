@@ -41,14 +41,14 @@ const Milestones = () => {
 					My journey
 				</AnimatedLetters>{' '}
 			</CardHeader>
-			<VStack textAlign="start" align="start" mb={5}>
+			<VStack textAlign="start" align="center" mb={5}>
 				<Box zIndex={5} {...staggerProps.container}>
 					{milestones.map((milestone, index) => (
 						<MilestoneItem
 							key={index}
 							skipTrail={index === milestones.length - 1}
 							icon={milestone.icon}
-							mb={2}
+							// my={1}
 						>
 							{milestone.text}
 						</MilestoneItem>
@@ -87,11 +87,15 @@ const milestones = [
 	},
 	{
 		icon: FaBriefcase,
-		text: 'Finished first year with 1st class honors, including 100 in my web development module, and achieving a junior software developer role at Axalt.',
+		text: 'Finished first year with 1st class honors and began working as junior software developer role at Axalt.',
 	},
 	{
 		icon: FiBarChart,
-		text: 'Started new position as Lead Front-end Engineer at Gumbo.',
+		text: (
+			<Box as="span" pos="relative" top={'10px'}>
+				Started new position as Lead Front-end Engineer at Gumbo
+			</Box>
+		),
 	},
 ];
 
@@ -110,33 +114,47 @@ const MilestoneItem: React.FC<MilestoneItemProps> = ({
 }) => {
 	const color = useColorModeValue('gray.700', 'gray.500');
 	return (
-		<Flex
-			{...staggerProps.children}
-			minH={20}
-			align="center"
-			gap={4}
-			{...props}
-		>
-			<Flex flexDir="column" alignItems="center" ml={4} pos="relative">
-				<Circle
-					size={12}
-					bg={useColorModeValue('gray.600', 'gray.500')}
-					opacity={useColorModeValue(0.07, 0.15)}
-				/>
+		<>
+			<Flex
+				{...staggerProps.children}
+				minH={20}
+				// align="center"
+				gap={3}
+				// pos="relative"
+				{...props}
+			>
+				<Flex flexDir="column" align="center" ml={4} pos="relative">
+					<Circle
+						size={12}
+						bg={useColorModeValue('gray.600', 'gray.500')}
+						opacity={useColorModeValue(0.07, 0.15)}
+					/>
+
+					<Box
+						as={icon}
+						size="1.25rem"
+						color={color}
+						pos="absolute"
+						left="0.875rem"
+						top="0.875rem"
+					/>
+
+					{!skipTrail && <Box w="1px" flex={1} bg={color} my={1} />}
+				</Flex>
 				<Box
-					as={icon}
-					size="1.25rem"
-					color={color}
-					pos="absolute"
-					left="0.875rem"
-					top="0.875rem"
-				/>
-				{!skipTrail && <Box w="1px" flex={1} bg={color} my={1} />}
+					// flex={1}
+					h="calc(100% - 30px)"
+					// pt={{ base: 1, sm: 3 }}
+					// my=
+					// pos="absolute"
+					// top="50%"
+					// transform="translateY(-50%)"
+					{...boxProps}
+				>
+					{children}
+				</Box>
 			</Flex>
-			<Box flex={1} {...boxProps}>
-				{children}
-			</Box>
-		</Flex>
+		</>
 	);
 };
 
