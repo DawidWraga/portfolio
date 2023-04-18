@@ -26,7 +26,7 @@ export function ContactForm() {
 				ref={formRef}
 				onSubmit={async (data) => {
 					try {
-						await axios.post(`/send_email`, data);
+						await axios.post(`/contact`, data);
 						toast.success('Message sent successfully!');
 						formRef.current?.reset();
 					} catch (error) {

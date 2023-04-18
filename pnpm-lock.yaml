@@ -43,6 +43,9 @@ dependencies:
   next:
     specifier: ^13.3.0
     version: 13.3.0(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0)
+  nodemailer:
+    specifier: ^6.9.1
+    version: 6.9.1
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -78,6 +81,9 @@ devDependencies:
   '@types/node':
     specifier: 18.7.18
     version: 18.7.18
+  '@types/nodemailer':
+    specifier: ^6.4.7
+    version: 6.4.7
   '@types/react':
     specifier: 18.0.20
     version: 18.0.20
@@ -3588,6 +3594,12 @@ packages:
     resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==}
     dev: true
 
+  /@types/nodemailer@6.4.7:
+    resolution: {integrity: sha512-f5qCBGAn/f0qtRcd4SEn88c8Fp3Swct1731X4ryPKqS61/A3LmmzN8zaEz7hneJvpjFbUUgY7lru/B/7ODTazg==}
+    dependencies:
+      '@types/node': 18.7.18
+    dev: true
+
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: false
@@ -5344,6 +5356,11 @@ packages:
 
   /node-releases@2.0.10:
     resolution: {integrity: sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==}
+    dev: false
+
+  /nodemailer@6.9.1:
+    resolution: {integrity: sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA==}
+    engines: {node: '>=6.0.0'}
     dev: false
 
   /nth-check@2.1.1:
