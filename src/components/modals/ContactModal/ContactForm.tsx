@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Box, VStack } from '@chakra-ui/react';
+import { Box, Button, VStack } from '@chakra-ui/react';
 import { Field, Form, FormLayout, SubmitButton } from '@saas-ui/react';
 import { toast } from 'react-toastify';
 import { axios } from 'lib/axios';
+import { MdSend } from 'react-icons/md';
 
 export function ContactForm() {
 	const formRef = React.useRef<any>(null);
@@ -26,7 +27,7 @@ export function ContactForm() {
 				ref={formRef}
 				onSubmit={async (data) => {
 					try {
-						await axios.post(`/contact`, data);
+						await axios.post(`/api/contact`, data);
 						toast.success('Message sent successfully!');
 						formRef.current?.reset();
 					} catch (error) {
@@ -41,7 +42,7 @@ export function ContactForm() {
 				}}
 				flex={1}
 			>
-				<FormLayout>
+				<FormLayout alignContent="end">
 					<Field
 						name="name"
 						label="Name"
@@ -55,7 +56,7 @@ export function ContactForm() {
 						}}
 					/>
 					<Field
-						name="address"
+						name="email"
 						label="Email"
 						// type="email"
 						autoComplete="email"
@@ -86,9 +87,16 @@ export function ContactForm() {
 						}}
 						minH="140px"
 					/>
-					<SubmitButton px="6" py={4}>
-						Submit
-					</SubmitButton>
+					<Button
+						ml="auto"
+						type="submit"
+						px="6"
+						py={4}
+						leftIcon={<MdSend />}
+						colorScheme="brand"
+					>
+						Send
+					</Button>
 				</FormLayout>
 			</Form>
 			{/* <FormControl isRequired>

@@ -2,13 +2,12 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as nodemailer from 'nodemailer';
+import { setTimeout } from 'timers/promises';
 
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	// code...
-
 	const transporter = nodemailer.createTransport({
 		service: 'SendinBlue',
 		auth: {
@@ -18,22 +17,26 @@ export default async function handler(
 		secure: false,
 	});
 
-	const { name, email, message } = req.body;
+	const { name, email, content } = req.body;
 
-	if (!message || !name || !message) {
+	if (!content || !name || !email) {
 		return res
 			.status(400)
-			.json({ message: 'Please fill out the necessary fields' });
+			.json({ content: 'Please fill out the necessary fields' });
 	}
 
 	const mailData = {
 		from: email,
-		to: email,
-		subject: `Message from ${name} (Portfolio Contact))`,
-		text: `${message} | Sent from: ${email}`,
-		html: `<div>${message}</div><p>Sent from: ${email}</p>`,
+		to: 'dpwraga@gmail.com',
+		subject: `Message from ${name} (Portfolio Contact)`,
+		text: `${content} | Sent from: ${email}`,
+		html: `<div>${content}</div><p>Sent from: ${email}</p>`,
 	};
 
+	await setTimeout(1000);
+
+	res.json({ content: 'Message sent!', mailData });
+	return;
 	await new Promise((resolve, reject) => {
 		transporter.sendMail(mailData, (err: Error | null, info) => {
 			if (err) {
