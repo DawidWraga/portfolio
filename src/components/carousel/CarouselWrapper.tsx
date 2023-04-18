@@ -1,15 +1,12 @@
-import { Flex, useBreakpoint, useMediaQuery } from '@chakra-ui/react';
+import { useMediaQuery } from '@chakra-ui/react';
+import { CarouselProvider } from 'components/carousel/CarouselContext';
+import { ProjectCarouselData } from 'config/projects';
 import React, { useState } from 'react';
-import {
-	CarouselProvider,
-	CarouselSlide,
-} from 'components/carousel/CarouselContext';
-import { ChangeSlideArrows } from 'components/carousel/ChangeSlideArrows';
 import { useCarouselStore } from 'stores/use-carousel-store';
 
 interface IProps {
 	children: React.ReactNode;
-	slides: CarouselSlide[];
+	slides: ProjectCarouselData[];
 }
 
 export function CarouselWrapper(props: IProps) {

@@ -1,13 +1,9 @@
-import Head from 'next/head';
-import { SkillsGrid } from 'components/work/SkillsGrid';
-import { Hero } from 'components/hero';
-import { ProjectsList } from 'components/work/ProjectsList';
-import { About } from 'components/about';
-import { Box } from '@chakra-ui/react';
-import { BlogSection } from 'components/blog/BlogSection';
-import { Footer } from 'components/layouts/Footer';
 import { Contact } from 'components/Contact';
+import { About } from 'components/about';
+import { Hero } from 'components/hero';
+import { Footer } from 'components/layouts/Footer';
 import { ProjectCardList } from 'components/projects/project-card-list';
+import Head from 'next/head';
 
 export default function LandingPage() {
 	return (

@@ -13,12 +13,11 @@ export function PlayCarouselVideoButton(props: PlayCarouselVideoButtonProps) {
 		useCarouselContext();
 
 	const hasVideo = slides[currentSlide]?.hasVideo ?? false;
-	if (!hasVideo) return null;
-
 	const yValueDuringVideo = useBreakpointValue({
 		base: 0,
 		md: '28px',
 	});
+	if (!hasVideo) return null;
 
 	return (
 		<>

@@ -12,8 +12,8 @@ export function SlideDescription(props: IProps) {
 
 	return (
 		<Box {...rest}>
-			<Heading>{slide?.label}</Heading>
-			<Text>{slide?.description}</Text>
+			{/* <Heading>{slide?.label}</Heading>
+			<Text>{slide?.description}</Text> */}
 		</Box>
 	);
 }

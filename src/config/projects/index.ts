@@ -1,7 +1,6 @@
-import { CarouselSlide } from 'components/carousel/CarouselContext';
+import { AxaltLogo } from 'config/projects/axalt-logo';
 import { MakeItAllLogo } from './MakeItAllLogo';
 import { GumboLogo } from './gumbo-logo-icon';
-import { AxaltLogo } from 'config/projects/axalt-logo';
 
 export type Project = {
 	id: string;

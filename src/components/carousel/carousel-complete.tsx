@@ -1,13 +1,11 @@
-import { Box, Icon as ChakraIcon, Flex, Heading, Show } from '@chakra-ui/react';
-import { Carousel, CarouselSlide } from 'components/carousel';
+import { Box, Flex } from '@chakra-ui/react';
+import { Carousel } from 'components/carousel';
 import { SlideLabel } from 'components/carousel/slide-label';
-import { LinksAndClose } from 'components/projects/links-and-close';
-import { Project } from 'config/projects';
+import { ProjectCarouselData } from 'config/projects';
 import { motion } from 'framer-motion';
-import { getLayoutIds } from 'pages/work';
 
 export interface CarouselCompleteProps {
-	slides?: CarouselSlide[];
+	slides?: ProjectCarouselData[];
 }
 
 export function CarouselComplete(props: CarouselCompleteProps) {
