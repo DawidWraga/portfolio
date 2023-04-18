@@ -52,7 +52,7 @@ export function ProjectCard(props: ProjectCardProps) {
 							<SimpleGrid
 								placeContent={'center'}
 								mr={{ base: 2, md: 3 }}
-								display={{ base: 'none', sm: 'flex' }}
+								display="flex"
 							>
 								<p.Icon />
 							</SimpleGrid>
