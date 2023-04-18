@@ -7,12 +7,17 @@ export interface CarouselContext {
 	toPrevSlide: () => void;
 	toNextSlide: () => void;
 	slides: CarouselSlide[];
+	videoIsPlaying: boolean;
+	setVideoIsPlaying: (video: boolean) => void;
 }
 
 export type CarouselSlide = {
-	img: string;
-	label: string;
-	description: string;
+	alt?: string;
+	hasVideo?: boolean;
+	responsiveMediaPath?: string;
+	mediaPath: string;
+	imgPath: string;
+	videoPath: string;
 };
 
 export const [CarouselProvider, useCarouselContext] =
