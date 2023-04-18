@@ -14,7 +14,7 @@ interface INavProps {
 }
 
 const staggerProps = getStaggerProps({
-	staggerChildren: 0.5,
+	staggerChildren: 0.35,
 });
 
 export const Nav: React.FC<INavProps> = ({ children, onClose }) => {
