@@ -1,4 +1,5 @@
 import { CarouselComplete } from 'components/carousel/carousel-complete';
+import { ToggleMobileViewButton } from 'components/carousel/toggle-mobile-view.button';
 import { PageWrapper } from 'components/common/page-wrapper';
 import { AccordianDetails } from 'components/projects/accordian-details';
 import {
@@ -16,11 +17,6 @@ export default function ProjectPage(props: IProps) {
 	const pId = useRouter()?.query?.projectId;
 	const p = projects.find((p) => p.id === pId);
 
-	const links: ProjectLinksProps = {
-		demoUrl: p?.demoUrl,
-		githubUrl: p?.githubUrl,
-	};
-
 	return (
 		<>
 			<PageWrapper
@@ -28,11 +24,12 @@ export default function ProjectPage(props: IProps) {
 				hasBackButton
 				toolbar={
 					<>
-						<ProjectLinks {...links} />
+						<ToggleMobileViewButton />
+						<ProjectLinks links={p?.links} />
 					</>
 				}
 			>
-				<CarouselComplete slides={p?.carouselSlides} />
+				<CarouselComplete slides={p?.carouselSlides ?? []} />
 				<AccordianDetails projectDetails={p?.details} />
 			</PageWrapper>
 		</>

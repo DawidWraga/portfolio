@@ -1,22 +1,23 @@
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { CloseButton, Flex } from '@chakra-ui/react';
 import { LinkButton } from 'components/buttons/link-button';
+import { Project } from 'config/projects';
 import { BsDisplay } from 'react-icons/bs';
 import { SiGithub } from 'react-icons/si';
 
 export interface ProjectLinksProps {
-	githubUrl?: string;
-	demoUrl?: string;
+	links?: Project['links'];
 }
 
 export function ProjectLinks(props: ProjectLinksProps) {
-	const { githubUrl, demoUrl } = props;
+	const { links } = props;
 
 	return (
 		<>
 			<Flex gap={3}>
-				{githubUrl && (
+				{links?.github && (
 					<LinkButton
-						href={githubUrl}
+						href={links?.github}
 						aria-label="view github"
 						leftIcon={<SiGithub fontSize="1.25rem" />}
 						target="_blank"
@@ -24,11 +25,11 @@ export function ProjectLinks(props: ProjectLinksProps) {
 						View code
 					</LinkButton>
 				)}
-				{demoUrl && (
+				{links?.demo && (
 					<LinkButton
-						href={demoUrl}
+						href={links?.demo}
 						aria-label="view github"
-						leftIcon={<BsDisplay />}
+						leftIcon={<ExternalLinkIcon />}
 						target="_blank"
 					>
 						View live

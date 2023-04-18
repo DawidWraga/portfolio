@@ -4,17 +4,24 @@ import { GumboLogo } from './gumbo-logo-icon';
 import { AxaltLogo } from 'config/projects/axalt-logo';
 
 export type Project = {
+	id: string;
 	name: string;
 	role?: string;
 	description: string;
-	image: string;
 	Icon: any;
-	id: string;
-	githubUrl?: string;
-	demoUrl?: string;
-	carouselSlides?: (CarouselSlide & { alt?: any })[];
-	wideCard?: boolean;
+	links?: {
+		github?: string;
+		demo?: string;
+	};
+	carouselSlides?: ProjectCarouselData[];
 	details?: ProjectDetails;
+};
+
+export type ProjectCarouselData = {
+	mediaPath: string;
+	alt: string;
+	hasVideo?: boolean;
+	hasMobile?: boolean;
 };
 
 export type ProjectDetails = {
@@ -37,50 +44,51 @@ export const projectDetailsOrdered = [
 
 export const projects: Project[] = [
 	{
-		id: '1',
+		id: 'makeitall',
 		name: 'Task & Document management portal',
 		role: 'Lead Full-stack Engineer at Make It All',
 		description:
 			'An intranet portal for managing tasks and documents, featuring Kanban boards, rich text editor, user authentication and more.',
 		Icon: MakeItAllLogo,
-		image: '/images/makeItAll/demo-1-kanban.jpeg',
-		wideCard: true,
-		githubUrl: 'https://github.com/DawidWraga/team-project',
-		demoUrl: 'https://makeitall.vercel.app/',
+		links: {
+			github: 'https://github.com/DawidWraga/team-project',
+			demo: 'https://makeitall.vercel.app/',
+		},
 		carouselSlides: [
 			{
-				img: '/images/makeItAll/demo-1-kanban.jpeg',
-				label: 'Kanban board',
-				description:
-					'Create tasks, assign users, drag and drop to move a task between custom statuses and more.',
+				mediaPath: '/projects/makeItAll/kanban-crud',
+				alt: 'Kanban board',
+				hasVideo: true,
+				hasMobile: true,
 			},
 			{
-				img: '/images/makeItAll/demo-2-dashboards.jpeg',
-				label: 'Dashboards',
-				description:
-					'Employee dashboards vizualising productivity statistics from tasks completed throughout prevous months.',
+				mediaPath: '/projects/makeItAll/kanban-drag',
+				alt: 'Kanban board',
+				hasVideo: true,
 			},
 			{
-				img: '/images/makeItAll/demo-3-rich_text.jpeg',
-				label: 'Rich text editor',
-				description:
-					'Intuitive rich text editor with markdown support for creating and editing documents.',
+				mediaPath: '/projects/makeItAll/dashboards',
+				alt: 'Dashboards',
+				hasVideo: true,
 			},
 			{
-				img: '/images/makeItAll/demo-4-register.gif',
-				label: 'Registration & secure authorization',
-				description:
-					'Secure login using cookies / JWT based authorization, registration forms, input validation, and more',
+				mediaPath: '/projects/makeItAll/rich-text',
+				alt: 'Rich text editor',
+			},
+			{
+				mediaPath: '/projects/makeItAll/register',
+				alt: 'Registration & secure authorization',
+				hasVideo: true,
 			},
 		],
 		details: {
 			why: 'To provide an efficient way for teams to manage tasks and documents internally.',
 			features: [
-				'The platform offers several features, including Kanban boards for organizing tasks and projects. Users can create tasks, assign users, and drag and drop tasks between custom statuses.',
-				'The platform also includes employee dashboards that visualize productivity statistics from completed tasks over the previous months.',
-				'The editor is intuitive and user-friendly, making it easy to create and format documents without the need for advanced technical skills.',
-				'The platform features secure user authentication using cookies / JWT-based authorization.',
-				'The platform also features registration forms and input validation to prevent unauthorized access.',
+				'Kanban boards for organizing tasks and projects. Users can create tasks, assign users, and drag and drop tasks between custom statuses.',
+				'Employee dashboards that visualize productivity statistics from completed tasks over the previous months.',
+				'Intuitive and user-friendly rich text editor with markdown support for creating and editing documents.',
+				'Secure user authentication using cookies / JWT-based authorization.',
+				'Registration forms and input validation to prevent unauthorized access.',
 			],
 			challenges: [
 				'Implementing secure user authentication',
@@ -96,60 +104,61 @@ export const projects: Project[] = [
 		description:
 			'A sustainability focused search-engine, leveraging AI to provide users with the best recipes using ingredients they already have at home. ',
 		Icon: GumboLogo,
-		image: '/projects/gumbo/search/desktop.png',
-		demoUrl: 'https://gumbo.co.uk/',
+		links: {
+			demo: 'https://gumbo.co.uk/',
+		},
 		carouselSlides: [
 			{
-				label: 'Search engine',
-				img: '/projects/gumbo/search/desktop.png',
-				description:
-					'Intuitive search engine with advanced filtering options, powered by AI to find the best recipes for you.',
+				mediaPath: '/projects/gumbo/search',
+				alt: 'Search engine',
+				hasVideo: true,
+				hasMobile: true,
+			},
+			{
+				mediaPath: '/projects/gumbo/landing',
+				alt: 'Landing page',
+				hasVideo: true,
+				hasMobile: true,
 			},
 		],
+		details: {
+			role: 'Lead Front-end Engineer',
+			features: [
+				'Intuitive search engine with advanced filtering options, powered by AI to find the best recipes for you.',
+			],
+			why: 'To provide users with a sustainable way to find recipes using the ingredients they already have at home.',
+		},
 	},
+
 	{
-		id: '3',
+		id: 'axalt-web',
 		name: 'Company Landing page',
 		role: 'Junior Full-stack Web Developer at Axalt',
 		description:
 			'A landing page for a software development consultancy, featuring job applications, contact forms and authentication into the intranet portal.',
 		Icon: AxaltLogo,
-		image: '',
 		carouselSlides: [
 			{
-				label: 'Design system',
-				img: '/images/axalt-web/design-system.gif',
-				description:
-					'Visually consistent brand identity and scalable UI architecture, achieved through custom-made components that are carefully crafted to be highly reusable, modular and flexible.',
-				alt: 'scroll through top to bottom',
+				mediaPath: '/projects/axalt/landing',
+				alt: 'axalt landing page',
+				hasVideo: true,
 			},
 			{
-				label: 'Mobile first',
-				img: '/images/axalt-web/mobile-first.jpeg',
-				description:
-					'Responsive design and performance optimisation ensure an exceptional user experience for all screens, devices, and browsers.',
-				alt: 'open side nav, open login, close login, scroll to bottom',
-			},
-			{
-				label: 'Job application & contact forms',
-				img: '/images/axalt-web/job-application-contact-forms.jpeg',
-				description:
-					'Fully featured forms, including backend email services, error validation and user feedback, streamlining the hiring process and client communications.',
-				alt: 'type in form except for email, type in email, submit form, submit form with error, submit form with success',
-			},
-			{
-				label: 'Clients & testemonials',
-				img: '/images/axalt-web/client-endorsements.jpeg',
-				description:
-					"Showcase of Axalt's successful work with previous clients can be easily updated and maintained as a result of intentionally designed system architecture.",
-			},
-			{
-				label: 'Animations',
-				img: '/images/axalt-web/animations.jpeg',
-				description:
-					'Engaging custom-made animations elevate user engagement with a touch of motion, leaving a lasting impression of the brand.',
+				mediaPath: '/projects/axalt/auth',
+				alt: 'axalt portal authentication',
+				hasVideo: true,
 			},
 		],
+		details: {
+			why: "To create a visually consistent brand identity and scalable UI architecture that ensures an exceptional user experience for all screens, devices, and browsers. The system features fully-featured forms that streamline the hiring process and client communications, custom-made animations that elevate user engagement, and a showcase of Axalt's successful work with previous clients.",
+			features: [
+				'Visually consistent brand identity and scalable UI architecture, achieved through custom-made components that are carefully crafted to be highly reusable, modular and flexible.',
+				'Responsive design and performance optimisation ensure an exceptional user experience for all screens, devices, and browsers.',
+				'Fully featured forms, including backend email services, error validation and user feedback, streamlining the hiring process and client communications.',
+				"Showcase of Axalt's successful work with previous clients can be easily updated and maintained as a result of intentionally designed system architecture.",
+				'Engaging custom-made animations elevate user engagement with a touch of motion, leaving a lasting impression of the brand.',
+			],
+		},
 	},
 	{
 		id: '4',
@@ -158,7 +167,43 @@ export const projects: Project[] = [
 		description:
 			'Secure and scalable enterprise software for automating employee timesheets, payslips and invoices.',
 		Icon: AxaltLogo,
-		image: '',
-		wideCard: true,
+		details: {
+			features: [
+				'Secure authentication, authorization and role based access control (RBAC) for contractors, employees and managers',
+				'Add, Submit, view, edit and delete timesheets and expense claims across multiple projects (employees / contractors)',
+				'View, approve and reject timesheet/ expense claims for multiple contractors across multiple projects (managers)',
+				'View, edit and delete employee details (managers)',
+				'Dashboard for quick overview of timesheets and expenses, for checking claim status( employees ) as well as approving or rejecting them (managers)',
+				'Scalable architecutre, with a modular and reusable codebase',
+				'Fully mobile responsive (mobile-first design) and performance optimized for all screens, devices and browsers',
+			],
+		},
+		carouselSlides: [
+			{
+				mediaPath: '/projects/axalt/dashboard',
+				alt: 'axalt portal dashboard',
+				hasVideo: true,
+			},
+			{
+				mediaPath: '/projects/axalt/expense-crud',
+				alt: 'axalt portal expense claims',
+				hasVideo: true,
+			},
+			{
+				mediaPath: '/projects/axalt/timesheet',
+				alt: 'Axalt portal timesheets',
+				hasVideo: true,
+			},
+			{
+				mediaPath: '/projects/axalt/approvals',
+				alt: 'Axalt portal approvals',
+				hasVideo: true,
+			},
+			{
+				mediaPath: '/projects/axalt/auth',
+				alt: 'axalt portal authentication',
+				hasVideo: true,
+			},
+		],
 	},
 ];
