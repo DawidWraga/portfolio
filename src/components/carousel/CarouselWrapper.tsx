@@ -26,6 +26,7 @@ export function CarouselWrapper(props: IProps) {
 	};
 
 	React.useEffect(() => {
+		// return;
 		const interval = setInterval(() => {
 			if (!videoIsPlaying) {
 				toNextSlide();

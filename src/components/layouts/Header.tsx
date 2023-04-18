@@ -25,6 +25,7 @@ export const Nav: React.FC<INavProps> = ({ children, onClose }) => {
 			{...staggerProps.container}
 			alignItems={'center'}
 			justifyContent="center"
+			mr={2}
 		>
 			{pages.map((page) => (
 				<Box
@@ -66,8 +67,9 @@ const Header: React.FC<IHeaderProps> = ({}) => {
 			w="100vw"
 			zIndex="99999"
 			transition="top 200ms ease-in-out"
+			px={'4'}
 		>
-			<Flex as="nav" py="2" px={'4'} w="container.xl" align={'center'}>
+			<Flex as="nav" py="2" w="container.xl" align={'center'}>
 				<Link href="/">
 					<Text
 						fontWeight={'bold'}

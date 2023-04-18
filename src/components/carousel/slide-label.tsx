@@ -16,11 +16,11 @@ export function SlideLabel(props: SlideLabelProps) {
 
 	const { currentSlide, slides, setVideoIsPlaying, videoIsPlaying } =
 		useCarouselContext();
-	const slide = slides[currentSlide];
+	const slide = slides[currentSlide ?? 0];
 
 	const text = slide?.alt;
 
-	const hasVideo = slides[currentSlide]?.hasVideo ?? false;
+	const hasVideo = slides[currentSlide]?.hasVideo;
 
 	// if (!text) return null;
 
@@ -35,7 +35,7 @@ export function SlideLabel(props: SlideLabelProps) {
 	const backToImageText = isMobile ? 'Back to Image' : '';
 	return (
 		<>
-			<AnimatePresence exitBeforeEnter={isMobile}>
+			<AnimatePresence exitBeforeEnter={isMobile} initial={true}>
 				{text && (
 					<Flex
 						data-label
@@ -62,9 +62,12 @@ export function SlideLabel(props: SlideLabelProps) {
 							setVideoIsPlaying((prev) => !prev);
 						}}
 						{...(isMobile && {
+							bgColor: 'hsla(210, 35%, 23%, 0.7) !important',
 							w: '100%',
-							initial: { backgroundColor: startColor },
-							animate: { backgroundColor: endColor },
+							transform: 'translateY(0px) !important',
+							opacity: '1 !important',
+							// initial: { backgroundColor: endColor },
+							// animate: { backgroundColor: endColor },
 
 							textAlign: 'center',
 						})}

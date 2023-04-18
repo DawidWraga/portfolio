@@ -27,7 +27,7 @@ export function ProjectCard(props: ProjectCardProps) {
 
 	return (
 		<>
-			<Link href={`/work/${p.id}`} scroll={false}>
+			<Link href={`/work/${p.id}`}>
 				<Card
 					as={LinkBox}
 					width="100%"

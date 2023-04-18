@@ -12,7 +12,6 @@ export function PreviewSlides(props: IProps) {
 
 	const { currentSlide, slides, setSlide } = useCarouselContext();
 
-	const { isMobileView } = useCarouselStore();
 	return (
 		<HStack
 			pt={2}
