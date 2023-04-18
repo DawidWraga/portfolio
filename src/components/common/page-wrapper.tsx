@@ -40,6 +40,8 @@ export function PageWrapper(props: PageWrapperProps) {
 					justify="space-between"
 					flexWrap="wrap"
 					pt={1}
+					flexDir={{ base: 'column', md: 'row' }}
+					gap={{ base: 2, md: 0 }}
 					{...headerContainerProps}
 				>
 					<Flex align="center" gap={2} flex={1}>

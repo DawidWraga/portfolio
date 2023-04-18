@@ -1,4 +1,9 @@
-import { Flex, Heading, useMediaQuery } from '@chakra-ui/react';
+import {
+	Flex,
+	Heading,
+	useBreakpointValue,
+	useMediaQuery,
+} from '@chakra-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
@@ -27,6 +32,7 @@ export function SlideLabel(props: SlideLabelProps) {
 	const startColor = 'hsla(210, 35%, 23%, 0)';
 	const endColor = 'hsla(210, 35%, 23%, 0.7)';
 
+	const backToImageText = isMobile ? 'Back to Image' : '';
 	return (
 		<>
 			<AnimatePresence exitBeforeEnter={isMobile}>
@@ -42,6 +48,7 @@ export function SlideLabel(props: SlideLabelProps) {
 						align="center"
 						gap={2}
 						color="white"
+						flexDir={isMobile ? 'column-reverse' : 'row'}
 						_hover={{
 							opacity: '1 !important',
 							// transform: 'translateY(0px) !important',
@@ -85,17 +92,25 @@ export function SlideLabel(props: SlideLabelProps) {
 							roundedBottomLeft: '2xl',
 						})}
 					>
-						<Flex gap={2} align="center">
-							{videoIsPlaying ? (
-								<CgImage />
-							) : (
-								<BsFillPlayCircleFill fontSize="1.5rem" />
-							)}
-							<Heading fontSize="2xl">{videoIsPlaying ? '' : 'Watch'}</Heading>
+						{hasVideo && (
+							<Flex gap={2} align="center">
+								{videoIsPlaying ? (
+									<CgImage fontSize="1.5rem" />
+								) : (
+									<BsFillPlayCircleFill fontSize="1.5rem" />
+								)}
+								<Heading fontSize="2xl">
+									{videoIsPlaying ? backToImageText : 'Watch'}
+								</Heading>
+							</Flex>
+						)}
+						<Flex align="center" gap={2}>
+							{!hasVideo && <CgImage fontSize="1.5rem" />}
+
+							<Heading fontSize="2xl" mx={isMobile ? 'auto' : 'unset'}>
+								{text}
+							</Heading>
 						</Flex>
-						<Heading fontSize="2xl" mx={isMobile ? 'auto' : 'unset'}>
-							{text}
-						</Heading>
 					</Flex>
 				)}
 			</AnimatePresence>
