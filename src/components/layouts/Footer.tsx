@@ -1,12 +1,13 @@
 import {
 	ButtonGroup,
 	Container,
+	Icon,
 	IconButton,
 	Stack,
 	Text,
 } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-// import { Logo } from './Logo';
+import { AiFillHeart } from 'react-icons/ai';
 
 export function Footer() {
 	return (
@@ -42,7 +43,9 @@ export function Footer() {
 					</ButtonGroup>
 				</Stack>
 				<Text fontSize="sm" color="subtle">
-					Made with love by Dawid Wraga
+					Made with{' '}
+					<Icon as={AiFillHeart} color="red" pos="relative" top={'1px'} /> by
+					Dawid Wraga
 				</Text>
 			</Stack>
 		</Container>
