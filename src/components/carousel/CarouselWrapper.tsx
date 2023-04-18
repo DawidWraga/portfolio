@@ -51,42 +51,42 @@ export function CarouselWrapper(props: IProps) {
 		};
 	}, [currentSlide, videoIsPlaying]);
 
-	React.useEffect(() => {
-		const handleTouchStart = (event: TouchEvent) => {
-			const touch = event.touches[0];
-			const startX = touch.clientX;
-			const startY = touch.clientY;
+	// React.useEffect(() => {
+	// 	const handleTouchStart = (event: TouchEvent) => {
+	// 		const touch = event.touches[0];
+	// 		const startX = touch.clientX;
+	// 		const startY = touch.clientY;
 
-			const handleTouchMove = (event: TouchEvent) => {
-				const touch = event.touches[0];
-				const endX = touch.clientX;
-				const endY = touch.clientY;
+	// 		const handleTouchMove = (event: TouchEvent) => {
+	// 			const touch = event.touches[0];
+	// 			const endX = touch.clientX;
+	// 			const endY = touch.clientY;
 
-				const diffX = endX - startX;
-				const diffY = endY - startY;
+	// 			const diffX = endX - startX;
+	// 			const diffY = endY - startY;
 
-				if (Math.abs(diffX) > Math.abs(diffY)) {
-					if (diffX > 0) {
-						toPrevSlide();
-					} else {
-						toNextSlide();
-					}
-				}
-			};
+	// 			if (Math.abs(diffX) > Math.abs(diffY)) {
+	// 				if (diffX > 0) {
+	// 					toPrevSlide();
+	// 				} else {
+	// 					toNextSlide();
+	// 				}
+	// 			}
+	// 		};
 
-			window.addEventListener('touchmove', handleTouchMove);
+	// 		window.addEventListener('touchmove', handleTouchMove);
 
-			return () => {
-				window.removeEventListener('touchmove', handleTouchMove);
-			};
-		};
+	// 		return () => {
+	// 			window.removeEventListener('touchmove', handleTouchMove);
+	// 		};
+	// 	};
 
-		window.addEventListener('touchstart', handleTouchStart);
+	// 	window.addEventListener('touchstart', handleTouchStart);
 
-		return () => {
-			window.removeEventListener('touchstart', handleTouchStart);
-		};
-	}, [currentSlide]);
+	// 	return () => {
+	// 		window.removeEventListener('touchstart', handleTouchStart);
+	// 	};
+	// }, [currentSlide]);
 
 	React.useEffect(() => {
 		if (videoIsPlaying) setVideoIsPlaying(false);
