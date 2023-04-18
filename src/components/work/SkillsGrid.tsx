@@ -30,8 +30,8 @@ const variants = {
 		},
 	},
 	children: {
-		initial: { opacity: 0, scale: 0.5 },
-		animate: { opacity: 1, scale: 1 },
+		initial: { scale: 0.5 },
+		animate: { scale: 1 },
 	},
 };
 
@@ -95,7 +95,7 @@ export const SkillsGrid: React.FC<ISkillsGridProps> = () => {
 				>
 					{coreTechnologies.map((tech) => {
 						return (
-							<Box key={tech.link} {...childProps} w="100px">
+							<Box key={tech.link} {...childProps} opacity={1} w="100px">
 								<SkillItem {...tech} />
 							</Box>
 						);
