@@ -35,6 +35,7 @@ export function ChangeSlideArrow(props: IChangeSlideArrowProps) {
 }
 
 const arrowStyles = {
+	display: { base: 'none', md: 'block' },
 	cursor: 'pointer',
 	pos: 'absolute',
 	top: '50%',
