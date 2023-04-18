@@ -1,6 +1,7 @@
 import { Box, BoxProps, HStack } from '@chakra-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { Image } from 'components/common/Image';
+import { useCarouselStore } from 'stores/use-carousel-store';
 
 interface IProps extends BoxProps {
 	imageProps?: any;
@@ -11,6 +12,7 @@ export function PreviewSlides(props: IProps) {
 
 	const { currentSlide, slides, setSlide } = useCarouselContext();
 
+	const {isMobileView} = useCarouselStore()
 	return (
 		<HStack
 			pt={1}
@@ -43,18 +45,29 @@ export function PreviewSlides(props: IProps) {
 						pos="relative"
 					>
 						<Image
-							src={slide.img}
-							alt="carousel image"
+							src={slide.imgPath}
+							alt={slide.alt + ' preview'}
 							// boxSize="full"
 							// backgroundSize="cover"
 							layout="fill"
 							wrapperStyles={{
+								// w: '100%',
+								// h: '100%',
 								w: '100%',
 								h: '100%',
+
+								rounded: 'md',
+								border: '1px solid',
+								transition: 'all 0.3s ease',
+								borderColor: 'brand.900',
+								'&:hover': {
+									borderColor: 'brand.700',
+								},
+								// mx: 'auto',
 							}}
 							imgStyles={{
-								w: '100%',
-								h: 'auto',
+								w: 'auto',
+								h: '100%',
 							}}
 							{...imageProps}
 						/>
