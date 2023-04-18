@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { ChangeSlideArrows } from 'components/carousel/ChangeSlideArrows';
+import { PlayCarouselVideoButton } from 'components/carousel/play-carousel-video-button';
 import { Image } from 'components/common/Image';
 import { useMemo } from 'react';
 
@@ -9,7 +10,7 @@ interface IProps {}
 export function Slides(props: IProps) {
 	const {} = props;
 
-	const { slides, currentSlide } = useCarouselContext();
+	const { slides, currentSlide, videoIsPlaying } = useCarouselContext();
 
 	const carouselStyle = useMemo(
 		() => ({
@@ -30,29 +31,48 @@ export function Slides(props: IProps) {
 				<>
 					{slides.map((slide, sid) => {
 						return (
-							<Box
-								key={`slide-img-${sid}`}
-								boxSize="full"
-								shadow="md"
-								flex="none"
-								w="100%"
-								h="auto"
-							>
-								<Image
-									key={'slide-' + sid}
-									layout="fill"
-									src={slide.img}
-									alt="carousel image"
+							<>
+								<Box
+									key={`slide-img-${sid}`}
 									boxSize="full"
-									backgroundSize="cover"
-									imgStyles={{
-										width: '100%',
-										height: 'auto',
-									}}
-								/>
-							</Box>
+									shadow="md"
+									flex="none"
+									w="100%"
+									h="auto"
+								>
+									{videoIsPlaying ? (
+										<video
+											loop
+											autoPlay
+											controls
+											style={{
+												marginLeft: 'auto',
+												marginRight: 'auto',
+												maxHeight: 'calc(100vh - 100px)',
+											}}
+										>
+											<source src={slide.videoPath} type="video/mp4" />
+											Your browser does not support videos.
+										</video>
+									) : (
+										<Image
+											key={'slide-' + sid}
+											layout="fill"
+											src={slide.imgPath}
+											alt="carousel image"
+											boxSize="full"
+											backgroundSize="cover"
+											imgStyles={{
+												width: '100%',
+												height: 'auto',
+											}}
+										/>
+									)}
+								</Box>
+							</>
 						);
 					})}
+					<PlayCarouselVideoButton />
 					<ChangeSlideArrows />
 				</>
 			</Flex>
