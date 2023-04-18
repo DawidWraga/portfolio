@@ -18,6 +18,7 @@ export type CarouselSlide = {
 	mediaPath: string;
 	imgPath: string;
 	videoPath: string;
+	desktopOnly?: boolean;
 };
 
 export const [CarouselProvider, useCarouselContext] =

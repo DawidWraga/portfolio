@@ -1,9 +1,12 @@
-import { Button, ButtonProps } from '@chakra-ui/react';
+import { Button, ButtonProps, type ChakraComponent } from '@chakra-ui/react';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 
 export interface PlayVideoButtonProps extends ButtonProps {}
 
-export function PlayVideoButton(props: PlayVideoButtonProps) {
+export const PlayVideoButton: ChakraComponent<
+	'button',
+	PlayVideoButtonProps
+> = (props: PlayVideoButtonProps) => {
 	const { children, ...buttonProps } = props;
 
 	return (
@@ -13,4 +16,4 @@ export function PlayVideoButton(props: PlayVideoButtonProps) {
 			</Button>
 		</>
 	);
-}
+};

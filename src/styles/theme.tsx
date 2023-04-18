@@ -20,18 +20,31 @@ const shadePalette = {
 };
 
 const colors = {
+	// brand: {
+	// 	900: '#1a365d',
+	// 	800: '#153e75',
+	// 	700: '#2a69ac',
+	// 	600: '#3c8dc5',
+	// 	500: '#4faedf',
+	// 	400: '#6fcdf2',
+	// 	300: '#8ce2f9',
+	// 	200: '#aedcff',
+	// 	100: '#d4f0ff',
+	// 	50: '#f3fbfe',
+	// },
 	brand: {
-		900: '#1a365d',
-		800: '#153e75',
-		700: '#2a69ac',
-		600: '#3c8dc5',
-		500: '#4faedf',
-		400: '#6fcdf2',
-		300: '#8ce2f9',
-		200: '#aedcff',
-		100: '#d4f0ff',
-		50: '#f3fbfe',
+		900: 'rgb(2, 50, 86)',
+		800: 'rgb(15, 94, 160)',
+		700: 'rgb(29, 117, 202)',
+		600: 'rgb(43, 140, 245)',
+		500: 'rgb(66, 153, 225)',
+		400: 'rgb(80, 163, 240)',
+		300: 'rgb(170, 211, 255)',
+		200: 'rgb(212, 235, 255)',
+		100: 'rgb(235, 246, 255)',
+		50: 'rgb(248, 253, 255)',
 	},
+
 	shade: shadePalette,
 };
 
@@ -64,7 +77,7 @@ export const theme = extendTheme(
 		styles: {
 			// needed for app shell to work
 			global: {
-				'html, body': {
+				body: {
 					height: '100%',
 				},
 				'ul, ol': {

@@ -119,7 +119,7 @@ export function CarouselWrapper(props: IProps) {
 
 	const responsiveSlides = slides.map((slide) => {
 		const responsiveMediaPath = `${slide.mediaPath}/${
-			isMobile || isMobileView ? 'mobile' : 'desktop'
+			(isMobile || isMobileView) && !slide.desktopOnly ? 'mobile' : 'desktop'
 		}`;
 
 		return {

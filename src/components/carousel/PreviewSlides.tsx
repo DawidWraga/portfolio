@@ -12,10 +12,10 @@ export function PreviewSlides(props: IProps) {
 
 	const { currentSlide, slides, setSlide } = useCarouselContext();
 
-	const {isMobileView} = useCarouselStore()
+	const { isMobileView } = useCarouselStore();
 	return (
 		<HStack
-			pt={1}
+			pt={2}
 			mx="auto"
 			justify="center"
 			// w="100%"
@@ -23,6 +23,8 @@ export function PreviewSlides(props: IProps) {
 			// bottom="8px"
 			minH="80px"
 			// h="60px"
+			overflowX="auto"
+			overflowY="hidden"
 			{...rest}
 		>
 			{slides.map((slide, sid) => {
@@ -38,7 +40,7 @@ export function PreviewSlides(props: IProps) {
 						shadow="md"
 						flex="none"
 						opacity={isActive ? 1 : 0.7}
-						bottom={isActive ? '2px' : 0}
+						// bottom={isActive ? '2px' : 0}
 						_hover={{ cursor: 'pointer', opacity: 1, bottom: '2px' }}
 						transition="opacity 0.3s ease, bottom 0.4s ease-in-out"
 						onClick={() => setSlide(sid)}
@@ -60,6 +62,7 @@ export function PreviewSlides(props: IProps) {
 								border: '1px solid',
 								transition: 'all 0.3s ease',
 								borderColor: 'brand.900',
+								...(isActive ? { borderColor: 'brand.700' } : {}),
 								'&:hover': {
 									borderColor: 'brand.700',
 								},

@@ -1,5 +1,6 @@
-import { Box, Icon as ChakraIcon, Flex, Heading } from '@chakra-ui/react';
+import { Box, Icon as ChakraIcon, Flex, Heading, Show } from '@chakra-ui/react';
 import { Carousel, CarouselSlide } from 'components/carousel';
+import { SlideLabel } from 'components/carousel/slide-label';
 import { LinksAndClose } from 'components/projects/links-and-close';
 import { Project } from 'config/projects';
 import { motion } from 'framer-motion';
@@ -15,7 +16,17 @@ export function CarouselComplete(props: CarouselCompleteProps) {
 	return (
 		<>
 			<Carousel.Wrapper slides={slides || []}>
-				<Flex bgColor="blackAlpha.300" rounded="xl" flexDir="column">
+				<Flex
+					bgColor="blackAlpha.300"
+					rounded="xl"
+					flexDir="column"
+					pos="relative"
+					overflow="hidden"
+				>
+					{/* <Show above="md"> */}
+					<SlideLabel />
+					{/* </Show> */}
+
 					<Carousel.Slides />
 					<Box
 						as={motion.div}

@@ -21,7 +21,7 @@ export type ProjectCarouselData = {
 	mediaPath: string;
 	alt: string;
 	hasVideo?: boolean;
-	hasMobile?: boolean;
+	desktopOnly?: boolean;
 };
 
 export type ProjectDetails = {
@@ -59,41 +59,38 @@ export const projects: Project[] = [
 				mediaPath: '/projects/makeItAll/kanban-crud',
 				alt: 'Kanban board',
 				hasVideo: true,
-				hasMobile: true,
 			},
 			{
 				mediaPath: '/projects/makeItAll/kanban-drag',
-				alt: 'Kanban board',
+				alt: 'Drag and drop',
 				hasVideo: true,
+				desktopOnly: true,
 			},
 			{
 				mediaPath: '/projects/makeItAll/dashboards',
 				alt: 'Dashboards',
 				hasVideo: true,
+				desktopOnly: true,
 			},
 			{
 				mediaPath: '/projects/makeItAll/rich-text',
 				alt: 'Rich text editor',
+				desktopOnly: true,
 			},
 			{
 				mediaPath: '/projects/makeItAll/register',
-				alt: 'Registration & secure authorization',
+				alt: 'Registration & secure authentication',
 				hasVideo: true,
+				desktopOnly: true,
 			},
 		],
 		details: {
-			why: 'To provide an efficient way for teams to manage tasks and documents internally.',
 			features: [
 				'Kanban boards for organizing tasks and projects. Users can create tasks, assign users, and drag and drop tasks between custom statuses.',
 				'Employee dashboards that visualize productivity statistics from completed tasks over the previous months.',
 				'Intuitive and user-friendly rich text editor with markdown support for creating and editing documents.',
 				'Secure user authentication using cookies / JWT-based authorization.',
 				'Registration forms and input validation to prevent unauthorized access.',
-			],
-			challenges: [
-				'Implementing secure user authentication',
-				'Building a rich text editor',
-				'Client and server routing and performance optimization',
 			],
 		},
 	},
@@ -112,19 +109,21 @@ export const projects: Project[] = [
 				mediaPath: '/projects/gumbo/search',
 				alt: 'Search engine',
 				hasVideo: true,
-				hasMobile: true,
 			},
 			{
 				mediaPath: '/projects/gumbo/landing',
-				alt: 'Landing page',
+				alt: 'About & Contact',
 				hasVideo: true,
-				hasMobile: true,
 			},
 		],
 		details: {
 			role: 'Lead Front-end Engineer',
 			features: [
-				'Intuitive search engine with advanced filtering options, powered by AI to find the best recipes for you.',
+				'Intuitive design, with a focus on accessibility and user experience.',
+				' AI based API to find the best recipes, from a database of over 1 million recipes and 10,000 ingredients. ',
+				'Customisable search filters, including dietary requirements, cooking time and more.',
+				'SEO Optimised, achieving 95+ on all Google Lighthouse metrics.',
+				'Prefetched data (using Next.js & Tanstack query) to a highly performant and responsive user experience.',
 			],
 			why: 'To provide users with a sustainable way to find recipes using the ingredients they already have at home.',
 		},
