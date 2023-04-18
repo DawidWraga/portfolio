@@ -14,7 +14,7 @@ import { motion } from 'framer-motion';
 export function Contact() {
 	return (
 		<Section
-			maxW="container.xl"
+			maxW="container.sm"
 			id="contact"
 			centerContent
 			wrapperProps={{
@@ -22,22 +22,26 @@ export function Contact() {
 				display: 'flex',
 				alignItems: 'center',
 				bg: 'shade.500',
+				w: '100%',
 			}}
+			w="100%"
+			px={[2, 4, 6]}
 		>
 			<VStack
 				spacing={{ base: 4 }}
 				bgColor="gray.800"
 				py={4}
-				px={7}
+				px={[3, 5, 7]}
+				w="100%"
 				rounded="lg"
 			>
 				<Heading as={motion.span} layoutId="CONTACT-BTN" color="white">
 					Lets collaborate!
 				</Heading>
 
-				<Stack spacing={{ base: 4 }} direction="column">
+				<Stack spacing={{ base: 3 }} direction="column" w="100%">
 					<ContactForm />
-					<HStack spacing={5} my="2" color="gray.">
+					<HStack spacing={2} my="2" w="100%">
 						<Divider />
 						<Text fontSize="xl">or</Text>
 						<Divider />

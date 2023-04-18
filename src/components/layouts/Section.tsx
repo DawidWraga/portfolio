@@ -79,6 +79,7 @@ export function Section(props: IProps) {
 					// alignItems="center"
 					justifyContent={'center'}
 					flex={1}
+					w="100%"
 				>
 					{children}
 				</Flex>

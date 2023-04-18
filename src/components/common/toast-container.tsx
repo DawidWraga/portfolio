@@ -7,7 +7,7 @@ export function ToastContainer(props: ToastContainerProps) {
 
 	return (
 		<>
-			<Default />
+			<Default position="bottom-right" />
 		</>
 	);
 }

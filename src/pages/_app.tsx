@@ -8,6 +8,7 @@ import 'styles/global.css';
 import { Analytics } from '@vercel/analytics/react';
 import { ToastContainer } from 'components/common/toast-container';
 import { useCloseSidebarOnRouteChange } from 'hooks/use-close-sidebar-on-route-change';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	useCloseSidebarOnRouteChange();
@@ -17,10 +18,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<ModalsProvider modals={modals}>
 					<MainLayout>
 						<Component {...pageProps} />
+						<ToastContainer />
 					</MainLayout>
 				</ModalsProvider>
 			</SaasProvider>
-			<ToastContainer />
 			<Analytics />
 		</>
 	);
