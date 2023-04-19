@@ -153,6 +153,8 @@ export function Slides(props: IProps) {
 												left: 'auto',
 												right: 'auto',
 												maxHeight: 'calc(100vh - 100px)',
+												marginLeft: 'auto',
+												marginRight: 'auto',
 											}}
 										>
 											<source src={slide.videoPath} type="video/mp4" />
