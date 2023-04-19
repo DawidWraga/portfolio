@@ -148,7 +148,6 @@ export const projects: Project[] = [
 			},
 		],
 		details: {
-			why: "To create a visually consistent brand identity and scalable UI architecture that ensures an exceptional user experience for all screens, devices, and browsers. The system features fully-featured forms that streamline the hiring process and client communications, custom-made animations that elevate user engagement, and a showcase of Axalt's successful work with previous clients.",
 			features: [
 				'Visually consistent brand identity and scalable UI architecture, achieved through custom-made components that are carefully crafted to be highly reusable, modular and flexible.',
 				'Responsive design and performance optimisation ensure an exceptional user experience for all screens, devices, and browsers.',
