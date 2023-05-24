@@ -7,6 +7,8 @@ interface BlogAuthorProps {
 }
 
 export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
+	console.error('BLOG AUTHOR is depreciated');
+	return null;
 	return (
 		<HStack marginTop="2" spacing="2" display="flex" alignItems="center">
 			<Image
