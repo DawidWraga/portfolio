@@ -2,9 +2,9 @@
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { Box, Flex, Heading, IconButton, Text } from '@chakra-ui/react';
+import { allBlogs } from 'contentlayer/generated';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { allBlogs } from 'contentlayer/generated';
 
 interface BlogPageProps {
 	params: { slug: string };

@@ -22,7 +22,7 @@
 		],
 		"paths": {
 			"contentlayer/generated": ["../.contentlayer/generated"],
-			"public/*": ["./src/public/*"]
+			"public/*": ["../public/*"]
 		}
 	},
 	"include": [

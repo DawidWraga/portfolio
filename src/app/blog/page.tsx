@@ -1,9 +1,7 @@
 'use client';
 
 import { Container, Divider, Heading } from '@chakra-ui/react';
-import { AboutBlog } from 'app/blog/about-blog';
-import { LatestArticles } from 'app/blog/latest-articles';
-import { TopArticle } from 'app/blog/top-article';
+import { LatestArticles } from 'app/blog/_ui/latest-articles';
 
 export interface BlogPageProps {}
 

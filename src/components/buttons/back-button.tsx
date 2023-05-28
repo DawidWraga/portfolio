@@ -1,5 +1,5 @@
 import { IconButton, type IconButtonProps } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { BsArrowLeftShort } from 'react-icons/bs';
 
 interface IProps extends Omit<IconButtonProps, 'aria-label'> {
