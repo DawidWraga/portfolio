@@ -1,3 +1,5 @@
+const { withContentlayer } = require('next-contentlayer');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
@@ -15,7 +17,7 @@ const svgWebPack = {
 	},
 };
 
-module.exports = {
+module.exports = withContentlayer({
 	...nextConfig,
 	...svgWebPack,
-};
+});
