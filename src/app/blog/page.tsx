@@ -14,12 +14,12 @@ export default function BlogPage(props: BlogPageProps) {
 		<>
 			<Container maxW={'7xl'} p="12">
 				<Heading as="h1">Welcome to Dawid's blog</Heading>
-				<TopArticle />
+				{/* <TopArticle /> */}
 				<LatestArticles />
 
 				<Divider marginTop="5" />
 
-				<AboutBlog />
+				{/* <AboutBlog /> */}
 			</Container>
 		</>
 	);

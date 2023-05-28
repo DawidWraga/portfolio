@@ -1,5 +1,6 @@
 import { Contact } from 'components/Contact';
 import { About } from 'components/about';
+import { BlogSection } from 'components/blog/BlogSection';
 import { Hero } from 'components/hero';
 import { Footer } from 'components/layouts/Footer';
 import { ProjectCardList } from 'components/projects/project-card-list';
@@ -20,7 +21,7 @@ export default function LandingPage() {
 			<About />
 			<ProjectCardList />
 			{/* <ProjectsList /> */}
-			{/* <BlogSection /> */}
+			<BlogSection />
 			<Contact />
 			<Footer />
 		</>
