@@ -10,6 +10,7 @@ import { theme } from 'styles/theme';
 import 'styles/global.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { CacheProvider } from '@chakra-ui/next-js';
+import { ColorModeScript } from '@chakra-ui/react';
 export interface ProvidersProps {
 	children: React.ReactNode;
 }
@@ -20,6 +21,7 @@ export function Providers(props: ProvidersProps) {
 	return (
 		<>
 			<CacheProvider>
+				<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 				<SaasProvider theme={theme} linkComponent={Link}>
 					<ModalsProvider modals={modals}>
 						<MainLayout>
