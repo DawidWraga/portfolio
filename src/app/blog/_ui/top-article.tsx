@@ -1,18 +1,13 @@
-import {
-	Box,
-	Flex,
-	Heading,
-	Image,
-	Link,
-	Text,
-	useColorModeValue,
-} from '@chakra-ui/react';
-import { BlogTags } from 'app/blog/_ui/blog-tags';
+import { Box, Image, Link, useColorModeValue } from '@chakra-ui/react';
+import { BlogCard } from 'app/blog/_ui/blog-card';
+import { allBlogs, Blog } from 'contentlayer/generated';
 
 export interface TopArticleProps {}
 
 export function TopArticle(props: TopArticleProps) {
 	const {} = props;
+
+	const { thumbnailPath, ...blogWithoutImg } = allBlogs[0];
 
 	return (
 		<>
@@ -36,15 +31,13 @@ export function TopArticle(props: TopArticleProps) {
 						marginTop="5%"
 					>
 						<Link
-							href="/blog/test-post"
+							href={blogWithoutImg.url}
 							textDecoration="none"
 							_hover={{ textDecoration: 'none' }}
 						>
 							<Image
 								borderRadius="lg"
-								src={
-									'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
-								}
+								src={thumbnailPath}
 								alt="some good alt text"
 								objectFit="contain"
 							/>
@@ -62,7 +55,20 @@ export function TopArticle(props: TopArticleProps) {
 						/>
 					</Box>
 				</Box>
-				<Box
+				<BlogCard
+					blog={blogWithoutImg as Blog}
+					linkWrapperProps={{
+						flex: '1',
+						sx: {
+							mt: 2,
+							gap: 2,
+							'& > h2': {
+								fontSize: '1.7rem',
+							},
+						},
+					}}
+				/>
+				{/* <Box
 					display="flex"
 					flex="1"
 					flexDirection="column"
@@ -88,7 +94,7 @@ export function TopArticle(props: TopArticleProps) {
 
 						<Text>{new Date().toLocaleDateString()} </Text>
 					</Flex>
-				</Box>
+				</Box> */}
 			</Box>
 		</>
 	);
