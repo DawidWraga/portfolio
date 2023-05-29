@@ -14,8 +14,7 @@ export function BackButton(props: IProps) {
 	return (
 		<IconButton
 			aria-label="go back"
-			onClick={() => router.push('/#work')}
-			// onClick={() => router.back()}
+			onClick={() => router.back()}
 			variant="ghost"
 			rounded="full"
 			icon={<BsArrowLeftShort fontSize="1.3rem" />}
