@@ -8,6 +8,7 @@ type NavLinkButtonProps = ComponentPropsWithRef<typeof Link> & {
 	linkProps: LinkProps;
 	iconProps?: IconProps;
 	icon?: PropsOf<typeof Icon>['as'];
+	disableUnderlineSection?: boolean;
 };
 
 export const NavLinkButton = ({
@@ -15,12 +16,14 @@ export const NavLinkButton = ({
 	icon,
 	iconProps,
 	linkProps,
+	disableUnderlineSection,
 }: NavLinkButtonProps) => {
 	const { activeSections } = useActiveSectionStore();
 
 	const sectionIdentifier =
 		linkProps?.href?.replace('#', '').replace('/', '') ?? '';
-	const isActive = activeSections.includes(sectionIdentifier);
+	const isActive =
+		!disableUnderlineSection && activeSections.includes(sectionIdentifier);
 
 	return (
 		<Link
