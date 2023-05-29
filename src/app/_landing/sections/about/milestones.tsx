@@ -1,35 +1,17 @@
 import {
-	VStack,
-	Heading,
 	Box,
-	Link,
-	Container,
 	BoxProps,
 	Circle,
 	Flex,
 	useColorModeValue,
-	Text,
+	VStack,
 } from '@chakra-ui/react';
-import { Card, CardHeader, CardTitle } from '@saas-ui/react';
+import { Card, CardHeader } from '@saas-ui/react';
 import { AnimatedLetters } from 'components/animated-text';
 import { getStaggerProps } from 'motion/get-stagger-props';
-import {
-	FaBook,
-	FaBrain,
-	FaBriefcase,
-	FaCode,
-	FaDigitalTachograph,
-	FaHome,
-	FaTools,
-} from 'react-icons/fa';
+import { FaBook, FaBrain, FaBriefcase, FaCode, FaHome } from 'react-icons/fa';
 // Here we have used react-icons package for the icons
-import {
-	FiPackage,
-	FiHome,
-	FiBarChart2,
-	FiCheckCircle,
-	FiBarChart,
-} from 'react-icons/fi';
+import { FiBarChart, FiCheckCircle } from 'react-icons/fi';
 
 const staggerProps = getStaggerProps();
 

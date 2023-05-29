@@ -29,10 +29,8 @@ export function ProjectCard(props: ProjectCardProps) {
 		<>
 			<Link href={`/work/${p.id}`}>
 				<Card
-					as={LinkBox}
 					width="100%"
 					h="100%"
-					// maxW="400px"
 					isHoverable
 					variant="outline"
 					transition="all 0.3s ease-in-out"
@@ -58,12 +56,10 @@ export function ProjectCard(props: ProjectCardProps) {
 							</SimpleGrid>
 						)}
 						<Flex flexDir="column">
-							<LinkOverlay href="#">
-								<CardTitle sx={{ fontSize: 'xl', textTransform: 'capitalize' }}>
-									{p.name}
-								</CardTitle>
-								<Text color="gray.400">{p?.role ?? ''}</Text>
-							</LinkOverlay>
+							<CardTitle sx={{ fontSize: 'xl', textTransform: 'capitalize' }}>
+								{p.name}
+							</CardTitle>
+							<Text color="gray.400">{p?.role ?? ''}</Text>
 						</Flex>
 					</CardHeader>
 					<CardBody>
