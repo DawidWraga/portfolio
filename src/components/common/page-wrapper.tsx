@@ -22,6 +22,7 @@ export function PageWrapper(props: PageWrapperProps) {
 		headerContainerProps,
 		isLoading,
 		waitForHydration = false,
+		childrenContainerProps,
 	} = props;
 
 	return (
@@ -65,7 +66,11 @@ export function PageWrapper(props: PageWrapperProps) {
 					grow={1}
 					overflowY="auto"
 					mx={2}
-					sx={{ '& > *:first-of-type': { h: '100%' } }}
+					{...childrenContainerProps}
+					sx={{
+						'& > *:first-of-type': { h: '100%' },
+						...childrenContainerProps?.sx,
+					}}
 				>
 					{children}
 				</Flex>
@@ -115,4 +120,9 @@ export interface PageWrapperProps {
 	 * Props to be passed to the header container
 	 */
 	headerContainerProps?: BoxProps;
+
+	/**
+	 *
+	 */
+	childrenContainerProps?: BoxProps;
 }

@@ -1,8 +1,14 @@
 'use client';
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex, Heading, IconButton, Text } from '@chakra-ui/react';
+import { Image } from '@chakra-ui/next-js';
+import { Box, Circle, Flex, Heading, IconButton, Text } from '@chakra-ui/react';
+import { Persona } from '@saas-ui/react';
+import { BlogTags } from 'app/blog/_ui/blog-tags';
+import { PageWrapper } from 'components/common/page-wrapper';
+import { ScrollIndicator } from 'components/common/scroll-indicator';
 import { allBlogs } from 'contentlayer/generated';
+import { format } from 'date-fns';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -26,55 +32,67 @@ export default function BlogPage({ params }: BlogPageProps) {
 	}
 
 	return (
-		<Box
-			maxW="3xl"
-			py={{ base: 6, lg: 10 }}
-			position="relative"
-			mt={10}
-			mx="auto"
+		<PageWrapper
+			title={''}
+			hasBackButton
+			childrenContainerProps={{
+				gap: 5,
+			}}
 		>
-			<Link href="/blog">
-				<IconButton
-					position="absolute"
-					left="-200px"
-					top="14"
-					display={{ base: 'none', xl: 'inline-flex' }}
-					aria-label="See all blogs"
-					icon={<ChevronLeftIcon h={4} w={4} />}
-					variant="ghost"
-				/>
-			</Link>
-			<Box>
-				{blog.createdAt && (
-					<Text
-						as="time"
-						dateTime={blog.createdAt}
-						display="block"
-						fontSize="sm"
-						color={'gray.200'}
-					>
-						Published on {new Date(blog.createdAt).toLocaleDateString()}
-					</Text>
-				)}
+			<ScrollIndicator />
+			<Flex flexDir="column" gap={2} align="center">
 				<Heading
 					mt={2}
 					fontSize={{ base: '4xl', lg: '5xl' }}
 					lineHeight="tight"
+					mx="auto"
 				>
 					{blog.title}
 				</Heading>
-			</Box>
-			{/* {blog.image && (
+				<BlogTags tags={blog.tags} />
+
+				<Flex
+					gap={2}
+					align="center"
+					sx={{
+						'& *': {
+							color: 'gray.400',
+						},
+					}}
+				>
+					<Persona
+						name="Dawid Wraga"
+						src="/images/face-photo.png"
+						size="sm"
+						sx={{
+							'& img': {
+								mr: 2,
+							},
+						}}
+					/>
+					<Circle size="8px" bg="gray.600" />
+
+					{blog.createdAt && (
+						<Text as="time" dateTime={blog.createdAt}>
+							{format(new Date(blog.createdAt), 'do MMM yyyy')}
+						</Text>
+					)}
+					<Circle size="8px" bg="gray.600" />
+					{blog.readingTime && <Text>{blog.readingTime.text}</Text>}
+				</Flex>
+			</Flex>
+
+			{blog.thumbnailPath && (
 				<Image
-					src={blog.image}
-					alt={blog.title}
-					// width={720}
-					// height={405}
-					fill
-					className="rounded-md shadow-md mt-8 border-2 border-gray-200 "
+					src={blog.thumbnailPath}
+					alt={blog.title || ''}
+					width={850}
+					height={405}
+					mx="auto"
+					rounded="md"
 					priority
 				/>
-			)} */}
+			)}
 			<div dangerouslySetInnerHTML={{ __html: blog.body.html }} />
 			<Box as="hr" mt={12} />
 			<Flex justifyContent="center" py={{ base: 6, lg: 10 }}>
@@ -86,6 +104,6 @@ export default function BlogPage({ params }: BlogPageProps) {
 					/>
 				</Link>
 			</Flex>
-		</Box>
+		</PageWrapper>
 	);
 }

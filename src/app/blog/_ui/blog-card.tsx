@@ -1,5 +1,5 @@
-import { Link, LinkProps } from '@chakra-ui/next-js';
-import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Image, Link, LinkProps } from '@chakra-ui/next-js';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { BlogTags } from 'app/blog/_ui/blog-tags';
 import { Blog } from 'contentlayer/generated';
 
@@ -24,13 +24,18 @@ export function BlogCard(props: BlogCardProps) {
 				{...linkWrapperProps}
 			>
 				{thumbnailPath && (
-					<Box borderRadius="lg" overflow="hidden">
+					<Box rounded="lg" overflow="hidden" maxW={600} maxH={300}>
 						<Image
 							transform="scale(1.0)"
 							src={thumbnailPath}
 							alt="some text"
-							objectFit="contain"
-							width="100%"
+							// objectFit=""
+							width={600}
+							height={300}
+							// fill
+							rounded="lg"
+							sx={{ borderRadius: 'lg', objectFit: 'contain' }}
+							// sx={{ width: '100%' }}
 							transition="0.3s ease-in-out"
 							_hover={{
 								transform: 'scale(1.05)',

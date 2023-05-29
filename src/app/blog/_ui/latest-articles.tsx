@@ -12,7 +12,15 @@ export function LatestArticles(props: LatestArticlesProps) {
 			<Heading as="h2" marginTop="5">
 				Latest articles
 			</Heading>
-			<Grid templateColumns="repeat(3, 1fr)" gap={6} mt="5">
+			<Grid
+				templateColumns={{
+					base: 'repeat(1, 1fr)',
+					md: 'repeat(2, 1fr)',
+					lg: 'repeat(3, 1fr)',
+				}}
+				gap={6}
+				mt="5"
+			>
 				{allBlogs.map((blog) => {
 					return <BlogCard key={blog._id} blog={blog} />;
 				})}
