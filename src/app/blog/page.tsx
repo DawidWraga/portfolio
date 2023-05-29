@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Divider, Heading } from '@chakra-ui/react';
+import { Container, Divider, Heading } from '@chakra/react';
 import { AboutBlog } from 'app/blog/_ui/about-blog';
 import { LatestArticles } from 'app/blog/_ui/latest-articles';
 import { TopArticle } from 'app/blog/_ui/top-article';

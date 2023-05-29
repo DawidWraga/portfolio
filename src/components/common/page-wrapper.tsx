@@ -1,5 +1,5 @@
-import { Box, Flex, Text, type BoxProps } from '@chakra-ui/react';
-import { ErrorBoundary } from '@saas-ui/react';
+import { Flex, Text, type BoxProps } from '@chakra/react';
+import { ErrorBoundary } from '@saas/react';
 import { BackButton } from 'components/buttons/back-button';
 import { EmptyState } from 'components/common/empty-state';
 

@@ -11,11 +11,11 @@ import {
 	ModalProps as ChakraModalProps,
 	ModalContentProps,
 	ModalFooterProps,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { motion, MotionContext, MotionProps } from 'framer-motion';
 import { breakpoints } from 'utils/breakpoints';
 
-import { Box } from '@chakra-ui/react';
+import { Box } from '@chakra/react';
 import {
 	DraggableIndicator,
 	getResponsiveModalContentProps,

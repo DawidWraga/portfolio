@@ -6,7 +6,7 @@ import {
 	IconProps,
 	Stack,
 	Text,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { AnimatedLetters } from 'components/animated-text';
 import { Image } from 'components/common/Image';
 import { motion } from 'framer-motion';

@@ -1,4 +1,4 @@
-import { Box, Flex, Show, Spacer, Text } from '@chakra-ui/react';
+import { Box, Flex, Show, Spacer, Text } from '@chakra/react';
 import { NavLinkButton } from 'components/buttons/NavLinkButton';
 import { SideNav } from 'app/_main-layout/side-nav';
 import { BurgerMenu } from 'app/_main-layout/burger-menu';

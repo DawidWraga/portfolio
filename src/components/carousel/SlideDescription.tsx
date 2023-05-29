@@ -1,4 +1,4 @@
-import { Box, BoxProps, Heading, Text } from '@chakra-ui/react';
+import { Box, BoxProps, Heading, Text } from '@chakra/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 
 interface IProps extends BoxProps {}

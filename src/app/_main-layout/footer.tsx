@@ -5,7 +5,7 @@ import {
 	IconButton,
 	Stack,
 	Text,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { AiFillHeart } from 'react-icons/ai';
 

@@ -4,7 +4,7 @@ import {
 	DrawerCloseButton,
 	DrawerContent,
 	DrawerOverlay,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { useRef } from 'react';
 import { useLayoutStore } from 'stores/use-layout-store';
 import { Nav } from 'app/_main-layout/header';

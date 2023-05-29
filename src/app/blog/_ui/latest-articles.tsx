@@ -1,4 +1,4 @@
-import { Box, Grid, Heading } from '@chakra-ui/react';
+import { Box, Grid, Heading } from '@chakra/react';
 import { BlogCard } from 'app/blog/_ui/blog-card';
 import { allBlogs } from 'contentlayer/generated';
 

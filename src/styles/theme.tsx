@@ -2,9 +2,9 @@ import {
 	extendTheme,
 	StyleFunctionProps,
 	type ThemeConfig,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 
-import { theme as baseTheme } from '@saas-ui/react';
+import { theme as baseTheme } from '@saas/react';
 
 const shadePalette = {
 	50: 'hsla(210, 13%, 53%, 1)',

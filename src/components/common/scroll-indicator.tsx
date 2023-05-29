@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@chakra/react';
 import { motion, useScroll } from 'framer-motion';
 
 export interface ScrollIndicatorProps {}

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { Box, Text, TextProps } from '@chakra-ui/react';
+import { Box, Text, TextProps } from '@chakra/react';
 
 interface IAnimatedTextProps extends TextProps {
 	variants?: textVariantTypes | Variants;

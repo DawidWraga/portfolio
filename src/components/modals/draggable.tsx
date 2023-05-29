@@ -1,6 +1,6 @@
 import { MotionProps } from 'framer-motion';
 import { breakpoints } from 'utils/breakpoints';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@chakra/react';
 
 export const getResponsiveModalContentProps = (onSwipeDown: () => void) => {
 	const isMobile = breakpoints.md('below');

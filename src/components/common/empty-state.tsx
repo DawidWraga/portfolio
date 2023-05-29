@@ -1,11 +1,11 @@
 'use client';
-import { Button } from '@chakra-ui/react';
+import { Button } from '@chakra/react';
 import {
 	EmptyState as SaasEmptyState,
 	type EmptyStateProps,
-} from '@saas-ui/react';
+} from '@saas/react';
 import { useRouter } from 'next/navigation';
-// import { QuestionOutlineIcon } from '@chakra-ui/icons';
+// import { QuestionOutlineIcon } from '@chakra/icons';
 import { LinkButton } from 'components/buttons/link-button';
 
 export const EmptyState = (props: EmptyStateProps) => {

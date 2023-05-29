@@ -10,10 +10,10 @@ import {
 	IconButton,
 	Text,
 	useDisclosure,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import { coreTechnologies, technologies } from 'config/SkillsData';
-import { Card, CardHeader, CardTitle, CardBody, Button } from '@saas-ui/react';
+import { Card, CardHeader, CardTitle, CardBody, Button } from '@saas/react';
 import { AnimatedLetters } from 'components/animated-text';
 import { SkillItem } from 'app/_landing/sections/about/skill-item';
 import { BiChevronDown } from 'react-icons/bi';

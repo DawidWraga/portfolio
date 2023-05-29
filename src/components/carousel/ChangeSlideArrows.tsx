@@ -1,4 +1,4 @@
-import { IconButton } from '@chakra-ui/react';
+import { IconButton } from '@chakra/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 

@@ -1,4 +1,4 @@
-import { Box, BoxProps, HStack } from '@chakra-ui/react';
+import { Box, BoxProps, HStack } from '@chakra/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { Image } from 'components/common/Image';
 import { useCarouselStore } from 'stores/use-carousel-store';

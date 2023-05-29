@@ -1,4 +1,4 @@
-// import { Image, ImageProps } from '@chakra-ui/next-js';
+// import { Image, ImageProps } from '@chakra/next-js';
 import NextImage, { ImageProps } from 'next/image';
 export interface LogoIconProps
 	extends Omit<ImageProps, 'alt' | 'src' | 'fill' | 'objectFit'> {}

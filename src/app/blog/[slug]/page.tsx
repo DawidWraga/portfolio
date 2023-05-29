@@ -1,9 +1,7 @@
-'use client';
-
-import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Image } from '@chakra-ui/next-js';
-import { Box, Circle, Flex, Heading, IconButton, Text } from '@chakra-ui/react';
-import { Persona } from '@saas-ui/react';
+import { ChevronLeftIcon } from '@chakra/icons';
+import { Image } from '@chakra/next-js';
+import { Box, Circle, Flex, Heading, IconButton, Text } from '@chakra/react';
+import { Persona } from '@saas/react';
 import { BlogTags } from 'app/blog/_ui/blog-tags';
 import { PageWrapper } from 'components/common/page-wrapper';
 import { ScrollIndicator } from 'components/common/scroll-indicator';

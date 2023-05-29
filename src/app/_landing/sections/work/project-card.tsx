@@ -5,7 +5,7 @@ import {
 	LinkOverlay,
 	SimpleGrid,
 	Text,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import {
 	Button,
 	Card,
@@ -13,7 +13,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from '@saas-ui/react';
+} from '@saas/react';
 import { Project } from 'config/projects';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';

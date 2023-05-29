@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Box, Button, VStack } from '@chakra-ui/react';
-import { Field, Form, FormLayout, SubmitButton } from '@saas-ui/react';
+import { Box, Button, VStack } from '@chakra/react';
+import { Field, Form, FormLayout, SubmitButton } from '@saas/react';
 import { toast } from 'react-toastify';
 import { axios } from 'lib/axios';
 import { MdSend } from 'react-icons/md';

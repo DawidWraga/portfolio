@@ -5,7 +5,7 @@ import {
 	AccordionIcon,
 	Box,
 	Heading,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { AccordianPanel } from 'app/_landing/sections/work/accordian-panel';
 import {
 	Project,

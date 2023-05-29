@@ -1,4 +1,4 @@
-import { Button, ButtonProps, type ChakraComponent } from '@chakra-ui/react';
+import { Button, ButtonProps, type ChakraComponent } from '@chakra/react';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 
 export interface PlayVideoButtonProps extends ButtonProps {}

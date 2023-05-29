@@ -1,4 +1,4 @@
-import { Heading, Text, VStack } from '@chakra-ui/react';
+import { Heading, Text, VStack } from '@chakra/react';
 
 export interface AboutBlogProps {}
 

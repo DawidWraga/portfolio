@@ -9,7 +9,7 @@ import {
 	Text,
 	useColorModeValue,
 	VStack,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import React from 'react';
 import { ContactIcons } from 'components/modals/ContactModal/ContactIcons';
 import {

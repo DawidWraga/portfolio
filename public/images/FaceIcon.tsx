@@ -1,4 +1,4 @@
-import { Icon } from '@chakra-ui/react';
+import { Icon } from '@chakra/react';
 
 export const FaceIcon = (props: any) => {
 	return (

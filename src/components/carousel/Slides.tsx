@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Show, useMediaQuery } from '@chakra-ui/react';
+import { Box, Flex, Show, useMediaQuery } from '@chakra/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { ChangeSlideArrows } from 'components/carousel/ChangeSlideArrows';
 import { PlayCarouselVideoButton } from 'components/carousel/play-carousel-video-button';

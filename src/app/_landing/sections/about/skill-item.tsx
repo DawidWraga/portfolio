@@ -1,4 +1,4 @@
-import { Circle, IconButton, Text } from '@chakra-ui/react';
+import { Circle, IconButton, Text } from '@chakra/react';
 import { motion } from 'framer-motion';
 
 interface IProps {

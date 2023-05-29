@@ -1,4 +1,4 @@
-import { Box, Button, ButtonProps } from '@chakra-ui/react';
+import { Box, Button, ButtonProps } from '@chakra/react';
 import NextLink, { LinkProps } from 'next/link';
 
 type conflictingLinkProps = 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart';

@@ -1,5 +1,5 @@
-import { Image, Link, LinkProps } from '@chakra-ui/next-js';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Image, Link, LinkProps } from '@chakra/next-js';
+import { Box, Flex, Heading, Text } from '@chakra/react';
 import { BlogTags } from 'app/blog/_ui/blog-tags';
 import { Blog } from 'contentlayer/generated';
 

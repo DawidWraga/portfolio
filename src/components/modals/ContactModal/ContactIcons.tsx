@@ -1,10 +1,4 @@
-import {
-	IconButton,
-	Link,
-	Stack,
-	Tooltip,
-	useClipboard,
-} from '@chakra-ui/react';
+import { IconButton, Link, Stack, Tooltip, useClipboard } from '@chakra/react';
 import React from 'react';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';

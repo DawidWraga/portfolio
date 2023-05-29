@@ -1,4 +1,4 @@
-import { Box, BoxProps, ChakraComponent } from '@chakra-ui/react';
+import { Box, BoxProps, ChakraComponent } from '@chakra/react';
 import NextImage, { type ImageProps as NextImageProps } from 'next/image';
 import React from 'react';
 

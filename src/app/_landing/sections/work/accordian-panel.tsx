@@ -1,4 +1,4 @@
-import { AccordionPanel, Flex, Text } from '@chakra-ui/react';
+import { AccordionPanel, Flex, Text } from '@chakra/react';
 import { randomUUID } from 'crypto';
 import { getStaggerProps } from 'motion/get-stagger-props';
 import { uuid } from 'utils/uuid';

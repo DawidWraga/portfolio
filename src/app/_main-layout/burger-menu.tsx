@@ -1,4 +1,4 @@
-import { Box, BoxProps, Button, ButtonProps } from '@chakra-ui/react';
+import { Box, BoxProps, Button, ButtonProps } from '@chakra/react';
 import { useLayoutStore } from 'stores/use-layout-store';
 
 export interface BurgerMenuProps extends ButtonProps {}

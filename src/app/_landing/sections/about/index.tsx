@@ -1,5 +1,5 @@
-import { Grid, GridItem, Text } from '@chakra-ui/react';
-import { Card, CardBody, CardHeader, CardTitle } from '@saas-ui/react';
+import { Grid, GridItem, Text } from '@chakra/react';
+import { Card, CardBody, CardHeader, CardTitle } from '@saas/react';
 import { AnimatedLetters } from 'components/animated-text';
 import { Image } from 'components/common/Image';
 import { Section } from 'components/layouts/Section';

@@ -1,4 +1,4 @@
-import { HStack, SpaceProps, Tag } from '@chakra-ui/react';
+import { HStack, SpaceProps, Tag } from '@chakra/react';
 import React from 'react';
 
 interface IBlogTags {

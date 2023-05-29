@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, SimpleGrid } from '@chakra-ui/react';
+import { Flex, Grid, GridItem, SimpleGrid } from '@chakra/react';
 import { Section } from 'components/layouts/Section';
 import { ProjectCard } from 'app/_landing/sections/work/project-card';
 import { projects } from 'config/projects';

@@ -1,4 +1,4 @@
-import { Box, Button, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Button, useBreakpointValue } from '@chakra/react';
 import { PlayVideoButton } from 'components/buttons/play-video-button';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { AnimatePresence, motion } from 'framer-motion';

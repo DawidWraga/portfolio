@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { ChevronRightIcon } from '@chakra/icons';
 import {
 	Box,
 	BoxProps,
@@ -8,8 +8,8 @@ import {
 	Heading,
 	HeadingProps,
 	useColorMode,
-} from '@chakra-ui/react';
-import { Divider } from '@saas-ui/react';
+} from '@chakra/react';
+import { Divider } from '@saas/react';
 import { LinkButton } from 'components/buttons/link-button';
 import { NavLinkButton } from 'components/buttons/NavLinkButton';
 import { motion } from 'framer-motion';

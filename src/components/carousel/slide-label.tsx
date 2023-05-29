@@ -3,7 +3,7 @@ import {
 	Heading,
 	useBreakpointValue,
 	useMediaQuery,
-} from '@chakra-ui/react';
+} from '@chakra/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { BsFillPlayCircleFill } from 'react-icons/bs';

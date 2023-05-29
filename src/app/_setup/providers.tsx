@@ -1,6 +1,6 @@
 'use client';
 
-import { ModalsProvider, SaasProvider } from '@saas-ui/react';
+import { ModalsProvider, SaasProvider } from '@saas/react';
 import { Analytics } from '@vercel/analytics/react';
 import { ToastContainer } from 'app/_setup/toast-container';
 import { MainLayout } from 'app/_main-layout/main-layout';
@@ -9,8 +9,8 @@ import NextLink from 'next/link';
 import { theme } from 'styles/theme';
 import 'styles/global.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { CacheProvider } from '@chakra-ui/next-js';
-import { ColorModeScript } from '@chakra-ui/react';
+import { CacheProvider } from '@chakra/next-js';
+import { ColorModeScript } from '@chakra/react';
 export interface ProvidersProps {
 	children: React.ReactNode;
 }

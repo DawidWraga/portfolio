@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra/react';
 import { Carousel } from 'components/carousel';
 import { SlideLabel } from 'components/carousel/slide-label';
 import { ProjectCarouselData } from 'config/projects';

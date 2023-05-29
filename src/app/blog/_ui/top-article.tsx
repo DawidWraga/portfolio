@@ -1,4 +1,4 @@
-import { Box, Image, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Image, Link, useColorModeValue } from '@chakra/react';
 import { BlogCard } from 'app/blog/_ui/blog-card';
 import { allBlogs, Blog } from 'contentlayer/generated';
 

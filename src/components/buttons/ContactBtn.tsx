@@ -1,5 +1,5 @@
-import { Box, Button } from '@chakra-ui/react';
-import { useModals } from '@saas-ui/react';
+import { Box, Button } from '@chakra/react';
+import { useModals } from '@saas/react';
 import { motion } from 'framer-motion';
 interface IContactBtnProps {
 	onClick?: () => void;
@@ -14,7 +14,6 @@ const ContactBtn: React.FC<IContactBtnProps> = ({ onClick, ...props }) => {
 				onClick={() => {
 					modals.open({
 						type: 'contact',
-						
 					});
 					if (onClick) onClick();
 				}}

@@ -1,11 +1,4 @@
-import {
-	Divider,
-	Heading,
-	HStack,
-	Stack,
-	Text,
-	VStack,
-} from '@chakra-ui/react';
+import { Divider, Heading, HStack, Stack, Text, VStack } from '@chakra/react';
 import { Section } from 'components/layouts/Section';
 import { ContactForm } from 'components/modals/ContactModal/ContactForm';
 import { ContactIcons } from 'components/modals/ContactModal/ContactIcons';

@@ -1,4 +1,4 @@
-import { useMediaQuery } from '@chakra-ui/react';
+import { useMediaQuery } from '@chakra/react';
 import { CarouselProvider } from 'components/carousel/CarouselContext';
 import { ProjectCarouselData } from 'config/projects';
 import React, { useState } from 'react';

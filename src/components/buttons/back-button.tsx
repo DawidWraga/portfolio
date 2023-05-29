@@ -1,4 +1,5 @@
-import { IconButton, type IconButtonProps } from '@chakra-ui/react';
+'use client';
+import { IconButton, type IconButtonProps } from '@chakra/react';
 import { useRouter } from 'next/navigation';
 import { BsArrowLeftShort } from 'react-icons/bs';
 

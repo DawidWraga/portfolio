@@ -5,8 +5,8 @@ import {
 	Flex,
 	useColorModeValue,
 	VStack,
-} from '@chakra-ui/react';
-import { Card, CardHeader } from '@saas-ui/react';
+} from '@chakra/react';
+import { Card, CardHeader } from '@saas/react';
 import { AnimatedLetters } from 'components/animated-text';
 import { getStaggerProps } from 'motion/get-stagger-props';
 import { FaBook, FaBrain, FaBriefcase, FaCode, FaHome } from 'react-icons/fa';

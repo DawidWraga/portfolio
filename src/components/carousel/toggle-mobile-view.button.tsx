@@ -1,5 +1,5 @@
-import { useMediaQuery } from '@chakra-ui/react';
-import { Button } from '@saas-ui/react';
+import { useMediaQuery } from '@chakra/react';
+import { Button } from '@saas/react';
 import { useCarouselContext } from 'components/carousel/CarouselContext';
 import { useCarouselStore } from 'stores/use-carousel-store';
 import { SlScreenDesktop } from 'react-icons/sl';

@@ -1,5 +1,5 @@
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { CloseButton, Flex } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra/icons';
+import { CloseButton, Flex } from '@chakra/react';
 import { LinkButton } from 'components/buttons/link-button';
 import { Project } from 'config/projects';
 import { BsDisplay } from 'react-icons/bs';
