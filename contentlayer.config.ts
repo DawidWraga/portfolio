@@ -33,7 +33,7 @@ export const Blog = defineDatabase(() => ({
 			},
 		},
 		readingTime: {
-			type: 'string',
+			type: 'nested',
 			resolve: (doc) => readingTime(doc.body.html),
 		},
 	},

@@ -3,12 +3,14 @@ import axios from 'axios';
 import path from 'path';
 
 export async function downloadNotionMedia(mediaUrl: string, pageId: string) {
-	const filePathWithoutPublic = path.join(
-		'notion-media',
-		pageId,
-		'thumbnail.jpeg'
-	);
+	const filePathWithoutPublic = `/notion-media/${pageId}/thumbnail.jpeg`;
 	const filePath = path.join('public', filePathWithoutPublic);
+	// const filePathWithoutPublic = path.join(
+	// 	'notion-media',
+	// 	pageId,
+	// 	'thumbnail.jpeg'
+	// );
+	// const filePath = path.join('public', filePathWithoutPublic);
 
 	// Check if directory exists, if not, create it.
 	const dir = path.dirname(filePath);
