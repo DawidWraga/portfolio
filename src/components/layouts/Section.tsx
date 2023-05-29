@@ -88,11 +88,11 @@ export function Section(props: IProps) {
 					)}
 					{viewMoreUrl && (
 						<NavLinkButton
-							linkProps={{ href: viewMoreUrl }}
+							linkProps={{
+								href: viewMoreUrl,
+							}}
 							disableUnderlineSection
-							// href={viewMoreUrl}
-							// variant="link"
-							// rightIcon={<ChevronRightIcon />}
+							icon={ChevronRightIcon}
 						>
 							View more
 						</NavLinkButton>

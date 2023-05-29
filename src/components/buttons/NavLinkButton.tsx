@@ -38,6 +38,7 @@ export const NavLinkButton = ({
 				textDecorationLine: 'none !important',
 				...(animatedStyles as any),
 				color: '#9CA3AF',
+				alignItems: 'center',
 				// '&:hover': {
 				// 	color: '#F3F4F6',
 				// },
@@ -60,7 +61,7 @@ export const NavLinkButton = ({
 					size={36}
 					{...iconProps}
 					sx={{
-						transform: 'rotate(45deg)',
+						// transform: 'rotate(45deg)',
 						transition: 'all 0.3s ease-in-out',
 						color: '#6B7280',
 
