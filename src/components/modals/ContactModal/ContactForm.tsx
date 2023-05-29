@@ -94,6 +94,7 @@ export function ContactForm() {
 						py={4}
 						leftIcon={<MdSend />}
 						colorScheme="brand"
+						isLoading={formRef.current?.formState.isSubmitting}
 					>
 						Send
 					</Button>
