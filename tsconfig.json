@@ -22,7 +22,11 @@
 		],
 		"paths": {
 			"contentlayer/generated": ["../.contentlayer/generated"],
-			"public/*": ["../public/*"]
+			"public/*": ["../public/*"],
+			"@chakra/icons": ["../client-packages/@chakra/icons"],
+			"@chakra/next-js": ["../client-packages/@chakra/next-js"],
+			"@chakra/react": ["../client-packages/@chakra/react"],
+			"@saas/react": ["../client-packages/@saas/react"]
 		}
 	},
 	"include": [
