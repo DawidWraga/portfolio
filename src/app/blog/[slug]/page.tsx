@@ -19,7 +19,7 @@ export const generateMetadata = ({ params }: BlogPageProps) => {
 	return { title: post.title };
 };
 
-export default async function BlogPage({ params }: BlogPageProps) {
+export default function BlogPage({ params }: BlogPageProps) {
 	const blog = allBlogs.find((blog) => blog._id === params.slug);
 	if (!blog) {
 		notFound();
